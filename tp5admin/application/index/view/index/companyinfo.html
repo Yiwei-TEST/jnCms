@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=414,user-scalable=no">
+	<title>TG</title>
+
+	<link rel="stylesheet" href="__CSS__/bootstrap.min.css">
+	<link rel="stylesheet" href="__CSS__/fontawesome-all.min.css">
+	<link rel="stylesheet" href="__CSS__/normalize.css">
+	<link rel="stylesheet" href="__CSS__/tab_style.css">
+	<link rel="stylesheet" href="__CSS__/side.css">
+	<link rel="stylesheet" href="__CSS__/Main_Style.css?v=20190605114015">
+	<link rel="stylesheet" href="__CSS__/trade_detail.css?v=20190605114015">
+	<link rel="stylesheet" href="__CSS__/FIFA_marketlist.css">
+	<link rel="stylesheet" href="__CSS__/my_info_chg.css?v=20190605114015">
+	<link rel="stylesheet" href="__CSS__/statistics.css?v=20190605114015">
+	<link rel="stylesheet" href="__CSS__/switch.css?v=20190605114015">
+	<link rel="stylesheet" href="__CSS__/downloadApp.css?v=20190605114015">
+		<!--theme-->
+	<link rel="stylesheet" href="__CSS__/theme/APPui.css?v=20190605114015">
+	<script src="__JS__/jquery-3.2.1.min.js"></script>
+	<script src="__JS__/bootstrap.min.js"></script>
+
+	<script>
+	</script>
+
+</head>
+
+<body>
+	<div class="sidy" onclick="siidyy();">
+        {include file="public/nav" /}
+<div class="downloadApp">
+    <div class="row step_one">
+        <div class="col-xs-offset-1 col-xs-5"><button type="button" class="forAndriod" id="forAndriod">安卓下载</button></div>
+        <div class="col-xs-5"><button type="button" class="forIos" id="forIos">IOS下载</button></div>
+    </div>
+    <div class="step_two" id="andriod">
+        <div class="header">
+            <h2 class="downloadApp_title title_andriod">安卓下载</h2><button type="button" class="app_close"></button>
+        </div>
+        <div class="AppContent content_andriod">
+            <img class="QRcode QRcode_Android" src="template/www/img/downloadApp/android.png" alt="download android app qrcode">
+            <img src="template/www/img/downloadApp/index-white_Andrioid-flow_01.svg" alt="">
+            <p>步骤一<br>
+                下载QR Droid<br>扫码器</p>
+            <p>步骤二<br>
+                扫码进行下载<br>TG.apk</p>
+            <p>步骤三<br>
+                下载<br>apk Installer工具</p>
+            <img src="template/www/img/downloadApp/index-white_Andrioid-flow_02.svg" alt="">
+            <p class="w">步骤四<br>
+                开启APK Installer工具<br>点选Install APKs项目<br>开启TG.apk档</p>
+            <p class="w">步骤五<br>
+                TG安装完成</p>
+            <span class="download_btn"><a href=" https://info.sxysrn.cn/AppInstallation/downloadQRCode.html">前往下载</a></span>
+        </div>
+    </div>
+    <div class="step_two" id="ios">
+        <div class="header">
+            <h2 class="downloadApp_title title_ios">IOS下载</h2><button type="button" class="app_close"></button>
+        </div>
+        <div class="AppContent content_ios">
+            <img class="QRcode QRcode_Ios" src="template/www/img/downloadApp/ios.png" alt="download ios app qrcode">
+            <img src="template/www/img/downloadApp/index-white_Ios-flow_01.svg" alt="">
+            <p>步骤一<br>
+                扫描QRcode 开启网页<br>点选前往下载按钮<br>接着点选上方<br>二维码讯息</p>
+            <p>步骤二<br>
+                点选安装<br>等待安装完成</p>
+            <p>步骤三<br>
+                点击设置进入通用<br>点选设备管理</p>
+
+            <img src="template/www/img/downloadApp/index-white_Ios-flow_02.svg" alt="">
+            <p class="w">步骤四<br>
+                验证TG应用</p>
+            <p class="w">步骤五<br>
+                TG安装完成</p>
+            <span class="download_btn"><a href="https://info.sxysrn.cn/AppInstallation/iOSdownload.html">前往下载</a></span>
+        </div>
+    </div>
+</div>
+<script>
+    //会员互转
+    $("#modify111").on('click', function() {
+        $(".sidy").removeClass('sidy--opened');
+        $.ajax({
+            type: 'POST',
+            url: 'pointc2c.html',
+            //data: 'IncomeUser=' + username + '&amount=' + amount + '&withdrawpassword=' + passwd ,
+            error: function(xhr) {
+                alert('error');
+                window.location.reload();
+                return false;
+            },
+            beforeSend: function(response) {
+                $("#Modal_coverchgall").html("<div class='Loading'></div>");
+            },
+            success: function(response) {
+                $("#Modal_coverchgall").on('keyup', function() {
+                    var _this = this;
+                    //setTimeout(function(){
+                    //_this.scrollIntoViewIfNeeded();
+                    //},400);
+                });
+                $("#Modal_coverchgall").html(response);
+            }
+        });
+        $("#Modal_coverchgall").css('display', 'block');
+    });
+
+</script>
+		<div class="sidy__content">
+<div class="scroll_top" id="return-to-top">
+	<div class="scroll_top_bg"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+</div>
+<div class="head_banner nav-bar navbar-fixed-top">
+	<div data-panel="panel-1" class="sidy--to-open menu_btn">
+		<span></span><br>
+		<span></span><br>
+		<span></span><br>
+	</div>
+	<div class="acc"><img class="top_user" src="__IMG__/top_user.png" width="11" height="11">AMX141</div>
+	<div class="money"><img class="top_coin" src="__IMG__/top_coin.png" width="11" height="11"><span id="quotaView">0.00</span></div>
+</div>
+<div class="title_background">
+	<button class="announcement_btn" onclick="titleannice()">公告<i class="fa fa-caret-right arrow_2" aria-hidden="true"></i></button>
+	<div class="title_market" style="">
+		<marquee id="marqinfo" direction="left">
+			<font style="color:#000000";>TG严正声明：本平台强调宣导禁止代操之行为，请会员勿将『提领密码』及『登入密码』提供给他人，如不听劝导而导致资金损失，TG一律不负相关责任！请谨慎保管自己的密码！TG关心您。</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>尊敬的会员您好：为维护会员帐号权益及安全，目前平台已更改会员帐号首充流水规则：自2019/5/26 00：00：00起进行会员帐号首充的会员，首充需达首充点数7倍流水才可进行提领，第二笔后的充值仅需达到3倍流水后即可进行提领，如造成您的不便，请您见谅，TG平台感谢您的支持</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:red";>尊敬的会员您好，平台目前已新增收款帐户关闭时间提示，如未依照显示指定收款帐户进行打款，即日起平台将不再提供查询充值服务。</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>尊贵的会员您好，翻本红包活动即将强势回归，详细的活动规则及时间，请您随时关注平台首页及公告，感谢广大会员对平台的支持</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:red";>07-01 / 17:55 [ 韩女联 ] 昌宁女足 v 华川KSPO女足 该场比赛为提前开赛，17:55后注单一律无效删单。</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>会员公告：尊敬的会员您好，为让会员享有更好服务品质，平台目前已新增微信充值渠道供会员有更多元的选择进行充值，请广大会员多加利用，感谢您对平台的支持（提醒您：微信充值单笔为100-3000，仅能以100点数为一单位）</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>新增端午活动规则：会员如参加端午活动，在参与活动前若有提领，需将已提领金额连同参加活动金额入金后才符合参加资格。</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#A50404";>亲爱的会员您好，贴心提醒您：如发现有心人士散拨不实谣言，请会员勿轻易相信，如有任何疑问，请联系TG平台『线上客服、QQ客服』询问，感谢各位对平台的支持与厚爱，谢谢</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>尊敬的会员您好：目前平台会员微信正在进行重整，微信客服暂停服务，如有平台相关问题请您与线上客服联系谘询，谢谢</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>尊敬的会员您好，为确保会员权益，一张银行卡仅能绑定一个会员帐号，如造成您的不便，请您见谅，谢谢</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>尊贵的会员您好，为加强会员资安以及会员权益，TG平台即日起将延长会员『银行、财务材料变更』的审核期至48小时，为维护会员资金安全，审核时间平台将暂停该帐号的提款功能，造成您的不便，敬请见谅，如有相关问题，请您与线上客服联系，谢谢</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>尊敬的会员您好，因应近日支付宝提升安全机制，部分会员限制转账，如遇无法打款至本平台支付宝帐号，平台建议您使用支付宝打款至本平台网银账户，如有操作问题，请洽线上客服，谢谢</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>尊贵的会员您好，由于目前活动客服微信添加好友异常，翻本红包活动更改为线上客服申请，请各位会员留意，感谢您对本平台的支持，谢谢！！</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>TG平台提醒广大会员，近期出现许多黑网打著反波胆名义，进行资金盘吸金，或利用保证获利口号行欺诈等不法行为，TG平台在此除了严厉斥责不肖黑网，也恳请会员慎选平台，以免资金遭受损失。</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>近日发现有心人士假冒平台客服，主动提供账户要求会员进行充值，再次贴心提醒，平台客服绝不主动提供账户供会员充值，开放充值之账户依照平台显示为准，请会员当心留意，勿轻易相信。</font>
+		</marquee>
+	<div id="markettitle" name="markettitle">市场列表</div>
+	</div>
+	<div class="mail"><img src="__IMG__/icon/mail.png" height="18" width="27" /><span onclick="document.location.href='index/index/announce'" class="message_number"></span></div>
+</div>
+
+ {include file="public/nav1" /}
+
+<div id="Modal_coverchgall" class="cover"></div>
+<link rel="stylesheet" href="__CSS__/g_companyInfo.css">
+
+<script>
+$(document).ready(function() {
+$('.icon_bar_cell > a').removeClass('active');
+$('.icon_bar_cell > #my_a').addClass('active');
+ })
+
+ function opencontact()
+ {
+  location.href='./products/html/contact/index.html';
+ }
+
+</script>
+ <div class="title_background ">
+   <div class="title">关于TG网</div>
+ </div>
+
+<div class="modal fade" id="myModa2" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div id="con1" class="order_content2">
+        <div id="con2" class="modal-header">
+          <div style="top:15px;" class="close_x" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></div>
+          <h4 class="modal-title">TG网提示</h4>
+        </div>
+        <div class="blue_line"></div>
+        <div class="modal-body" style="height:270px;">
+          <p></p>
+        </div>
+
+        <button onclick="closewebnum()" class="close_btn" data-dismiss="modal"></button>
+      </div>
+
+    </div>
+</div>
+
+<section class="tabs">
+
+            <input style="width:50%;" id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked"/>
+            <label style="width:50%;" for="tab-1" class="tab-label-1">公司简介</label>
+
+            <input style="width:50%;left:50%;" id="tab-2" type="radio" name="radio-set" class="tab-selector-2"/>
+            <label style="width:50%;left:50%;" for="tab-2" class="tab-label-2">人才招募</label>
+
+            <div class="clear-shadow"></div>
+            <div style="margin-top:80px;" class="content" id="content">
+
+                <div class="content-1">
+					<div style="top:45px;width:97.5%" class="color_border_bottom"></div>
+                    <ul style="margin-top:8px;" class="company">
+                        <li>
+							<div class="companyBanner"><img src="template/www/img/g_companyInfoBanner.png" width="100%"></div>
+							<div class="cpiTitle"><img src="template/www/img/icon_companyInfo.png" width="20px" class="cpiTitleIcon"><span class="cpiTitleText">了解TG</span><span class="cpiTitleTexts">About TG</span></div>
+                            <div class="infoText">TG是目前亚洲区首创的运动投资型公司，不同于一般市场上的运动投资基金，都是交给专业经理人去掌控您的损利，而是由会员本身去操作您的获利。<p><br><p>本公司主要经营项目以足球为主，与英国知名的合法交易所公司合作，经过多年的研发，概念革命性地颠覆了传统运动市场，集合了机率及统计学概论，让足球项目不单单只是博弈，也可以是一种投资工具，进行比股票与基金更稳健的操作模式。<p><br><p></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content-2">
+					<div style="top:45px;width:97.5%" class="color_border_bottom"></div>
+                    <ul style="margin-top:8px;" class="company">
+                        <li>
+							<div class="companyBanner"><img src="template/www/img/g_companyInfo2.png" width="100%"></div>
+							<div class="cpiTitle"><img src="template/www/img/icon_companyInfo.png" width="20px" class="cpiTitleIcon"><span class="cpiTitleText">PHP 后端程式工程师</span></div>
+							<div class="cpiTitleSub"><span class="cpiTitleSubText">2年以上工作经历，学历不拘</span></div>
+                            <div class="infoTextBox">●&nbsp;负责PHP-MySQL网站后端的分析、设计以及程式撰写<br>●&nbsp;调校整体软体与资料库间的效能<br>●&nbsp;依照工作需要，对 Linux (CentOS) 进行操作<br>●&nbsp;具备简单 HTML/CSS/Javascript 的排版能力<br>●&nbsp;配合专案进行软体之测试与修改<br>●&nbsp;协助处理公司MIS工作</div>
+
+							<div class="cpiTitle"><img src="template/www/img/icon_companyInfo.png" width="20px" class="cpiTitleIcon"><span class="cpiTitleText">网页/美术 资深设计师</span></div>
+							<div class="cpiTitleSub"><span class="cpiTitleSubText">5年以上工作经历，专科以上学历</span></div>
+                            <div class="infoTextBox">●&nbsp;客户网站版型提案、设计<br>●&nbsp;网站营运时的活动页面制作<br>●&nbsp;网站页面动画处理<br>●&nbsp;公司网站更新<br>●&nbsp;拍摄商品并编辑图文，并进行提案</div>
+
+							<div class="cpiTitle"><img src="template/www/img/icon_companyInfo.png" width="20px" class="cpiTitleIcon"><span class="cpiTitleText">UX/UI 前端工程师</span></div>
+							<div class="cpiTitleSub"><span class="cpiTitleSubText">2年以上工作经历，学历不拘</span></div>
+                            <div class="infoTextBox">●&nbsp;负责PHP-MySQL网站前端画面制作、排版、程式开发<br>●&nbsp;处理将 psd/jpeg 转成 html-css 的格式<br>●&nbsp;配合美编人员进行UI的研发工作，制作UI模型或成品<br>●&nbsp;配合专案进行软体之测试与修改<br>●&nbsp;协助处理公司MIS工作</div>
+
+							<div class="cpiTitle"><img src="template/www/img/icon_companyInfo.png" width="20px" class="cpiTitleIcon"><span class="cpiTitleText">PHP 资深软体工程师</span></div>
+							<div class="cpiTitleSub"><span class="cpiTitleSubText">6年以上工作经历，学历不拘</span></div>
+                            <div class="infoTextBox">●&nbsp;负责基于 PHP-MySQL 网站系统开发<br>●&nbsp;进行软体之测试与修改<br>●&nbsp;大量帐务处理、帐务资料储存、保全机制的建立<p><br><p></div>
+
+
+							<div class="cpiTitle"><img src="template/www/img/icon_companyInfo.png" width="20px" class="cpiTitleIcon"><span class="cpiTitleText">秘书 [行销企画]</span></div>
+							<div class="cpiTitleSub"><span class="cpiTitleSubText">2年以上工作经历，学历不拘</span></div>
+                            <div class="infoTextBox">●&nbsp;随时记录业务主管对于市场及业务推行之方向、想法与规划<br>●&nbsp;依据方向或想法，产生网站内容、文字、设计想法<br>●&nbsp;对客户简报网站内容、商品、市场规划<br>●&nbsp;开发连络加值服务厂商<br>●&nbsp;产品及专案之规划，策划及执行适当之广告及媒体行销方案<br>●&nbsp;网站内容招募、提案与执行</div>
+
+
+							<div class="cpiTitle"><img src="template/www/img/icon_companyInfo.png" width="20px" class="cpiTitleIcon"><span class="cpiTitleText">APP 工程师</span></div>
+							<div class="cpiTitleSub"><span class="cpiTitleSubText">2年以上工作经历，学历不拘</span></div>
+                            <div class="infoTextBox">●&nbsp;制作手机应用程式<br>●&nbsp;主要制作项目为「网站辅助 APP 开发」<br>●&nbsp;协助编写对应API (by PHP or Python with MySQL)<p><br><p></div>
+							<!--<div onclick="opencontact()" class="cpiContactButton"><img src="./img/icon_mail.png" width="20px" class="cpiTitleIcon">&nbsp;联系我们</div>-->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </section>
+		</div>
+	</div>
+
+	<script src="__JS__/jquery.cookies.2.2.0.js"></script>
+	<script src="__JS__/side.js"></script>
+	<script src="__JS__/trade_detail.js"></script>
+	<script src="__JS__/main.js"></script>
+	<script src="__JS__/scrollTop.js"></script>
+	<script src="__JS__/history_stat.js"></script>
+	<script src="__JS__/downloadApp.js?v=20190605114015"></script>
+</body>
+
+
+
+</html>

@@ -1,0 +1,78 @@
+{include file="public/headers" /}
+<div class="logo" style="line-height: 40px">
+    <img src="__IMGS__/119x27-logo.png">
+    <div style="width: 700px;line-height: 18px;font-size: 12px">
+        <span class="on">简体中文</span>
+        English Español Deutsch Italiano Português Dansk Svenska Norsk
+         <span style="color: #FFDF1B">繁體中文</span> Български
+        Ελληνικά Polski Română Česky Magyar Slovenčina Nederlands Eesti
+    </div>
+</div>
+<ul id="topLink">
+    <li>账户余额：<a class="c-orange" id="getmoney">{{money}}</a></li>
+    <li>账号：<a class="c-orange" id="getaccout"></a></li>
+    <li><a class="layui-btn layui-btn-normal" id="tiling" data-method="offset" data-type="r">充值/提现</a></li>
+    <li><a class="" href="/home/index/retrieve_password">我的账户</a></li>
+    <li><a class="" href="/home/Login/loginOut">退出</a></li>
+</ul>
+<script>
+    var app = new Vue ({
+        el: '#topLink',
+        data: {
+            username:null,
+            money:0,
+            timer:'',
+        },
+        methods:{
+             getMoney() {
+                 _this = this;
+                 axios
+                     .get('/home/index/getMoney')
+                     .then(function (response) {
+                         //_this.money = response.data;
+                         //console.log(response.data.account);
+                         $("#getmoney").text(response.data.money);
+                         $("#getaccout").text(response.data.account);
+                     })
+                     .catch(function (error) { // 请求失败处理
+                         console.log(error);
+                     });
+             }
+        },
+        mounted: function() {
+            //_this = this;
+            this.getMoney()
+            this.timer = setInterval(this.getMoney,10000);
+        },
+        beforeDestroy() {
+            _this = this;
+            clearInterval( _this.timer);
+        }
+    })
+
+    var active = {
+        offset: function(othis){
+            var type = othis.data('type')
+                ,text = othis.text();
+            layer.open({
+                type: 1
+                ,title: '联系客服'
+                ,area: ['170px', '300']
+                ,offset: type
+                ,id: 'layerDemo'+type //防止重复弹出
+                ,content: '<img width="170" height="170" src="http://k.zol-img.com.cn/sjbbs/7692/a7691515_s.jpg">'+ text +'</img>'
+                ,btnAlign: 't' //按钮居中
+                ,shade: 0 //不显示遮罩
+                ,yes: function(){
+                    layer.closeAll();
+                }
+            });
+        }
+    };
+    $(document).ready(function(){
+        $('#topLink li .layui-btn').on('click', function(){
+            var othis = $(this), method = othis.data('method');
+            active[method] ? active[method].call(this, othis) : '';
+        });
+    })
+</script>

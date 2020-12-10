@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name=”renderer” content=”webkit”>
+    <meta content=”IE=Edge,chrome=1″>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/LCalendar.css" />
+    <script src="js/main.js"></script>
+    <script src="js/LCalendar.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<style>
+    .top-box .icon img{
+        width: 3rem;
+    }
+    .top-box{
+        padding-top: 0;
+    }
+    .top-box .back img{
+        width: 6rem;
+    }
+    .top-box .select img{
+        width: 6rem;
+    }.table-box .top-time .time-img img{
+        width: 4rem;
+        margin-right: 1.5rem;
+        height: auto;
+         }
+
+</style>
+<body>
+<div class="container2">
+    <div class="top-box">
+        <div>
+            <span class="back"><img src="img/back.png"></span>
+            <span class="icon"><img src="img/icon04.png"></span>
+            <span class="select"><img src="img/icon05.png"></span>
+        </div>
+    </div>
+    <div class="accounting">
+        <div class="title">帳務中心</div>
+        <div class="content">
+            <div class="time">
+                <ul>
+                    <li><img src="img/icon06.png"></li>
+                    <li><img src="img/icon07.png"></li>
+                    <li><img src="img/icon08.png"></li>
+                    <li><img src="img/icon09.png"></li>
+                    <li><img src="img/icon10.png"></li>
+                    <li><img src="img/icon11.png"></li>
+                </ul>
+            </div>
+            <div class="table-box">
+                <div class="top-time">
+                    <span>開獎日期: </span>
+                    <span class="ipt-sp"><input id="start_date" type="text"></span>
+                    <span class="time-img"><img src="img/search.png"></span>
+                    <span>開獎期號:</span>
+                    <span class="ipt-sp"><input id="end_date" type="text"></span>
+                    <span class="time-img"><img src="img/search.png"></span>
+                </div>
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td colspan="2">開獎日期</td>
+                        <td colspan="3" class="orange">2019-03-15 <br>12:00:00</td>
+                        <td colspan="2">開獎期號</td>
+                        <td colspan="3" class="orange">1232234</td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                    </tr>
+                    <tr class="orange">
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>牛</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                    </tr>
+
+                </table>
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td colspan="2">開獎日期</td>
+                        <td colspan="3" class="orange">2019-03-15 <br>12:00:00</td>
+                        <td colspan="2">開獎期號</td>
+                        <td colspan="3" class="orange">1232234</td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                        <td>23</td>
+                    </tr>
+                    <tr class="orange">
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>牛</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+
+<script>
+    //时间控件
+    var calendar = new LCalendar();
+    calendar.init({
+        'trigger': '#start_date', //标签id
+        'type': 'date', //date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择,
+        'minDate': (new Date().getFullYear()-3) + '-' + 1 + '-' + 1, //最小日期
+        'maxDate': (new Date().getFullYear()+3) + '-' + 12 + '-' + 31 //最大日期
+    });
+    var calendar = new LCalendar();
+    calendar.init({
+        'trigger': '#end_date', //标签id
+        'type': 'date', //date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择,
+        'minDate': (new Date().getFullYear()-3) + '-' + 1 + '-' + 1, //最小日期
+        'maxDate': (new Date().getFullYear()+3) + '-' + 12 + '-' + 31 //最大日期
+    });
+</script>
+
+</html>

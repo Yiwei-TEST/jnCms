@@ -1,0 +1,35 @@
+{include file="public/headers" /}
+<body>
+<div class="home">
+    <div class="main-top">
+        {include file="index/top_ajx"/}
+    </div>
+
+    <div class="nav-top">
+        <ul class="layui-nav layui-bg-green" lay-filter="demo">
+            <li class="layui-nav-item " ><a href="/home/index/index">市场列表</a></li>
+            <li class="layui-nav-item "><a href="/home/index/mingxi">交易明细</a></li>
+            <li class="layui-nav-item "><a href="/home/index/finance">历史账务</a></li>
+            <li class="layui-nav-item "><a href="/home/index/game_results">赛事结果</a></li>
+            <li class="layui-nav-item layui-this"><a href="/home/index/announcement">最新公告</a></li>
+        </ul>
+    </div>
+    <div class="bg-box">
+        <div class="details">
+            <div class="information">
+                <div class="title">最新公告</div>
+                <ul class="list-ul">
+                    {foreach name="list" item="vo"}
+                    <li>
+                        <p class="txt">{$vo.content}
+                        </p>
+                        <p class="time c-blue">{$vo.addtime}</p>
+                    </li>
+                    {/foreach}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

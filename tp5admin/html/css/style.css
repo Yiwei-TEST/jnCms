@@ -1,0 +1,545 @@
+
+/*初始化样式*/
+
+*{ margin:0; padding:0; -webkit-tap-highlight-color: transparent; /*-webkit-appearance: none;*/}
+
+html,body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset,select, input, blockquote, textarea, p, th, td ,table,em,b,span,samp{margin:0;padding:0;font-family:"微软雅黑",Microsoft YaHei,Arial, Helvetica, sans-serif;}
+html,body{height:100%; min-width:320px;}
+
+img{vertical-align:middle; border:none;}
+
+ol,ul,li{ list-style:none; }
+@media screen and (orientation: portrait) {
+    html{
+        width : 100vmin;
+        height : 100vmax;
+        overflow: hidden;
+    }
+    body{
+        width : 100vmin;
+        height : 100vmax;
+        overflow: hidden;
+    }
+    .container{
+        width : 100vmax;
+        height : 100vmin;
+        transform-origin: top left;
+        transform: rotate(90deg) translate(0,-100vmin);
+    }
+
+    .container2{
+        width : 100vmax;
+        height : 100vmin;
+        transform-origin: top left;
+        transform: rotate(90deg) translate(0,-100vmin);
+    }
+    .container3{
+        width : 100vmax;
+        height : 100vmin;
+        transform-origin: top left;
+        transform: rotate(90deg) translate(0,-100vmin);
+    }
+
+
+
+
+}
+@media screen and (orientation: landscape) {
+    html{
+        width : 100vmax;
+        height : 100vmin;
+        overflow: hidden;
+    }
+    body{
+        width : 100vmax;
+        height : 100vmin;
+        overflow: hidden;
+    }
+    .container{
+        width : 100vmax;
+        height : 100vmin;
+
+    }
+    .container2{
+        width : 100vmax;
+        height : 100vmin;
+    }
+    .container3{
+        width : 100vmax;
+        height : 100vmin;
+    }
+}
+
+
+.container{
+    background: url("../img/bg-login.png") no-repeat;
+    background-size: 100% 100%;
+}
+.container2{
+    background: url("../img/bg02.jpeg") no-repeat;
+    background-size: 100% 100%;
+}
+.container3{
+    background: url("../img/bg02.jpeg") no-repeat;
+    background-size: 100% 100%;
+}
+
+
+.btn-begin{
+    width: 10rem;
+    top: 72%;
+    left: 50%;
+    margin-left: -5rem;
+    position: absolute;
+}
+.btn-begin img{
+    width: 10rem;
+}
+
+.login-box{
+    position: absolute;
+    z-index: 99;
+    top: 10%;
+    width: 30rem;
+    left: 50%;
+    margin-left: -15rem;
+    background-color: rgba(0,0,0,0.8);
+    padding: 2rem;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.count{
+    border: 1px solid #fff;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    padding: 10px 5px;
+    background: url("../img/icon01.png") no-repeat center left 2.5%;
+    background-size: 1rem 1.2rem;
+    margin-bottom: 1.5rem;
+}
+.count input{
+    border: none;
+    outline: none;
+    width: 90%;
+    background: none;
+    color: #fff;
+    margin-left: 8%;
+    font-size: 1rem;
+}
+.password{
+    border: 1px solid #fff;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    padding: 10px 5px;
+    background: url("../img/icon02.png") no-repeat center left 2.5%;
+    background-size: 1rem 1.2rem;
+    margin-bottom: 1.5rem;
+}
+.password input{
+    border: none;
+    outline: none;
+    width: 90%;
+    background: none;
+    color: #fff;
+    margin-left: 8%;
+    font-size: 1rem;
+}
+
+
+.btn-login{
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    padding: 10px 5px;
+    background: #f7d249;
+    background-size: 1rem 1.2rem;
+    color: #fff;
+}
+.btn-login button{
+    display: block;
+    border: none;
+    outline: none;
+    width: 100%;
+    background: none;
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.top-box{
+    text-align: center;
+    padding-top: 1rem;
+}
+.top-box .back img{
+    width: 9rem;
+}
+.top-box .select img{
+    width: 9rem;
+}
+.top-box .icon img{
+    width: 5.5rem;
+}
+
+.chip-list{
+   padding: 0 2rem;
+    margin: auto;
+}
+
+
+
+.chip-list{
+    display: flex;
+}
+.chip-list .item{
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.8rem;
+    color: #fff;
+    width: 12%;
+    padding-bottom: 0;
+}
+.chip-list .item p{
+    text-align: center;
+    white-space: nowrap;
+}
+
+.chip-list .item p img{
+    width: 100%;
+}
+
+.vip-box{
+    text-align: center;
+    color: #fff;
+}
+
+.vip-box .title{
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0.5rem;
+}
+.vip-box .content{
+    width: 20rem;
+    background-color: rgba(0,0,0,0.5);
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin: auto;
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.6rem;
+}
+.vip-box .content span{
+    display: inline-block;
+    padding: 0 0.3rem;
+    width: 6rem;
+}
+.vip-box .content span:first-child{
+    text-align: right;
+}
+.vip-box .content span:last-child{
+    text-align: left;
+}
+
+.vip-box .content .ipt-sp input{
+    border: none;
+    outline: none;
+    background: none;
+    color: #fff;
+
+
+}
+
+
+
+
+.vip-box input::-webkit-input-placeholder {
+    color: #fff;
+}
+.vip-box input::-moz-input-placeholder {
+    color: #fff;
+}
+.vip-box input::-ms-input-placeholder {
+    color: #fff;
+}
+.sure{
+    margin-top: 0.5rem;
+}
+
+    　　
+
+/*iphone5*/
+@media screen and (min-height:320px){
+    .vip-box .content{
+        padding: 1rem;
+        box-sizing: border-box;
+        font-size: 0.8rem;
+        line-height: 1.5rem;
+    }
+    .vip-box .title{
+        font-size: 1.2rem;
+        text-align: center;
+        padding: 0.5rem;
+    }
+    .top-box{
+        text-align: center;
+        padding-top: 1rem;
+    }
+    .top-box .back img{
+        width: 7rem;
+    }
+    .top-box .select img{
+        width: 7rem;
+    }
+    .top-box .icon img{
+        width: 5rem;
+    }
+}
+
+
+.accounting{
+    text-align: center;
+    color: #fff;
+}
+.accounting .title{
+    font-size: 1rem;
+}
+.accounting .time{
+   width: 60%;
+    margin: auto;
+    overflow: hidden;
+}
+.accounting .time ul li{
+   float: left;
+    width: 16.666%;
+    text-align: center;
+    box-sizing: border-box;
+}
+.accounting .time ul li img{
+    width: 90%;
+}
+.accounting .content .table-box{
+    width: 80%;
+    background-color: rgba(0,0,0,0.5);
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: auto;
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.6rem;
+    height: 15rem;
+    overflow: auto;
+}
+.table-box .top-time{
+    font-size: 0.8rem;
+}
+.table-box .top-time .ipt-sp{
+    background: url("../img/tiem.png") no-repeat center right;
+    background-size: 1rem 1rem;
+    margin-right: 1rem;
+    border-bottom: 1px solid #fff;
+    display: inline-block;
+}
+.table-box .top-time .ipt-sp input{
+    border: none;
+    outline: none;
+    background: none;
+    color: #fff;
+    width: 5rem;
+}
+.table-box .top-time .time-img img{
+    height: 1.5rem;
+
+}
+.table-box table{
+    width: 100%;
+    font-size: 0.65rem;
+    border-bottom: 1px solid #fff;
+    border-left: 1px solid #fff;
+    margin-top: 1rem;
+
+}
+.table-box table tr td{
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
+    line-height: 1rem;
+    padding: 0.2rem;
+}
+.table-box table tr td{
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
+    line-height: 1rem;
+    padding: 0.2rem;
+}
+.table-box table tr.orange td{
+    color: #f9eb4f;
+}
+.orange{
+    color: #f9eb4f !important;
+}
+.top-item{
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+.top-item .item{
+    width: 30%;
+    margin-right: 4%;
+    border-radius: 15px;
+    border: 1px solid #fff;
+    text-align: center;
+    padding: 0.1rem 0;
+    float: left;
+    color: #fff;
+    font-size: 0.8rem;
+    display: table-cell;
+    vertical-align: middle;
+    height: 3.6rem;
+    line-height: 1.2rem;
+}
+.top-item .item:last-child{
+    margin-right: 0;
+}
+.top-item .item .txt{
+    font-size: 0.6rem;
+}
+.top-item .item .txt .name{
+    display: inline-block;
+    overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
+    width: 3rem;
+}
+.main-container{
+    width: 80%;
+    margin: auto;
+    margin-top: 1rem;
+}
+.main-container .left{
+    float: left;
+    position: absolute;
+    overflow: hidden;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 100%;
+}
+.main-container .left img{
+    margin-left: -4.8rem;
+    height: 11rem;
+    margin-top: -0.6rem;
+}
+.main-container .right{
+    float: right;
+    overflow: hidden;
+    width: 75%;
+}
+.list-ball{
+    overflow: hidden;
+    float: right;
+    height: 1.85rem;
+    min-width: 20rem;
+}
+.list-ball li{
+    position: relative;
+    width: 1.8rem;
+    float: left;
+    margin: 0 0.25rem;
+}
+.list-ball li img{
+   width: 100%;
+}
+.list-ball li .sp{
+    font-size: 0.6rem;
+    position: absolute;
+    z-index: 9;
+    margin-top: 0.5rem;
+    left: 0.5rem;
+}
+.bun-ul{
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    float: right;
+}
+.bun-ul li{
+    width: 1.78rem;
+    float: left;
+    padding: 0.1rem 0;
+    text-align: center;
+    margin: 0 0.25rem;
+}
+.list-ball.mc{
+    margin-bottom: 0.5rem;
+}
+.list-ball.mc li .sp{
+    font-size: 0.6rem;
+    position: absolute;
+    z-index: 9;
+    margin-top: 0.35rem;
+    left: 0.1rem;
+    white-space: nowrap;
+}
+.bottom-btn .left{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.bottom-btn img{
+    width: 3rem;
+    margin: 0 0.2rem;
+}
+.bottom-btn .right{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.bottom-btn .center{
+    position: absolute;
+    color: #fff;
+    bottom: 0.2rem;
+    text-align: center;
+    width: 100%;
+    font-size: 1rem;
+}
+.bottom-btn .center span{
+    padding: 0 1rem;
+}
+
+.shade{
+    position: absolute;
+    top: 1rem;
+    background: black;
+    padding: 1rem 2rem;
+    left: 50%;
+    margin-left: -17rem;
+    height: 20rem;
+    overflow: auto;
+    color: #fff;
+    z-index: 99;
+    border-radius: 10px;
+    width: 34rem;
+    box-sizing: border-box;
+}
+.shade-right{
+    background: #000;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 8rem;
+    position: absolute;
+    z-index: 9;
+}
+.shade-right ul li{
+    border-bottom: 1px solid #aaa;
+    padding: 0.5rem;
+    color: #eee;
+    font-size: 0.8rem;
+}

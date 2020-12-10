@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=414,user-scalable=no">
+	<title>TG</title>
+	<link rel="stylesheet" href="__CSS__/bootstrap.min.css">
+	<link rel="stylesheet" href="__CSS__/fontawesome-all.min.css">
+	<link rel="stylesheet" href="__CSS__/normalize.css">
+	<link rel="stylesheet" href="__CSS__/tab_style.css">
+	<link rel="stylesheet" href="__CSS__/side.css">
+	<link rel="stylesheet" href="__CSS__/Main_Style.css?v=20190605114015">
+	<link rel="stylesheet" href="__CSS__/my_info.css">
+	<link rel="stylesheet" href="__CSS__/FIFA_marketlist.css?v=20190605114015">
+	<link rel="stylesheet" href="__CSS__/my_info_chg.css?v=20190605114015">
+	<link rel="stylesheet" href="__CSS__/switch.css">
+	<link rel="stylesheet" href="__CSS__/downloadApp.css?v=20190605114015">
+		<!--theme-->
+	<link rel="stylesheet" href="__CSS__/theme/APPui.css?v=20190605114015">
+	<script src="__JS__/jquery-3.2.1.min.js"></script>
+	<script src="__JS__/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="sidy" onclick="siidyy();">
+		{include file="public/nav" /}
+<div class="downloadApp">
+    <div class="row step_one">
+        <div class="col-xs-offset-1 col-xs-5"><button type="button" class="forAndriod" id="forAndriod">安卓下载</button></div>
+        <div class="col-xs-5"><button type="button" class="forIos" id="forIos">IOS下载</button></div>
+    </div>
+    <div class="step_two" id="andriod">
+        <div class="header">
+            <h2 class="downloadApp_title title_andriod">安卓下载</h2><button type="button" class="app_close"></button>
+        </div>
+        <div class="AppContent content_andriod">
+            <img class="QRcode QRcode_Android" src="__IMG__/downloadApp/android.png" alt="download android app qrcode">
+            <img src="__IMG__/downloadApp/index-white_Andrioid-flow_01.svg" alt="">
+            <p>步骤一<br>
+                下载QR Droid<br>扫码器</p>
+            <p>步骤二<br>
+                扫码进行下载<br>TG.apk</p>
+            <p>步骤三<br>
+                下载<br>apk Installer工具</p>
+            <img src="__IMG__/downloadApp/index-white_Andrioid-flow_02.svg" alt="">
+            <p class="w">步骤四<br>
+                开启APK Installer工具<br>点选Install APKs项目<br>开启TG.apk档</p>
+            <p class="w">步骤五<br>
+                TG安装完成</p>
+            <span class="download_btn"><a href=" https://info.sxysrn.cn/AppInstallation/downloadQRCode.html">前往下载</a></span>
+        </div>
+    </div>
+    <div class="step_two" id="ios">
+        <div class="header">
+            <h2 class="downloadApp_title title_ios">IOS下载</h2><button type="button" class="app_close"></button>
+        </div>
+        <div class="AppContent content_ios">
+            <img class="QRcode QRcode_Ios" src="__IMG__/downloadApp/ios.png" alt="download ios app qrcode">
+            <img src="__IMG__/downloadApp/index-white_Ios-flow_01.svg" alt="">
+            <p>步骤一<br>
+                扫描QRcode 开启网页<br>点选前往下载按钮<br>接着点选上方<br>二维码讯息</p>
+            <p>步骤二<br>
+                点选安装<br>等待安装完成</p>
+            <p>步骤三<br>
+                点击设置进入通用<br>点选设备管理</p>
+
+            <img src="__IMG__/downloadApp/index-white_Ios-flow_02.svg" alt="">
+            <p class="w">步骤四<br>
+                验证TG应用</p>
+            <p class="w">步骤五<br>
+                TG安装完成</p>
+            <span class="download_btn"><a href="https://info.sxysrn.cn/AppInstallation/iOSdownload.html">前往下载</a></span>
+        </div>
+    </div>
+</div>
+<script>
+    //会员互转
+    $("#modify111").on('click', function() {
+        $(".sidy").removeClass('sidy--opened');
+        $.ajax({
+            type: 'POST',
+            url: 'pointc2c.html',
+            //data: 'IncomeUser=' + username + '&amount=' + amount + '&withdrawpassword=' + passwd ,
+            error: function(xhr) {
+                alert('error');
+                window.location.reload();
+                return false;
+            },
+            beforeSend: function(response) {
+                $("#Modal_coverchgall").html("<div class='Loading'></div>");
+            },
+            success: function(response) {
+                $("#Modal_coverchgall").on('keyup', function() {
+                    var _this = this;
+                    //setTimeout(function(){
+                    //_this.scrollIntoViewIfNeeded();
+                    //},400);
+                });
+                $("#Modal_coverchgall").html(response);
+            }
+        });
+        $("#Modal_coverchgall").css('display', 'block');
+    });
+
+</script>
+		<div class="sidy__content">
+<div class="scroll_top" id="return-to-top">
+	<div class="scroll_top_bg"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+</div>
+<div class="head_banner nav-bar navbar-fixed-top">
+	<div data-panel="panel-1" class="sidy--to-open menu_btn">
+		<span></span><br>
+		<span></span><br>
+		<span></span><br>
+	</div>
+	<div class="acc"><img class="top_user" src="__IMG__/top_user.png" width="11" height="11">AMX141</div>
+	<div class="money"><img class="top_coin" src="__IMG__/top_coin.png" width="11" height="11"><span id="quotaView">0.00</span></div>
+</div>
+<div class="title_background">
+	<button class="announcement_btn" onclick="titleannice()">公告<i class="fa fa-caret-right arrow_2" aria-hidden="true"></i></button>
+	<div class="title_market" style="">
+		<marquee id="marqinfo" direction="left">
+			<font style="color:#000000";>TG严正声明：本平台强调宣导禁止代操之行为，请会员勿将『提领密码』及『登入密码』提供给他人，如不听劝导而导致资金损失，TG一律不负相关责任！请谨慎保管自己的密码！TG关心您。</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>尊敬的会员您好：为维护会员帐号权益及安全，目前平台已更改会员帐号首充流水规则：自2019/5/26 00：00：00起进行会员帐号首充的会员，首充需达首充点数7倍流水才可进行提领，第二笔后的充值仅需达到3倍流水后即可进行提领，如造成您的不便，请您见谅，TG平台感谢您的支持</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:red";>尊敬的会员您好，平台目前已新增收款帐户关闭时间提示，如未依照显示指定收款帐户进行打款，即日起平台将不再提供查询充值服务。</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>尊贵的会员您好，翻本红包活动即将强势回归，详细的活动规则及时间，请您随时关注平台首页及公告，感谢广大会员对平台的支持</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:red";>07-01 / 17:55 [ 韩女联 ] 昌宁女足 v 华川KSPO女足 该场比赛为提前开赛，17:55后注单一律无效删单。</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>会员公告：尊敬的会员您好，为让会员享有更好服务品质，平台目前已新增微信充值渠道供会员有更多元的选择进行充值，请广大会员多加利用，感谢您对平台的支持（提醒您：微信充值单笔为100-3000，仅能以100点数为一单位）</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>新增端午活动规则：会员如参加端午活动，在参与活动前若有提领，需将已提领金额连同参加活动金额入金后才符合参加资格。</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#A50404";>亲爱的会员您好，贴心提醒您：如发现有心人士散拨不实谣言，请会员勿轻易相信，如有任何疑问，请联系TG平台『线上客服、QQ客服』询问，感谢各位对平台的支持与厚爱，谢谢</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>尊敬的会员您好：目前平台会员微信正在进行重整，微信客服暂停服务，如有平台相关问题请您与线上客服联系谘询，谢谢</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>尊敬的会员您好，为确保会员权益，一张银行卡仅能绑定一个会员帐号，如造成您的不便，请您见谅，谢谢</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>尊贵的会员您好，为加强会员资安以及会员权益，TG平台即日起将延长会员『银行、财务材料变更』的审核期至48小时，为维护会员资金安全，审核时间平台将暂停该帐号的提款功能，造成您的不便，敬请见谅，如有相关问题，请您与线上客服联系，谢谢</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>尊敬的会员您好，因应近日支付宝提升安全机制，部分会员限制转账，如遇无法打款至本平台支付宝帐号，平台建议您使用支付宝打款至本平台网银账户，如有操作问题，请洽线上客服，谢谢</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>尊贵的会员您好，由于目前活动客服微信添加好友异常，翻本红包活动更改为线上客服申请，请各位会员留意，感谢您对本平台的支持，谢谢！！</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>TG平台提醒广大会员，近期出现许多黑网打著反波胆名义，进行资金盘吸金，或利用保证获利口号行欺诈等不法行为，TG平台在此除了严厉斥责不肖黑网，也恳请会员慎选平台，以免资金遭受损失。</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#000000";>近日发现有心人士假冒平台客服，主动提供账户要求会员进行充值，再次贴心提醒，平台客服绝不主动提供账户供会员充值，开放充值之账户依照平台显示为准，请会员当心留意，勿轻易相信。</font>
+		</marquee>
+	<div id="markettitle" name="markettitle">市场列表</div>
+	</div>
+	<div class="mail"><img src="__IMG__/icon/mail.png" height="18" width="27" /><span onclick="document.location.href='/index/index/announce'" class="message_number"></span></div>
+</div>
+
+			{include file="public/nav1" /}
+
+<div id="Modal_coverchgall" class="cover"></div>
+<link rel="stylesheet" href="__CSS__/accounce.css?v=20190605114015">
+<script>
+	function openannounce(b) {
+		checkselfannounce(b);
+	}
+
+	function checkselfannounce(a) {
+		//alert(a);
+		jQuery.ajax({
+			type: 'GET',
+			url: 'other/announce.html?pk=' + a + '',
+			//data: 'handicap=' + a7 + '&inplay=' + a6 + '&selectname=' + a5,
+			error: function(xhr) {
+				//alert('網路忙線中，請稍後再試!r64');
+			},
+			beforeSend: function(response) {
+
+			},
+			success: function(response) {
+				//alert(response);
+				if (response.trim() == '') {
+					jQuery('#announce_self_count').removeClass('announce_self_count');
+					jQuery('#announce_self_count').html('');
+				}
+			}
+		});
+	}
+
+	function announce(a) {
+
+		$('.content-1').attr('style', 'display:none');
+		$('#note2content_info' + a + '').attr('style', 'display:block');
+	}
+
+	function announcess(a) {
+
+		$('.content-1').attr('style', 'display:none');
+		$("div[name*='note2content_info']").attr('style', 'display:none');
+
+		$('.content-2').attr('style', 'display:none');
+		$('#note3content_info' + a + '').attr('style', 'display:block');
+	}
+
+	function announce_down(a) {
+		var b = a - 1;
+		$('#note2content_info' + b + '').attr('style', 'display:none');
+		$('#note2content_info' + a + '').attr('style', 'display:block');
+	}
+
+	function announce_up(a) {
+		if (a == 0) return false;
+		var b = a - 1;
+		$('#note2content_info' + b + '').attr('style', 'display:block');
+		$('#note2content_info' + a + '').attr('style', 'display:none');
+	}
+
+	function announcep_down(a, c) {
+		if (c > a) return false;
+		var b = a - 1;
+		$('#note3content_info' + b + '').attr('style', 'display:none');
+		$('#note3content_info' + a + '').attr('style', 'display:block');
+	}
+
+	function announcep_up(a) {
+		if (a == 0) return false;
+		var b = a - 1;
+		$('#note3content_info' + b + '').attr('style', 'display:block');
+		$('#note3content_info' + a + '').attr('style', 'display:none');
+	}
+
+	function note2_top() {
+		$("div[name*='note2content_info']").attr('style', 'display:none');
+		$("div[name*='note3content_info']").attr('style', 'display:none');
+
+		$('.content-1').attr('style', 'display:block');
+		$('.content-2').attr('style', 'display:none');
+		$('.note2content').attr('style', 'display:block');//20181218 add by nillie
+		$('.note3content').attr('style', 'display:none');//20181218 add by nillie
+	}
+
+	function note4_top() {
+		$("div[name*='note2content_info']").attr('style', 'display:none');
+		$("div[name*='note3content_info']").attr('style', 'display:none');
+		$('.content-2').attr('style', 'display:block');
+		$('.note3content').attr('style', 'display:block');
+
+	}
+
+</script>
+<div class="title_background ">
+	<div class="title">网站公告</div>
+</div>
+
+<section class="tabs">
+
+	<input onclick="note4_top()" id="tab-2" type="radio" name="radio-set" class="tab-selector-2" checked="checked" />
+	<label for="tab-2" class="tab-label-2">个人讯息</label>
+
+	<input onclick="note2_top()" id="tab-1" type="radio" name="radio-set" class="tab-selector-1" />
+	<label for="tab-1" class="tab-label-1">网站公告</label>
+
+
+
+	<div class="clear-shadow"></div>
+	<div class="content">
+
+		<div class="content-1" style="display:none;">
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('0')">
+					<div class="green_spot"></div>
+					<div class="date">11-25 18:15:13</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">重要公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('1')">
+					<div class="green_spot"></div>
+					<div class="date">04-04 15:30:00</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">重要公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('2')">
+					<div class="green_spot"></div>
+					<div class="date">05-25 21:49:41</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">平台公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('3')">
+					<div class="green_spot"></div>
+					<div class="date">05-16 18:38:15</div>
+					<div class="message_content">网站公告：<span style="color: red;">重要公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('4')">
+					<div class="green_spot"></div>
+					<div class="date">04-12 19:13:30</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">重要公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('5')">
+					<div class="green_spot"></div>
+					<div class="date">07-01 19:00:15</div>
+					<div class="message_content">网站公告：<span style="color: red;">赛事公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('6')">
+					<div class="green_spot"></div>
+					<div class="date">06-30 14:00:26</div>
+					<div class="message_content">网站公告：<span style="color: red;">赛事公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('7')">
+					<div class="green_spot"></div>
+					<div class="date">07-01 00:55:33</div>
+					<div class="message_content">网站公告：<span style="color: red;">赛事公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('8')">
+					<div class="green_spot"></div>
+					<div class="date">04-26 16:35:16</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">会员公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('9')">
+					<div class="green_spot"></div>
+					<div class="date">04-04 17:55:01</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">活动公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('10')">
+					<div class="green_spot"></div>
+					<div class="date">06-14 11:06:52</div>
+					<div class="message_content">网站公告：<span style="color: #A50404;">『重要公告』</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('11')">
+					<div class="green_spot"></div>
+					<div class="date">04-08 16:00:40</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">会员公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('12')">
+					<div class="green_spot"></div>
+					<div class="date">02-04 19:01:28</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">系统公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('13')">
+					<div class="green_spot"></div>
+					<div class="date">01-21 10:54:35</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">『提领规章说明』</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('14')">
+					<div class="green_spot"></div>
+					<div class="date">01-19 16:06:51</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">系統公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('15')">
+					<div class="green_spot"></div>
+					<div class="date">01-07 18:29:02</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">系统公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('16')">
+					<div class="green_spot"></div>
+					<div class="date">01-06 20:22:05</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">系统公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('17')">
+					<div class="green_spot"></div>
+					<div class="date">12-22 16:54:35</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">系统公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('18')">
+					<div class="green_spot"></div>
+					<div class="date">12-19 00:08:32</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">系统公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('19')">
+					<div class="green_spot"></div>
+					<div class="date">12-18 16:55:42</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">系统公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('20')">
+					<div class="green_spot"></div>
+					<div class="date">10-09 20:02:16</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">系统公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('21')">
+					<div class="green_spot"></div>
+					<div class="date">06-26 15:52:28</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">系统公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('22')">
+					<div class="green_spot"></div>
+					<div class="date">06-07 21:44:35</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">重要公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('23')">
+					<div class="green_spot"></div>
+					<div class="date">05-13 18:17:53</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">重要公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('24')">
+					<div class="green_spot"></div>
+					<div class="date">01-15 00:00:00</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">『提领规章说明』</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('25')">
+					<div class="green_spot"></div>
+					<div class="date">11-22 18:09:35</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">会员公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('26')">
+					<div class="green_spot"></div>
+					<div class="date">10-31 12:40:00</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">『提领规章说明』</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('27')">
+					<div class="green_spot"></div>
+					<div class="date">08-15 19:35:35</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">重要信息</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('28')">
+					<div class="green_spot"></div>
+					<div class="date">07-29 23:30:34</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">会员公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('29')">
+					<div class="green_spot"></div>
+					<div class="date">03-07 01:25:00</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">会员公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('30')">
+					<div class="green_spot"></div>
+					<div class="date">03-05 15:25:00</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">会员公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('31')">
+					<div class="green_spot"></div>
+					<div class="date">02-05 17:33:11</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">会员公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('32')">
+					<div class="green_spot"></div>
+					<div class="date">12-21 16:50:03</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">会员公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('33')">
+					<div class="green_spot"></div>
+					<div class="date">09-26 22:17:51</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">会员公告</span></div>
+				</div>
+			</div>
+			<div id="note2content" name="note2content" style="display:block;">
+				<div class="message_bg" onclick="announce('34')">
+					<div class="green_spot"></div>
+					<div class="date">09-06 01:46:01</div>
+					<div class="message_content">网站公告：<span style="color: #000000;">会员公告</span></div>
+				</div>
+			</div>
+		</div>
+		<div style="height:40px;width:100%;"></div>
+		<div id="note2content_info0" name="note2content_info0" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>1125 18:15:13</div>
+					<div>重要公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					TG严正声明：本平台强调宣导禁止代操之行为，请会员勿将『提领密码』及『登入密码』提供给他人，如不听劝导而导致资金损失，TG一律不负相关责任！请谨慎保管自己的密码！TG关心您。
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('0')">上一则</button>
+					<button onclick="announce_down('1')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info1" name="note2content_info1" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0404 15:30:00</div>
+					<div>重要公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					提领规章变动通知：由于近期银行风控问题日益严重，为保障双方帐户安全，即刻起提领规则修订为：充值后下单需达成三倍流水方可进行提领，造成您的不便，请您见谅，感谢您对本平台的支持
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('1')">上一则</button>
+					<button onclick="announce_down('2')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info2" name="note2content_info2" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0525 21:49:41</div>
+					<div>平台公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					尊敬的会员您好：为维护会员帐号权益及安全，目前平台已更改会员帐号首充流水规则：自2019/5/26 00：00：00起进行会员帐号首充的会员，首充需达首充点数7倍流水才可进行提领，第二笔后的充值仅需达到3倍流水后即可进行提领，如造成您的不便，请您见谅，TG平台感谢您的支持
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('2')">上一则</button>
+					<button onclick="announce_down('3')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info3" name="note2content_info3" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0516 18:38:15</div>
+					<div>重要公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					尊敬的会员您好，平台目前已新增收款帐户关闭时间提示，如未依照显示指定收款帐户进行打款，即日起平台将不再提供查询充值服务。
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('3')">上一则</button>
+					<button onclick="announce_down('4')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info4" name="note2content_info4" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0412 19:13:30</div>
+					<div>重要公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					尊贵的会员您好，翻本红包活动即将强势回归，详细的活动规则及时间，请您随时关注平台首页及公告，感谢广大会员对平台的支持
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('4')">上一则</button>
+					<button onclick="announce_down('5')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info5" name="note2content_info5" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0701 19:00:15</div>
+					<div>赛事公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					07-01 / 17:55 [ 韩女联 ] 昌宁女足 v 华川KSPO女足 该场比赛为提前开赛，17:55后注单一律无效删单。
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('5')">上一则</button>
+					<button onclick="announce_down('6')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info6" name="note2content_info6" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0630 14:00:26</div>
+					<div>赛事公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					06-30 / 13:00	 [ 澳威超 ]  APIA莱洽德 v 夏克悉尼 该场比赛为提前开赛，13:00后注单一律无效删单。
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('6')">上一则</button>
+					<button onclick="announce_down('7')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info7" name="note2content_info7" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0701 00:55:33</div>
+					<div>赛事公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					06-30 / 22:55 [ 摩尔甲 ] 米萨米 v 斯芬图尔 该场比赛为提前开赛，22:55后注单一律无效删单。
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('7')">上一则</button>
+					<button onclick="announce_down('8')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info8" name="note2content_info8" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0426 16:35:16</div>
+					<div>会员公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					会员公告：尊敬的会员您好，为让会员享有更好服务品质，平台目前已新增微信充值渠道供会员有更多元的选择进行充值，请广大会员多加利用，感谢您对平台的支持（提醒您：微信充值单笔为100-3000，仅能以100点数为一单位）
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('8')">上一则</button>
+					<button onclick="announce_down('9')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info9" name="note2content_info9" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0404 17:55:01</div>
+					<div>活动公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					新增端午活动规则：会员如参加端午活动，在参与活动前若有提领，需将已提领金额连同参加活动金额入金后才符合参加资格。
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('9')">上一则</button>
+					<button onclick="announce_down('10')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info10" name="note2content_info10" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0614 11:06:52</div>
+					<div>『重要公告』</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					亲爱的会员您好，贴心提醒您：如发现有心人士散拨不实谣言，请会员勿轻易相信，如有任何疑问，请联系TG平台『线上客服、QQ客服』询问，感谢各位对平台的支持与厚爱，谢谢
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('10')">上一则</button>
+					<button onclick="announce_down('11')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info11" name="note2content_info11" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0408 16:00:40</div>
+					<div>会员公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					尊敬的会员您好：目前平台会员微信正在进行重整，微信客服暂停服务，如有平台相关问题请您与线上客服联系谘询，谢谢
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('11')">上一则</button>
+					<button onclick="announce_down('12')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info12" name="note2content_info12" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0204 19:01:28</div>
+					<div>系统公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					敬爱的会员：因云端设备升级，即日起取消每周二『定期』维护，如有维护升级再另行公告通知，祝TG全体会员新年快乐、诸事吉祥！
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('12')">上一则</button>
+					<button onclick="announce_down('13')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info13" name="note2content_info13" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0121 10:54:35</div>
+					<div>『提领规章说明』</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					尊敬的会员您好，为确保会员权益，一张银行卡仅能绑定一个会员帐号，如造成您的不便，请您见谅，谢谢
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('13')">上一则</button>
+					<button onclick="announce_down('14')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info14" name="note2content_info14" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0119 16:06:51</div>
+					<div>系統公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					尊贵的会员您好，为加强会员资安以及会员权益，TG平台即日起将延长会员『银行、财务材料变更』的审核期至48小时，为维护会员资金安全，审核时间平台将暂停该帐号的提款功能，造成您的不便，敬请见谅，如有相关问题，请您与线上客服联系，谢谢
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('14')">上一则</button>
+					<button onclick="announce_down('15')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info15" name="note2content_info15" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0107 18:29:02</div>
+					<div>系统公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					尊敬的会员您好，基于国际法则规定，台湾地区属于受限区域，平台目前已取消台湾地区手机号的会员绑定注册，造成不便，敬请见谅
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('15')">上一则</button>
+					<button onclick="announce_down('16')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info16" name="note2content_info16" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0106 20:22:05</div>
+					<div>系统公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					尊敬的会员您好，因应近日支付宝提升安全机制，部分会员限制转账，如遇无法打款至本平台支付宝帐号，平台建议您使用支付宝打款至本平台网银账户，如有操作问题，请洽线上客服，谢谢
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('16')">上一则</button>
+					<button onclick="announce_down('17')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info17" name="note2content_info17" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>1222 16:54:35</div>
+					<div>系统公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					尊敬的会员您好：为让会员享有更好的投资品质，目前平台的网址已更新为以下网址:https://tg6666.net/，麻烦您牢记后进行操作，祝您投资愉快
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('17')">上一则</button>
+					<button onclick="announce_down('18')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info18" name="note2content_info18" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>1219 00:08:32</div>
+					<div>系统公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					尊贵的会员您好，本平台试玩号奖励金兑换申请变更为线上客服申请，您可于线上客服进行谘询及申请兑换，审核结果会以公告进行通知，您可于个人信息内查看获得的公告内容，感谢您的配合，TG祝您顺心如意。
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('18')">上一则</button>
+					<button onclick="announce_down('19')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info19" name="note2content_info19" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>1218 16:55:42</div>
+					<div>系统公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					尊敬的会员您好，如在会员互转时无法收取验证码，您亦可进线客服申请关闭验证功能，客服与您核实相关材料后关闭您帐号内验证功能。提醒您：如关闭验证功能，为确保您的权益，请妥善保管您的提领密码。TG关心您
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('19')">上一则</button>
+					<button onclick="announce_down('20')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info20" name="note2content_info20" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>1009 20:02:16</div>
+					<div>系统公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					尊贵的会员您好，由于目前活动客服微信添加好友异常，翻本红包活动更改为线上客服申请，请各位会员留意，感谢您对本平台的支持，谢谢！！
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('20')">上一则</button>
+					<button onclick="announce_down('21')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info21" name="note2content_info21" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0626 15:52:28</div>
+					<div>系统公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					尊敬的会员，您好：为提供更优质的服务环境，24小时在线客服已全面更新，原在线客服已停止服务，请清除暂存重新登入平台，感谢您对平台的支持
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('21')">上一则</button>
+					<button onclick="announce_down('22')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info22" name="note2content_info22" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0607 21:44:35</div>
+					<div>重要公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					TG平台提醒广大会员，近期出现许多黑网打著反波胆名义，进行资金盘吸金，或利用保证获利口号行欺诈等不法行为，TG平台在此除了严厉斥责不肖黑网，也恳请会员慎选平台，以免资金遭受损失。
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('22')">上一则</button>
+					<button onclick="announce_down('23')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info23" name="note2content_info23" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0513 18:17:53</div>
+					<div>重要公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					近日发现有心人士假冒平台客服，主动提供账户要求会员进行充值，再次贴心提醒，平台客服绝不主动提供账户供会员充值，开放充值之账户依照平台显示为准，请会员当心留意，勿轻易相信。
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('23')">上一则</button>
+					<button onclick="announce_down('24')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info24" name="note2content_info24" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0115 00:00:00</div>
+					<div>『提领规章说明』</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					敬爱的会员您好 ：平台因应内地银行严审机制，为保障双方帐号安全及会员权益，如您要进行十万点以上的提领，平台将采取进线预约制度，造成您的不便，请您见谅，感谢您对TG的支持！
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('24')">上一则</button>
+					<button onclick="announce_down('25')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info25" name="note2content_info25" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>1122 18:09:35</div>
+					<div>会员公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					亲爱的会员您好，近期发现有心人士散拨不实谣言，表示如会员需解开锁定必需先缴交保证金，请会员勿轻易相信。如有任何疑问，请联系TG平台『线上客服、微信客服』询问，感谢您对TG的支持！！
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('25')">上一则</button>
+					<button onclick="announce_down('26')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info26" name="note2content_info26" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>1031 12:40:00</div>
+					<div>『提领规章说明』</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					尊敬的会员您好，因应银行严打机制，为保障双方帐户安全，本平台每周五次提领免手续费，计算时间为：每周一00：00至周日23：59，当天不限次数，如超过次数欲再提领，本平台将收取您提领点数5％行政处理费，谢谢
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('26')">上一则</button>
+					<button onclick="announce_down('27')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info27" name="note2content_info27" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0815 19:35:35</div>
+					<div>重要信息</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					本平台的线上客服『绝不会提供任何二维码』给会员充值使用，敬请各位会员小心防范，感谢您对TG的支持！！
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('27')">上一则</button>
+					<button onclick="announce_down('28')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info28" name="note2content_info28" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0729 23:30:34</div>
+					<div>会员公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					亲爱的会员您好，近期发现有心人士伪造TG平台网站并以假冒QQ客服散拨不实谣言，请会员勿轻易相信。本平台一切运作正常，如有任何疑问，请联系TG平台『线上客服、微信客服』询问，感谢各位通路商对平台的支持与厚爱，谢谢
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('28')">上一则</button>
+					<button onclick="announce_down('29')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info29" name="note2content_info29" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0307 01:25:00</div>
+					<div>会员公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					为避免影响会员充值提领的帐务纠纷，请会员务必谨慎挑选通路商，如有发现不法之通路商，敬请会员进线客服检举，感谢您对TG的支持！！
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('29')">上一则</button>
+					<button onclick="announce_down('30')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info30" name="note2content_info30" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0305 15:25:00</div>
+					<div>会员公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					敬爱的会员您好：为维护会员权益，于首次登入会员帐号后，务必定期更改您的登入密码并妥善保管，感谢您对TG的支持！
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('30')">上一则</button>
+					<button onclick="announce_down('31')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info31" name="note2content_info31" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0205 17:33:11</div>
+					<div>会员公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					尊敬的会员您好：本平台会员专用微信客服，微信号一律以本平台显示为主，为维护会员权益及保障个人材料安全，请会员加入微信客服前，先至本平台做查看，如有相关问题，请与线上客服联系，谢谢您
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('31')">上一则</button>
+					<button onclick="announce_down('32')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info32" name="note2content_info32" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>1221 16:50:03</div>
+					<div>会员公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					尊敬会员您好：为了维护您的会员权益及提供更好的投资环境，如利用本平台进行任何洗钱诈骗行为，本公司将保留权力终止会员服务及冻结其帐户，感谢您对TG的支持！！
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('32')">上一则</button>
+					<button onclick="announce_down('33')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info33" name="note2content_info33" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0926 22:17:51</div>
+					<div>会员公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					本公司绝无发送任何不实广告，标榜每周月「保证获利」，及替人代操之行为，请会员选择通路商时，务必谨慎挑选！谢谢！
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('33')">上一则</button>
+					<button onclick="announce_down('34')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+		<div id="note2content_info34" name="note2content_info34" style="display:none;">
+
+			<div class="message_content_head">
+				<div class="head_arrow" onclick="note2_top()"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="head_content">
+					<div>0906 01:46:01</div>
+					<div>会员公告</div>
+				</div>
+			</div>
+
+			<div class="message_detail">
+				<p>
+					敬请会员注意：请于每次充值前，先登入查看网页指定的专属帐号后进行充值，请勿自行转至旧有的帐号，如入款至已过期的帐号，本公司将无法查收，恕不负责，感谢您对TG的支持！！
+				</p>
+				<div class="message_btn">
+					<button onclick="announce_up('34')">上一则</button>
+					<button onclick="announce_down('35')">下一则</button>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="content-2" style="display:block;">
+
+		</div>
+
+	</div>
+
+</section>
+		</div>
+	</div>
+
+	<script src="__JS__/jquery.cookies.2.2.0.js"></script>
+	<script src="__JS__/side.js"></script>
+	<script src="__JS__/my_info.js"></script>
+	<script src="__JS__/main.js"></script>
+	<script src="__JS__/scrollTop.js"></script>
+	<script src="__JS__/downloadApp.js?v=20190605114015"></script>
+</body>
+
+</html>

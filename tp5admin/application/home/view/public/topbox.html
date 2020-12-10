@@ -1,0 +1,30 @@
+<div class="top-box">
+    <div>
+        <span class="back"><a href="{:url('begin')}"><img src="__IMGS__/back.png"></a></span>
+        <span class="icon"><img class="animated bounceInRight" src="__IMGS__/icon04.png"></span>
+        <span class="select"><img id="show_right" src="__IMGS__/icon05.png"></span>
+    </div>
+    <div class="">
+        <div class="shade-right animated bounceInRight" style="display: none">
+            <ul>
+                <li>會員資料</li>
+                <li>帳戶查詢</li>
+                <li>遊戲規則</li>
+                <li>公告歷史</li>
+                <li>獎號查詢</li>
+                <li>開啟/關閉音樂</li>
+                <li>登出</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    $("#show_right").click(function(){
+        var i = $(".shade-right");
+        if(i.is(":hidden")){
+            i.show();    //如果元素为隐藏,则将它显现
+        }else{
+            i.hide();     //如果元素为显现,则将其隐藏
+        }
+    })
+</script>

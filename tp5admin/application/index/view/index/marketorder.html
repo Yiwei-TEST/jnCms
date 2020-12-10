@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=414,user-scalable=no">
+	<title>TG</title>
+	<link rel="stylesheet" href="__CSS__/bootstrap.min.css">
+	<link rel="stylesheet" href="__CSS__/fontawesome-all.min.css">
+	<link rel="stylesheet" href="__CSS__/normalize.css">
+	<link rel="stylesheet" href="__CSS__/tab_style.css">
+	<link rel="stylesheet" href="__CSS__/side.css">
+	<link rel="stylesheet" href="__CSS__/Main_Style.css?v=20190605114015">
+	<link rel="stylesheet" href="__CSS__/marketlist_detail.css?v=20190605114015">
+	<link rel="stylesheet" href="__CSS__/FIFA_marketlist.css">
+	<link rel="stylesheet" href="__CSS__/ex.css?v=20190605114015">
+	<link rel="stylesheet" href="__CSS__/my_info_chg.css?v=20190605114015">
+	<link rel="stylesheet" href="__CSS__/switch.css">
+	<link rel="stylesheet" href="__CSS__/downloadApp.css?v=20190605114015">
+
+		<!--theme-->
+	<link rel="stylesheet" href="__CSS__/theme/APPui.css?v=20190605114015">
+	<script src="__JS__/jquery-3.2.1.min.js"></script>
+    <script src="__JS__/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="sidy" onclick="siidyy();">
+        {include file="public/nav" /}
+<!--<div class="downloadApp">-->
+    <!--<div class="row step_one">-->
+        <!--<div class="col-xs-offset-1 col-xs-5"><button type="button" class="forAndriod" id="forAndriod">安卓下载</button></div>-->
+        <!--<div class="col-xs-5"><button type="button" class="forIos" id="forIos">IOS下载</button></div>-->
+    <!--</div>-->
+    <!--<div class="step_two" id="andriod">-->
+        <!--<div class="header">-->
+            <!--<h2 class="downloadApp_title title_andriod">安卓下载</h2><button type="button" class="app_close"></button>-->
+        <!--</div>-->
+        <!--<div class="AppContent content_andriod">-->
+            <!--<img class="QRcode QRcode_Android" src="__IMG__/downloadApp/android.png" alt="download android app qrcode">-->
+            <!--<img src="__IMG__/downloadApp/index-white_Andrioid-flow_01.svg" alt="">-->
+            <!--<p>步骤一<br>-->
+                <!--下载QR Droid<br>扫码器</p>-->
+            <!--<p>步骤二<br>-->
+                <!--扫码进行下载<br>TG.apk</p>-->
+            <!--<p>步骤三<br>-->
+                <!--下载<br>apk Installer工具</p>-->
+            <!--<img src="__IMG__/downloadApp/index-white_Andrioid-flow_02.svg" alt="">-->
+            <!--<p class="w">步骤四<br>-->
+                <!--开启APK Installer工具<br>点选Install APKs项目<br>开启TG.apk档</p>-->
+            <!--<p class="w">步骤五<br>-->
+                <!--TG安装完成</p>-->
+            <!--<span class="download_btn"><a href=" https://info.sxysrn.cn/AppInstallation/downloadQRCode.html">前往下载</a></span>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="step_two" id="ios">-->
+        <!--<div class="header">-->
+            <!--<h2 class="downloadApp_title title_ios">IOS下载</h2><button type="button" class="app_close"></button>-->
+        <!--</div>-->
+        <!--<div class="AppContent content_ios">-->
+            <!--<img class="QRcode QRcode_Ios" src="__IMG__/downloadApp/ios.png" alt="download ios app qrcode">-->
+            <!--<img src="__IMG__/downloadApp/index-white_Ios-flow_01.svg" alt="">-->
+            <!--<p>步骤一<br>-->
+                <!--扫描QRcode 开启网页<br>点选前往下载按钮<br>接着点选上方<br>二维码讯息</p>-->
+            <!--<p>步骤二<br>-->
+                <!--点选安装<br>等待安装完成</p>-->
+            <!--<p>步骤三<br>-->
+                <!--点击设置进入通用<br>点选设备管理</p>-->
+
+            <!--<img src="__IMG__/downloadApp/index-white_Ios-flow_02.svg" alt="">-->
+            <!--<p class="w">步骤四<br>-->
+                <!--验证TG应用</p>-->
+            <!--<p class="w">步骤五<br>-->
+                <!--TG安装完成</p>-->
+            <!--<span class="download_btn"><a href="https://info.sxysrn.cn/AppInstallation/iOSdownload.html">前往下载</a></span>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!-- <script>
+    //会员互转
+    $("#modify111").on('click', function() {
+        $(".sidy").removeClass('sidy--opened');
+        $.ajax({
+            type: 'POST',
+            url: 'pointc2c.html',
+            //data: 'IncomeUser=' + username + '&amount=' + amount + '&withdrawpassword=' + passwd ,
+            error: function(xhr) {
+                alert('error');
+                window.location.reload();
+                return false;
+            },
+            beforeSend: function(response) {
+                $("#Modal_coverchgall").html("<div class='Loading'></div>");
+            },
+            success: function(response) {
+                $("#Modal_coverchgall").on('keyup', function() {
+                    var _this = this;
+                    //setTimeout(function(){
+                    //_this.scrollIntoViewIfNeeded();
+                    //},400);
+                });
+                $("#Modal_coverchgall").html(response);
+            }
+        });
+        $("#Modal_coverchgall").css('display', 'block');
+    });
+</script> -->
+        <div class="sidy__content">
+<div class="scroll_top" id="return-to-top">
+	<div class="scroll_top_bg"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+</div>
+            {include file="public/nav1" /}
+
+<div id="Modal_coverchgall" class="cover"></div>
+<script>
+// 倒數60秒
+
+var count = 60, timer = setInterval(function() {
+    $(".update").html(count--);
+    if(count == 1) clearInterval(timer);
+}, 1000);
+
+// var chkstop_open;
+//    /*注單order*/
+// 	function moveorder(a,b,c,d,f,g,h,i,j,k,l,m,n,o,p,q,bp,selectmoneyL1,close_order)
+// 	{
+
+// 	 if(close_order==0)
+// 	 {
+// 	 	alert("暂不开放下单")
+// 	 	return false;
+// 	 }
+// 	 //jQuery('#order1').html("<div class='Loading'></div>");
+//    //jQuery('#order1').modal('show');
+
+// 		/*
+// 		a selectname
+// 		b time
+// 		c gameid
+// 		d markettype
+// 		f gamename
+// 		g marketid
+// 		h marketname
+// 		i Rate
+// 		j Bet
+// 		k selectrateL1
+// 		l betfairori
+// 		m gc12
+// 		n selectid
+// 		o sel
+// 		p marketpercentage
+// 		q competitionname
+// 		*/
+
+// 	var simple_ar = Array();
+//   	var c2bet_st = new Object;
+//   	var orderinfo_st = new Object;
+
+//   	var jimDatass = {selectname: a, time: b, gameid: c, markettype: d, gamename: f, marketname: h, Rate: i, Bet: j, BetType: 'L', MarketId: g, SelectionId: n, betfairori: l, percent: p, chk: 'order', category: q, selectrateL1: k, sel:o, gc12:m, pawben:bp, selectmoneyL1:selectmoneyL1,}
+//   	simple_ar.push(jimDatass);
+//   	orderinfo_st = simple_ar;
+//   	//console.log(orderinfo_st);
+//   	c2bet_st["c2betorder"]=orderinfo_st;
+// 	//console.log(c2bet_st["c2betorder"]);
+//   	//return;
+//   	jQuery.ajax({
+// 		type: 'POST',
+// 		url: './order.html' ,
+// 		data: c2bet_st ,
+// 		error: function(xhr) {
+// 			//parent.window.frames.jQuery('#movemore_ss').html('<font color=#FF0000>网路忙线中，请稍后再试!错误代码:681</font>');
+// 			//alert('網路忙線中，請稍後再試!36');
+// 			return false;
+// 		},
+
+
+// 		beforeSend:function(response)
+// 		{
+
+// 		jQuery('#Modal_cover').attr('style','display:block');
+// 		jQuery('#Modal_cover').html("<div class='Loading'></div>");
+// 		},
+
+
+// 		success: function(response) {
+
+// 			if(response.trim()=='F-001')
+// 			{
+// 				alert(response.trim()+':暂不开放下单');
+// 				window.location.reload();
+// 			}
+// 			else
+// 			{
+// 				jQuery('#Modal_cover').html(response);
+// 			}
+
+
+// 		 }
+
+// 	  	});
+
+
+// 	}
+
+// 	function getdealmoneytotal(a,b)
+// 	{
+// 		jQuery('#getdealmoneytotal').html(a);
+// 		jQuery('#countdownreloadtext').val(b);
+// 	}
+
+//   /*更新按鈕*/
+//   function countdownreload(a,b,c,d,f,pb)
+//   {
+//   	time_s_sec = 60;
+//   	var re = jQuery('#countdownreloadtext').val();
+//   	jQuery.ajax({
+// 		type: 'GET',
+// 		url: './reloadmarket.html?gameid='+a+'&gc12='+b+'&name='+c+'&time='+d+'&opmenu='+re+'&competitionname='+f+'&status_id='+pb,
+// 		//url: './reloadmarket.html?gameid='+a+'&gc12='+b+'&opmenu='+re,
+// 		//data: c2bet_st ,
+// 		error: function(xhr) {
+// 			return false;
+// 		},
+
+
+// 		beforeSend:function(response)
+// 		{
+// 		},
+
+// 		success: function(response) {
+// 		 jQuery('.content').html(response);
+// 		 }
+
+// 	  	});
+
+//   }
+
+//   /*對戰紀錄*/
+//   function pkrecord(gamename,gametime)
+//   {
+
+
+//   	var iData = new Object;
+//   	iData['gamename']=gamename;
+//   	iData['gametime']=gametime;
+
+//     console.log(iData);
+//   		jQuery.ajax({
+// 		  type: 'POST',
+// 		  url: 'pkRecords.html' ,
+// 		  data: iData ,
+// 		error: function(xhr) {
+// 			return false;
+// 		},
+
+// 		beforeSend:function(response)
+// 		{
+// 			$('#Modal_cover4').html("<div class='Loading'></div>");
+// 		},
+
+// 		 success: function(response) {
+// 			$('#Modal_cover4').html(response);
+// 		 }
+
+// 	  	});
+
+//   }
+
+// 	/*交易量統計圖表 by nillie*/
+// 	function chatShow( tag,chartid,competitionname,gameid,marketid,totaldealmoney)
+// 	{
+// 		//alert(marketid+'+'+gameid);
+// 		if( tag == 0 ) alert( '尚无成交量' );
+// 		var chatData = new Object;
+// 		chatData["eventid"] = gameid;
+// 		chatData["marketid"] = marketid;
+// 		chatData["chartid"] = chartid;
+// 		chatData["competitionname"] = competitionname;
+// 		chatData["chatTag"] = tag;
+// 		chatData['totaldealmoney']=totaldealmoney;
+// 		jQuery.ajax({
+// 			type: 'POST',
+// 			url: './chatShow.html' ,
+// 			data: chatData ,
+// 			error: function(xhr) {
+// 				return false;
+// 				//alert('error');
+// 			},
+// 			beforeSend:function(response)
+// 			{
+// 				//alert('beforeSend');
+// 				jQuery('#Modal_cover4').attr('style','display:block');
+// 				jQuery('#Modal_cover4').html("<div class='Loading'></div>");
+// 			},
+// 			success: function(response)
+// 			{
+// 				//alert(response);
+
+// 				jQuery('#Modal_cover4').html(response);
+// 			}
+// 		});
+// 	}
+
+
+
+// $('.icon_bar_cell > a').removeClass('active');
+// $('.icon_bar_cell > #market_a').addClass('active');
+
+// $(function () {
+// 	      $(".tab-selector-1").on('click', function () {
+//             $(".content-1").css('display', 'block');
+//             $(".content-2").css('display', 'none');
+//             $(".content-3").css('display', 'none');
+//         });
+//         $(".tab-selector-2").on('click', function () {
+//             $(".content-1").css('display', 'none');
+//             $(".content-2").css('display', 'block');
+//             $(".content-3").css('display', 'none');
+//         });
+//         $(".tab-selector-3").on('click', function () {
+//             $(".content-1").css('display', 'none');
+//             $(".content-2").css('display', 'none');
+//             $(".content-3").css('display', 'block');
+//         });
+// });
+</script>
+<div class="game_detail">
+	<div class="color_border"></div>
+	<div class="time"><span>{$list.add_time}</span></div>
+	<div class="game_name">{$list.title}</div>
+	<i class=" fa fa-angle-left arrow_left" aria-hidden="true" onclick="javascript:history.go(-1);"></i>
+	<button class="battle_record" id="battle" onclick="pkrecord('南非 v 摩洛哥','2019-07-01 23:59:00')" style="margin-right:16px">对战</button>
+	<div class="game_team"><span>{$list.team_home}<span class=main_mark>(主)</span> VS {$list.team_guest}</span>
+	</div>
+</div>
+<div id="app">
+<section class="tabs">
+            <input style="width:50%;left:0%;" id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked"/>
+            <label style="width:50%;left:0%;" for="tab-1" class="tab-label-1">波胆</label>
+            <input style="width:50%;left:50%;" id="tab-2" type="radio" name="radio-set" class="tab-selector-2"/>
+            <label style="width:50%;left:50%;" for="tab-2" class="tab-label-2">半场波胆</label>
+
+            <!--<input style="width:34%;left:66%;"id="tab-3" type="radio" name="radio-set" class="tab-selector-3"/>-->
+            <!--<label style="width:34%;left:66%;" for="tab-3" class="tab-label-3">总得分</label>-->
+            <!--
+            <input id="tab-4" class="tab-selector-4"/>
+            <label for="tab-4" class="tab-label-4"></label>
+            -->
+            <div class="clear-shadow"></div>
+
+            <div class="content">
+
+                <div class="content-1">
+                    <div class="table">
+                        <div class="volume_group">
+                            <div class="volume">成交量<span>{$bosum}</span><div onclick="chatShow( 'chat17953303.1_20190630050118985', 1 ,'非洲杯','17953303.1','17953303.1_02','2,232,251')" class="chatShowIcon"></div></div>
+
+                            <!--<div class="update" onclick="countdownreload('17953303.1','20190630050118985','%E5%8D%97%E9%9D%9E+v+%E6%91%A9%E6%B4%9B%E5%93%A5','2019-07-01+23%3A59%3A00','非洲杯','0')"></div>-->
+							<div class="update"></div>
+                        </div>
+                        <div class="table_head">
+                            <div class="table_option">选项</div>
+                            <div class="table_rate">获 利 %</div>
+                            <div class="table_trade">可交易量</div>
+                        </div>
+                        <div class="content_table" >
+                            {foreach name="ysum" item="v" key="key"}
+                            <div class="content_row" data-index="{$key+1}" data-index1="{$v.odd}" @click="addNew({$v.odd})">
+                                <div class="content_cell table_option" >
+                                    {switch name="key"}
+                                    {case value="0"}0 - 0{/case}
+                                    {case value="1"}0 - 1{/case}
+                                    {case value="2"}0 - 2{/case}
+                                    {case value="3"}0 - 3{/case}
+                                    {case value="4"}1 - 0{/case}
+                                    {case value="5"}1 - 1{/case}
+                                    {case value="6"}1 - 2{/case}
+                                    {case value="7"}1 - 3{/case}
+                                    {case value="8"}2 - 0{/case}
+                                    {case value="9"}2 - 1{/case}
+                                    {case value="10"}2 - 2{/case}
+                                    {case value="11"}2 - 3{/case}
+                                    {case value="12"}3 - 0{/case}
+                                    {case value="13"}3 - 1{/case}
+                                    {case value="14"}3 - 2{/case}
+                                    {case value="15"}3 - 3{/case}
+                                    {case value="16"}客队赢　进球四球以上{/case}
+                                    {case value="17"}主队赢　进球四球以上{/case}
+                                    {/switch}
+                                </div>
+                                <div class="content_cell cell_red table_rate">{$v.odd}</div>
+                                <div class="content_cell table_trade table_trade_align">￥{$v.ysum}</div>
+                            </div>
+                            {/foreach}
+                            <!--<div class="content_row">-->
+                                <!--<div class="content_cell table_option">-->
+								<!--0 - 2</div>-->
+                                <!--<div class="content_cell cell_red table_rate">6.50%</div>-->
+                                <!--<div class="content_cell table_trade table_trade_align">￥399,836</div>-->
+                            <!--</div>-->
+
+                            <!--<div class="content_row">-->
+                                <!--<div class="content_cell table_option">-->
+								<!--0 - 3</div>-->
+                                <!--<div class="content_cell cell_red table_rate">2.27%</div>-->
+                                <!--<div class="content_cell table_trade table_trade_align">￥287,641</div>-->
+                            <!--</div>-->
+
+                            <!--<div class="content_row">-->
+                                <!--<div class="content_cell table_option">-->
+								<!--1 - 0</div>-->
+                                <!--<div class="content_cell cell_red table_rate">9.72%</div>-->
+                                <!--<div class="content_cell table_trade table_trade_align">￥239,150</div>-->
+                            <!--</div>-->
+
+                            <!--<div class="content_row">-->
+                                <!--<div class="content_cell table_option">-->
+								<!--1 - 1</div>-->
+                                <!--<div class="content_cell cell_red table_rate">14.87%</div>-->
+                                <!--<div class="content_cell table_trade table_trade_align">￥483,428</div>-->
+                            <!--</div>-->
+
+                            <!--<div class="content_row">-->
+                                <!--<div class="content_cell table_option">-->
+								<!--1 - 2</div>-->
+                                <!--<div class="content_cell cell_red table_rate">4.97%</div>-->
+                                <!--<div class="content_cell table_trade table_trade_align">￥435,482</div>-->
+                            <!--</div>-->
+
+                            <!--<div class="content_row">-->
+                                <!--<div class="content_cell table_option">-->
+								<!--1 - 3</div>-->
+                                <!--<div class="content_cell cell_red table_rate">1.65%</div>-->
+                                <!--<div class="content_cell table_trade table_trade_align">￥474,285</div>-->
+                            <!--</div>-->
+
+                            <!--<div class="content_row">-->
+                                <!--<div class="content_cell table_option">-->
+								<!--2 - 0</div>-->
+                                <!--<div class="content_cell cell_red table_rate">2.81%</div>-->
+                                <!--<div class="content_cell table_trade table_trade_align">￥362,694</div>-->
+                            <!--</div>-->
+                            <!--<div class="content_rowss">-->
+                                <!--<div class="content_cell table_option">-->
+								<!--客队赢　进球四球以上</div>-->
+                                <!--<div class="content_cell cell_red table_rate"></div>-->
+                                <!--<div class="content_cell table_trade table_trade_align"></div>-->
+                            <!--</div>-->
+
+                            <!--<div class="content_rowss">-->
+                                <!--<div class="content_cell table_option">-->
+								<!--主队赢　进球四球以上</div>-->
+                                <!--<div class="content_cell cell_red table_rate"></div>-->
+                                <!--<div class="content_cell table_trade table_trade_align"></div>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-2">
+                    <div class="table">
+                        <div class="volume_group">
+                            <div class="volume">成交量<span>{$bbosum}</span><div onclick="chatShow( 'chat17953303.1_20190630050118985', 2 ,'非洲杯','17953303.1','17953303.1_203','416,771')" class="chatShowIcon"></div></div>
+
+                            <!--<div class="update" onclick="countdownreload('17953303.1','20190630050118985','%E5%8D%97%E9%9D%9E+v+%E6%91%A9%E6%B4%9B%E5%93%A5','2019-07-01+23%3A59%3A00','非洲杯')"></div>-->
+							<div class="update"></div>
+                        </div>
+                        <div class="table_head">
+                            <div class="table_option">选项</div>
+                            <div class="table_rate">获 利 %</div>
+                            <div class="table_trade">可交易量</div>
+                        </div>
+                        <div class="content_table">
+                            {foreach name="bysum" item="v" key="key"}
+                            <div class="content_row">
+                                <div class="content_cell table_option" data-index="{$key+1}" data-index1="{$v.odd}">
+                                    {switch name="key"}
+                                    {case value="0"}0 - 0{/case}
+                                    {case value="1"}0 - 1{/case}
+                                    {case value="2"}0 - 2{/case}
+                                    {case value="3"}1 - 0{/case}
+                                    {case value="4"}1 - 1{/case}
+                                    {case value="5"}1 - 2{/case}
+                                    {case value="6"}2 - 0{/case}
+                                    {case value="7"}2 - 1{/case}
+                                    {case value="8"}2 - 2{/case}
+                                    {case value="9"}其他{/case}
+                                    {/switch}
+                                </div>
+                                <div class="content_cell cell_red table_rate">{$v.odd}%</div>
+                                <div class="content_cell table_trade table_trade_align">￥{$v.ysum}</div>
+                            </div>
+                            {/foreach}
+                        </div>
+                    </div>
+                </div>
+
+                <!--<div class="content-3">-->
+                    <!--<div class="table">-->
+                        <!--<div class="volume_group">-->
+                            <!--<div class="volume">成交量<span>0</span><div onclick="chatShow( 'chat17953303.1_20190630050118985', 3 ,'非洲杯','17953303.1','','0')" class="chatShowIcon"></div></div>-->
+
+                            <!--&lt;!&ndash;<div class="update" onclick="countdownreload('17953303.1','20190630050118985','%E5%8D%97%E9%9D%9E+v+%E6%91%A9%E6%B4%9B%E5%93%A5','2019-07-01+23%3A59%3A00','非洲杯')"></div>&ndash;&gt;-->
+							<!--<div class="update"></div>-->
+                        <!--</div>-->
+                        <!--<div class="table_head">-->
+                            <!--<div class="table_option">选项</div>-->
+                            <!--<div class="table_rate">获 利 %</div>-->
+                            <!--<div class="table_trade">可交易量</div>-->
+                        <!--</div>-->
+                           <!--<div class="content_table">-->
+
+                            <!--<div class="content_rowss">-->
+                                <!--<div class="content_cell table_option">-->
+								<!--1球以上</div>-->
+                                <!--<div class="content_cell cell_red table_rate"></div>-->
+                                <!--<div class="content_cell table_trade table_trade_align"></div>-->
+                            <!--</div>-->
+
+                            <!--<div class="content_rowss">-->
+                                <!--<div class="content_cell table_option">-->
+								<!--2球以上</div>-->
+                                <!--<div class="content_cell cell_red table_rate"></div>-->
+                                <!--<div class="content_cell table_trade table_trade_align"></div>-->
+                            <!--</div>-->
+
+                            <!--<div class="content_rowss">-->
+                                <!--<div class="content_cell table_option">-->
+								<!--3球以上</div>-->
+                                <!--<div class="content_cell cell_red table_rate"></div>-->
+                                <!--<div class="content_cell table_trade table_trade_align"></div>-->
+                            <!--</div>-->
+
+                            <!--<div class="content_rowss">-->
+                                <!--<div class="content_cell table_option">-->
+								<!--4球以上</div>-->
+                                <!--<div class="content_cell cell_red table_rate"></div>-->
+                                <!--<div class="content_cell table_trade table_trade_align"></div>-->
+                            <!--</div>-->
+
+                            <!--<div class="content_rowss">-->
+                                <!--<div class="content_cell table_option">-->
+								<!--5球以上</div>-->
+                                <!--<div class="content_cell cell_red table_rate"></div>-->
+                                <!--<div class="content_cell table_trade table_trade_align"></div>-->
+                            <!--</div>-->
+
+                            <!--<div class="content_rowss">-->
+                                <!--<div class="content_cell table_option">-->
+								<!--6球以上</div>-->
+                                <!--<div class="content_cell cell_red table_rate"></div>-->
+                                <!--<div class="content_cell table_trade table_trade_align"></div>-->
+                            <!--</div>-->
+
+                            <!--<div class="content_rowss">-->
+                                <!--<div class="content_cell table_option">-->
+								<!--7球以上</div>-->
+                                <!--<div class="content_cell cell_red table_rate"></div>-->
+                                <!--<div class="content_cell table_trade table_trade_align"></div>-->
+                            <!--</div>-->
+
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+            <input type="hidden" value="1" id="close_order">
+</section>
+<div id="Modal_cover" class="cover" :v-if="is_display">
+
+    <script src="__JS__/order.js"></script>
+    <!--<script src="__JS__/stop_f12.js"></script>-->
+
+    <style>
+    .fa-times:before {
+        position: absolute;
+        top: 8px;
+        right: 4%;
+        font-size: 22px;
+    }
+
+    .order_content3 {
+        position: relative;
+        background-color: #f1f1f0;
+        margin: auto;
+        padding: 0;
+        border: 1px solid #c3c3c3;
+        width: 95%;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        /* -webkit-animation-name: animatetop; */
+        /* -webkit-animation-duration: 0.4s; */
+        /* animation-name: animatetop; */
+        /* animation-duration: 0.4s; */
+        height: auto;
+        animation: animatezoom 0.4s;
+        border-radius: 5px;
+     }
+     .modal_title{
+       text-align: center;
+        font-size: 20px;
+        padding: 10px 0px;
+        letter-spacing: 2px;
+        background: #0d3675; /* Old browsers */
+        background: -moz-linear-gradient(left, #0d3675 0%, #00ecd5 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left, #0d3675 0%,#00ecd5 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right, #0d3675 0%,#00ecd5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d3675', endColorstr='#00ecd5',GradientType=1 ); /* IE6-9 */
+        /*background-color:#0d3675;*/
+        color: white;
+    }
+    .black_line{
+        width: 100%;
+        height: 0px;
+        background-color: black;
+        margin-bottom: 0px;
+    }
+    .my_info_table{
+        display: table;
+        width: 100%;
+    }
+    .my_info_row{
+        display: table-row;
+    }
+    .my_info_cell_title{
+        display: table-cell;
+        width: 25%;
+        padding-left: 20px;
+        letter-spacing: 1px;
+    }
+    .my_info_cell{
+        display: table-cell;
+        width:70%;
+        font-weight: bold;
+        padding-right: 20px;
+        padding-bottom: 10px;
+    }
+    .my_info_cell input{
+        width: 100%;
+        border-radius: 3px;
+        border: 1px solid rgba(135, 148, 148, 0.5);
+        height: 35px;
+        margin-left: 10px;
+    }
+    .my_info_cell_title span{
+        color: red;
+        margin-left: 5px;
+
+    }
+    .fa-times:before {
+        position: absolute;
+        top: 8px;
+        right: 4%;
+        font-size: 22px;
+        color: white;
+    }
+    #confirm3{
+        width: 48%;
+        height: 36px;
+        border: 1px solid rgba(135, 148, 148, 0.5);
+        background: #fefefe; /* Old browsers */
+        background: -moz-linear-gradient(top, #fefefe 0%, #d1d1d1 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #fefefe 0%,#d1d1d1 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #fefefe 0%,#d1d1d1 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#d1d1d1',GradientType=0 ); /* IE6-9 */
+        color: red;
+        letter-spacing: 2px;
+        font-size: 16px;
+    }
+    #cancel3{
+        width: 48%;
+        height: 36px;
+        border: 1px solid rgba(135, 148, 148, 0.5);
+        background: #fefefe; /* Old browsers */
+        background: -moz-linear-gradient(top, #fefefe 0%, #d1d1d1 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #fefefe 0%,#d1d1d1 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #fefefe 0%,#d1d1d1 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#d1d1d1',GradientType=0 ); /* IE6-9 */
+        letter-spacing: 2px;
+        font-size: 16px;
+    }
+    </style>
+
+    <div id="order1" class="order_content" >
+    <div class="trade_msg">交易信息</div>
+                    <div class="against">您正在<span class="blink">反对</span><span class="text_italic"></span></div>
+                    <div class="white_bg">
+                        <div class="modal_content_title_table1">
+                            <div class="modal_content_title_row1">
+                                <div class="modal_content_title_cell date">{$list.add_time}&nbsp;&nbsp;[{$list.title}]</div>
+                                <div class="modal_content_title_cell football">波胆</div>
+                            </div>
+                            <div class="modal_content_title_row1">
+                                <div class="modal_content_title_cell team_name">
+                                    {$list.team_home}<span class="main_mark">(主)</span>&nbsp;VS&nbsp;{$list.team_guest}</div>
+                                <div class="modal_content_title_cell score">0 - 1</div>
+                        </div>
+                        </div>
+                        <div class="modal_content_title_table2">
+                            <div class="modal_content_title_row2">
+                                <div class="modal_content_title_cell2">交易金额</div>
+                                <div class="modal_content_title_cell2 rate">获 利 %</div>
+                                <div class="modal_content_title_cell2">预估获利</div>
+                            </div>
+                        </div>
+                        <div class="modal_content_title_table3">
+                            <div class="modal_content_title_row2">
+                                <div class="modal_content_title_cell3 trade_amount">
+                                <input class="input" style="text-align:center;" type="text" name="Bet" id="Bet" maxlength="10" size="12" @onkeyup="checkorder(this.value)" v-model="rmb">
+                                </div>
+                                <div class="modal_content_title_cell3 x">x</div>
+                                <div class="modal_content_title_cell3 rate_num"></div>
+                                <div class="modal_content_title_cell3 equal">=</div>
+                                <div class="modal_content_title_cell3 total"><span id="orderrisk_st"></span></div>
+                            </div>
+                        </div>
+                        <div class="fee">※手续费：5%</div>
+                        <div class="btn_group">
+                            <button class="money_btn" @click = "rmbs(rmb1)">{{rmb1}}</button>
+                            <button class="money_btn" @click = "rmbs(rmb2)">{{rmb2}}</button>
+                            <button class="money_btn" @click = "rmbs(rmb3)">{{rmb3}}</button>
+                            <button class="all" onclick="checkorder_add('1210.00','all')">全部</button>
+                        </div>
+                    </div>
+
+                    <div class="white_bg2">
+                        <div id="setting" class="setting"><i class="fa fa-cog" aria-hidden="true"></i></div>
+                        <div class="overage">可用余额：<span class="remaining-money">{{endMoney}}</span></div>
+                    </div>
+
+                    <button class="confirm" @click="getorder()">确定交易</button>
+                    <button class="cancel" id="cancel1" onclick="closeorderdiv()">取消交易</button>
+    </div>
+    <div id="order3" class="order_content3" style="display:none;">
+        <div class="check-row">
+            <div class="check"></div>
+        </div>
+        <div class="trade_msg">交易成功</div>
+        <hr class="success-line">
+        <div class="success-table">
+            <div class="table-left">
+                <ul>
+                    <li>单号</li>
+                    <li>联盟</li>
+                    <li>赛事</li>
+                    <li>选项</li>
+                    <li>金额</li>
+                    <li>获利％</li>
+                    <li>预估获利</li>
+                </ul>
+            </div>
+            <div class="table-right">
+                <ul>
+                    <li>#12739174</li>
+                    <li>土甲</li>
+                    <li>阿特诺度（主）vs 吉里森斯堡</li>
+                    <li>波胆 0 - 0</li>
+                    <li>1000</li>
+                    <li>5.74％</li>
+                    <li>54.53</li>
+                </ul>
+            </div>
+        </div>
+        <div class="btn-row">
+            <button class="cancel" id="cancel3" onclick="closeorderdiv()">關閉</button>
+            <button class="confirm">前往交易明細</button>
+        </div>
+    </div>
+    <div id="Modal_cover3" class="cover" style="display:none;">
+                <div id="order3" class="order_content3">
+                    <div class="modal_title" style="height: 50px;text-align: center;color: #fff;font-size: 18px;line-height: 50px">快 捷 金 额 设 定
+                        <i class="fa fa-times x" aria-hidden="true" style="height:0px;position: absolute;top:16px;right: 16px;font-size: 20px;color: #fff"></i>
+                    </div>
+                    <div class="black_line"></div>
+                    <div class="my_info_table" style="padding: 20px">
+                        <div class="my_info_row" style="display: flex;align-items: center">
+                            <div class="my_info_cell_title" style="width: 30%">第一设定值</div>
+                            <div class="my_info_cell" >
+                                <input maxlength="7" type="number" class="form-control" id="common1" name="common1" v-model="Setuprmb1">
+                            </div>
+                        </div>
+                        <div class="my_info_row" style="display: flex;align-items: center;margin:10px 0 ">
+                            <div class="my_info_cell_title" style="width: 30%">第二设定值</div>
+                            <div class="my_info_cell">
+                                <input maxlength="7" type="number" class="form-control" id="common2" name="common2" v-model="Setuprmb2">
+                            </div>
+                        </div>
+                        <div class="my_info_row" style="display: flex;align-items: center">
+                            <div class="my_info_cell_title" style="width: 30%">第三设定值</div>
+                            <div class="my_info_cell">
+                                <input maxlength="7" type="number" class="form-control" id="common3" name="common3" v-model="Setuprmb3">
+                            </div>
+                            <input type="hidden" id="quotas" name="quotas" value="1210.00">
+                        </div>
+                    </div>
+                    <div class="btn_group_order">
+                    <button id="confirm3" style="border:1px solid #e7e7e7;color:red"  @click="rmb1=Setuprmb1;rmb2=Setuprmb2;rmb3=Setuprmb3">确定</button>
+                    <button id="cancel3" style="border:1px solid #e7e7e7;">取消</button>
+                    </div>
+            </div>
+
+     </div>
+
+    <input type="hidden" name="MarketId" id="MarketId" value="18338999.1_02">
+    <input type="hidden" name="gameid" id="gameid" value="18338999.1">
+    <input type="hidden" name="SelectionId" id="SelectionId" value="4">
+    <input type="hidden" name="BetType" id="BetType" value="L">
+    <input type="hidden" name="handicap" id="handicap" value="">
+    <input type="hidden" name="gamename" id="gamename" value="菲科西宁 v 平福">
+    <input type="hidden" name="marketname_st" id="marketname_st" value="波胆">
+    <input type="hidden" name="Rate" id="Rate" value="0.0701">
+    <input type="hidden" name="percent" id="percent" value="0.05">
+    <input type="hidden" name="betfairori" id="betfairori" value="">
+    <input type="hidden" name="markettype" id="markettype" value="1">
+    <input type="hidden" name="time" id="time" value="2019-07-08+17%3A00%3A00">
+    <input type="hidden" name="selectname" id="selectname" value="0 - 1">
+    <input type="hidden" name="inplay" id="inplay" value="0">
+    <input type="hidden" name="selectrateL1" id="selectrateL1" value="9.320">
+    <input type="hidden" name="gc12" id="gc12" value="2019070801223282">
+    <input type="hidden" name="category" id="category" value="越南乙">
+    <input type="hidden" name="sel" id="sel" value="">
+    <input type="hidden" name="balance_money" id="balance_money" value="1210.00">
+    <input type="hidden" name="betsize1" id="betsize1" value="1000">
+    <input type="hidden" name="betsize1" id="betsize2" value="2000">
+    <input type="hidden" name="betsize1" id="betsize3" value="5000">
+    <input type="hidden" name="betsize1" id="xiazhu" value="">
+    <input type="hidden" name="betsize1" id="type" value="">
+
+</div>
+</div>
+
+<!-- <script>
+window.clearInterval(chkstop_open);
+checktime5_5('17953303.1','20190630050118985','%E5%8D%97%E9%9D%9E+v+%E6%91%A9%E6%B4%9B%E5%93%A5','2019-07-01+23%3A59%3A00','非洲杯');
+
+</script> -->
+
+		</div>
+	</div>
+
+    <script>
+        var app = new Vue({
+            el: '#Modal_cover',
+            data: {
+                rmb: 0,
+                id :  "{$id}",
+                rmb1:1000,
+                rmb2:2000,
+                rmb3:5000,
+                Setuprmb1:'',
+                Setuprmb2:'',
+                Setuprmb3:'',  //
+                odd: 0,      //赔率
+                orderMoney: 0, //订单金额
+                bd: "",   //波胆
+                is_display: false,
+                endMoney: "{$money}",
+                xiazhu:'',
+            },
+            created:function () {
+
+            },
+            methods: {
+                addNew (odd) {
+                    //console.log(odd);
+                    //this.odd = odd;
+                },
+                rmbs (rmbx) {
+                    var _this =this;
+                    var a = _this.rmb;
+                    var odds = $(".rate_num").text();
+                    _this.odd = odds;
+                    var money = (odds * rmbx * 0.95).toFixed(2);
+                    _this.orderMoney = money ;
+                     a =  a + parseInt(rmbx);
+                    _this.rmb = a;
+                    console.log(odds);
+                    _this.endMoney = _this.endMoney - a;
+                    $('#orderrisk_st').text(money);
+                },
+                getorder:function () {
+                    // console.log($("#xiazhu").val()+11111111111111111);
+                    var _this=this
+                    var xiazhu=$("#xiazhu").val();
+                    var type = $("#type").val();
+                    axios.post('/home/index/xiazhu',{
+                        xiazhu:xiazhu,
+                        type:type,
+                        money:this.rmb,
+                        id_saishi:this.id,
+                        huoli:this.odd
+                    }) .then(function (response) {
+                        if(response.data.code==1){
+                            alert(response.data.msg);
+                            $('div#order1').hide(100);
+                            $('div#Modal_cover').hide();
+                            this.rmb=''
+                        }else{
+                            $('div#order1').hide(100);
+                            $('div#Modal_cover').hide();
+                            this.rmb=''
+                            alert(response.data.msg);
+                        }
+
+                    }).catch(function (error) { // 请求失败处理
+                            console.log(error);
+                     });
+                }
+            }
+        })
+    </script>
+	<script src="__JS__/side.js"></script>
+	<script src="__JS__/scrollTop.js"></script>
+	<script src="__JS__/downloadApp.js?v=20190605114015"></script>
+	<script>
+
+		function closeorderdiv_finish() {
+			window.location.reload();
+		}
+
+		function titleannice() {
+			var ss = $('#marqinfo').css("display");
+			if (ss == 'none') {
+				$('#marqinfo').attr('style', 'margin-top:3px;font-size:16px;margin-left:22%;width:80%;display:block');
+				$('#markettitle').attr('style', 'display:none');
+			} else {
+				$('#marqinfo').attr('style', 'display:none');
+				$('#markettitle').attr('style', 'display:block;padding-left:150px;width:80%;');
+			}
+		}
+
+    </script>
+
+    <script>
+        var odd = 0;  //
+        var odds = 0; //赔率
+        $('.content-1 .content_row').click(function(){
+            $('.text_italic').text();
+            $('#xiazhu').empty();
+            $('.rate_num').empty();
+            var e = event || window.event;
+            var odd = e.currentTarget.dataset.index;
+            var odds = e.currentTarget.dataset.index1;
+            $('#type').attr('value',1);
+            var bd  = "";
+            $('#xiazhu').attr('value',odd);
+            console.log(odd);
+                switch (parseInt(odd)) {
+                    case 1:
+                        bd = "0 - 0";
+                        break;
+                    case 2:
+                        bd = "0 - 1";
+                        break;
+                    case 3:
+                        bd = "0 - 2";
+                        break;
+                    case 4:
+                        bd = "0 - 3";
+                        break;
+                    case 5:
+                        bd = "1 - 0";
+                        break;
+                    case 6:
+                        bd = "1 - 1";
+                        break;
+                    case 7:
+                        bd = "1 - 2";
+                        break;
+                    case 8:
+                        bd = "1 - 3";
+                        break;
+                    case 9:
+                        bd = "2 - 0";
+                        break;
+                    case 10:
+                        bd = "2 - 1";
+                        break;
+                    case 11:
+                        bd = "2 - 2";
+                        break;
+                    case 12:
+                        bd = "2 - 3";
+                        break;
+                    case 13:
+                        bd = "3 - 0";
+                        break;
+                    case 14:
+                        bd = "3 - 1";
+                        break;
+                    case 15:
+                        bd = "3 - 2";
+                        break;
+                    case 16:
+                        bd = "3 - 3";
+                        break;
+                    case 17:
+                        bd = "客队赢　进球四球以上";
+                        break;
+                    case 18:
+                        bd = "主队赢　进球四球以上";
+                        break;
+                }
+            $('.text_italic').eq(0).text(bd);
+            $('.score').eq(0).text(bd);
+            $('.rate_num').eq(0).text(odds);
+            $('div#order1').attr('style', 'display:block');
+
+            $('div#Modal_cover').show();
+        });
+
+        $('div#setting').click(function(){
+            $('div#Modal_cover3').show();
+        })
+
+        $('.content-2 .content_row').click(function(){
+            $('.text_italic').text();
+            $('.rate_num').empty();
+            var e = event || window.event;
+            var odd = e.currentTarget.dataset.index;
+            var odds = e.currentTarget.dataset.index1;
+            var bd  = "";
+            $('#xiazhu').attr('value',odd);
+            $('#type').attr('value',0);
+            console.log(odd);
+            switch (parseInt(odd)) {
+                case 1:
+                    bd = "0 - 0";
+                    break;
+                case 2:
+                    bd = "0 - 1";
+                    break;
+                case 3:
+                    bd = "0 - 2";
+                    break;
+                case 4:
+                    bd = "0 - 3";
+                    break;
+                case 5:
+                    bd = "1 - 0";
+                    break;
+                case 6:
+                    bd = "1 - 1";
+                    break;
+                case 7:
+                    bd = "1 - 2";
+                    break;
+                case 8:
+                    bd = "1 - 3";
+                    break;
+                case 9:
+                    bd = "2 - 0";
+                    break;
+                case 10:
+                    bd = "2 - 1";
+                    break;
+                case 11:
+                    bd = "2 - 2";
+                    break;
+                case 12:
+                    bd = "2 - 3";
+                    break;
+                case 13:
+                    bd = "3 - 0";
+                    break;
+                case 14:
+                    bd = "3 - 1";
+                    break;
+                case 15:
+                    bd = "3 - 2";
+                    break;
+                case 16:
+                    bd = "3 - 3";
+                    break;
+                case 17:
+                    bd = "客队赢　进球四球以上";
+                    break;
+                case 18:
+                    bd = "主队赢　进球四球以上";
+                    break;
+            }
+            $('.text_italic').eq(0).text(bd);
+            $('.score').eq(0).text(bd);
+            $('.rate_num').eq(0).text(odds);
+            $('div#order1').attr('style', 'display:block');
+
+            $('div#Modal_cover').show();
+        });
+
+        $('div#setting').click(function(){
+            $('div#Modal_cover3').show();
+        })
+    </script>
+    <script>
+        var GREATER_QUOTA = '大于可用余额';
+        var MONEY_GREATER100 = '金额请大于等于100';
+        var ODDS_EMPTY = '赔率空值';
+        var MONEY_LESS_POINT_2 = '金额最多小数点2位';
+        var _WRONG_USE_ = '';
+        var _PLEASEINPUTNUM_ = '请输入数字';
+        var _BREAK_CHECK_INFO = '';
+        var EDIT_SUCCESS = '修改成功 ';
+        var EDIT_SUCCESS = '修改成功 ';
+        var DETERMINE = '确定';
+        var EDIT_FAILES = '修改失败';
+        var EDIT_FAILES = '修改失败';
+        var DETERMINE = '确定';
+        var MONEY_LESS_POINT_2 = '金额最多小数点2位';
+        var MONEY_GREATER100 = '金额请大于等于100';
+
+        $('#common1').on('focus',function(){
+            var _this = this;
+            setTimeout(function(){
+                _this.scrollIntoViewIfNeeded();
+            },200);
+            });
+
+        $('#common2').on('focus',function(){
+            var _this = this;
+            setTimeout(function(){
+                _this.scrollIntoViewIfNeeded();
+            },200);
+            });
+
+        $('#common3').on('focus',function(){
+            var _this = this;
+            setTimeout(function(){
+                _this.scrollIntoViewIfNeeded();
+            },200);
+            });
+
+        $("#setting").on('click', function () {
+            $("#Modal_cover3").css('display', 'block');
+        });
+
+        $("#cancel3").on('click', function () {
+            $("div#Modal_cover3").hide();
+        })
+
+        $("#confirm3").on('click', function () {
+
+            $("#Modal_cover3").css('display', 'none');
+        })
+
+        $(".fa").on('click', function () {
+            $("#Modal_cover3").css('display', 'none');
+        })
+    </script>
+
+    <script>
+		function getorder() {
+			$('div#order1').hide(100);
+			$('div#order2').show(100);
+		}
+
+        function check_success() {
+			$('div#order2').hide(100);
+			$('div#order3').show(100);
+        }
+        function closeorderdiv() {
+            $('div#order1').hide(100);
+            $('div#Modal_cover').hide();
+            //$('div#order3').show(100);
+        }
+        function checkorder(number){
+           var a = (parseInt(number)*odds*0.95).toFixed(2);
+            $('#orderrisk_st').text(a);
+        }
+        function ptype(id) {
+            alert(id);
+        }
+    </script>
+
+    <style>
+        .notice{
+            background:none !important;
+        }
+
+        .check {
+            display: block;
+            transform: rotate(45deg);
+            height: 30px;
+            width: 15px;
+            border-bottom: 7px solid #78b13f;
+            border-right: 7px solid #78b13f;
+            position: absolute;
+        }
+
+        .check-row:before {
+            content: "";
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid #78b13f;
+            position: absolute;
+            top: 54%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        .check-row {
+            width: 100%;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .table-left ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .table-left {
+            width: 25%;
+            padding: 0 15px;
+            background: #91764b;
+            color: #fff;
+            text-align: center;
+        }
+
+        .table-right ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .table-right {
+            padding: 0 15px;
+            width: 75%;
+        }
+
+        .success-table {
+            display: flex;
+            width: 90%;
+            margin: auto;
+        }
+
+        .table-left ul li, .table-right ul li {
+            padding: 6px 0;
+        }
+
+        .btn-row {
+            padding-top: 35px;
+        }
+
+    </style>
+</body>
+</html>

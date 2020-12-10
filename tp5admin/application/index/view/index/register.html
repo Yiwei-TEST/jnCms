@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>Registered</title>
+	<link rel="stylesheet" href="__CSS__/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap-select/2.0.0-beta1/css/bootstrap-select.css">
+	<link rel="stylesheet" href="__CSS__/fontawesome-all.min.css">
+	<link rel="stylesheet" href="__CSS__/normalize.css">
+	<link rel="stylesheet" href="__CSS__/registered.css">
+	<link rel="stylesheet" href="__CSS__/theme/APPui.css?v=20190709112359">
+</head>
+
+<body>
+	<div class="bg">
+		<div class="head_group">
+			<div class="logo_position">
+				<div onclick="window.location.href='login.html'" class="logo"></div>
+			</div>
+			<div class="join_title">加入会员</div>
+		</div>
+		<div class="color_border"></div>
+		<div class="content_block">
+			<div class="block_title">填写帐号与密码<span>*为必填栏位</span></div>
+			<div class="black_line"></div>
+			<!--<p class="note_text">随机选择您喜欢的帐号后，填写昵称并继续完成输入帐号密码与提款密码，<span class="text_bold">提款密码将是您提款时重要依据。</span></p>-->
+			<div class="account_name">代理商&nbsp;</div>
+			<div class="acc_pwd_part1">
+				<div class="content_table">
+					<div class="content_row">
+						<div class="content_cell_title">帐号<span>*</span></div>
+						<div class="content_cell">
+							<input type="text" id="account_out" name="account" value="">
+						</div>
+					</div>
+					<input type="hidden" id="agentid" name="agentid" value="af140">
+
+							<div class="content_row">
+								<div class="content_cell_title">昵称<span>*</span></div>
+								<div class="content_cell"><input type="text" id="nickname" name="nickname" value=""></div>
+							</div>
+							<div class="content_row">
+								<div class="content_cell_title">密码<span>*</span></div>
+								<div class="content_cell"><input type="password" id="loginPwd" name="password" placeholder="英数混合至少6个字元！"></div>
+							</div>
+							<div class="content_row">
+								<div class="content_cell_title">确认密码<span>*</span></div>
+								<div class="content_cell"><input type="password" id="loginPwd2" name="password1" value=""></div>
+							</div>
+						</div>
+					</div>
+					<!--<div class="acc_pwd_part2">-->
+						<!--<div class="content_table">-->
+							<!--<div class="content_row">-->
+								<!--<div class="content_cell_title">提款密码<span>*</span></div>-->
+								<!--<div class="content_cell"><input type="password" id="receivePwd" name="receivePwd" placeholder="英数混合至少6个字元！"></div>-->
+							<!--</div>-->
+							<!--<div class="content_row">-->
+								<!--<div class="content_cell_title align_left">确认提款密码<span>*</span></div>-->
+								<!--<div class="content_cell"><input type="password" id="receivePwd2" name="receivePwd2" value=""></div>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</div>-->
+					<!--<div class="block_title">步骤一&nbsp;&nbsp;填写银行资料<span class="text_bold">*为必填栏位</span></div>-->
+					<!--<div class="black_line"></div>-->
+					<!--<p class="note_text">请确实填写您的汇款银行户名，日后您的充值与交易仅接受该银行帐户之申请。</p>-->
+					<!--<p class="note_text">汇款户名请填写真实姓名作为提款使用，完成后即不能更改。</p>-->
+					<!--<div class="border_blue"></div>-->
+					<!--<div class="bank_acc_pwd">-->
+
+						<!--<div class="content_table">-->
+							<!--<div class="content_row">-->
+								<!--<div class="content_cell_title">汇款户名<span>*</span></div>-->
+								<!--<div class="content_cell"><input type="text" id="realname" name="realname" placeholder="请填写真实姓名" value=""></div>-->
+							<!--</div>-->
+							<!--<div class="content_row">-->
+								<!--<div class="content_cell_title">安全问题<span>*</span></div>-->
+								<!--<div class="content_cell">-->
+									<!--<select class="selector" id="question" name="question">-->
+										<!--<option value="">请选择安全问题</option>-->
+										<!--<option value="1">我母亲的姓</option>-->
+										<!--<option value="2">我父亲的名</option>-->
+										<!--<option value="3">我最喜欢的食物</option>-->
+										<!--<option value="4">我的宠物名字</option>-->
+										<!--<option value="5">最喜欢的电影名称</option>-->
+										<!--<option value="6">就读小学的名称</option>-->
+										<!--<option value="7">最喜欢的书名</option>-->
+									<!--</select>-->
+								<!--</div>-->
+							<!--</div>-->
+							<!--<div class="content_row">-->
+								<!--<div class="content_cell_title">安全答案<span>*</span></div>-->
+								<!--<div class="content_cell"><input type="text" name="ans" id="ans" value=""></div>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</div>-->
+					<!--<div class="block_title">步骤二&nbsp;&nbsp;手机号码验证</div>-->
+					<!--<div class="black_line"></div>-->
+					<!--<ul class="mobile_note">-->
+						<!--<li>请确认手机是否正常开机可收简讯状态。</li>-->
+						<!--<li>手机验证码，最多只能发送出3次，仍无法收到简讯，请联系客服人员。</li>-->
+						<!--<li>请于十分钟内完成输入手机验证码，若有申请疑问请联系客服人员，将有专员为您服务。</li>-->
+					<!--</ul>-->
+					<!--<div class="border_blue"></div>-->
+					<!--<div class="mobile_confirm">-->
+						<!--<div class="content_table">-->
+							<!--<div class="content_row">-->
+								<!--<div class="content_cell_title">地区<span>*</span></div>-->
+								<!--<div class="content_cell">-->
+									<!--<select class=selector name="area" id="area">-->
+										<!--<option value="">请选择</option>-->
+										<!--<option value="86">中国</option>-->
+										<!--<option value="852">香港</option>-->
+										<!--<option value="853">澳门</option>-->
+										<!--<option value="81">日本</option>-->
+										<!--<option value="60">马来西亚</option>-->
+										<!--<option value="84">越南</option>-->
+										<!--<option value="62">印尼</option>-->
+										<!--<option value="7">俄罗斯</option>-->
+										<!--<option value="976">蒙古国</option>-->
+										<!--<option value="65">新加坡</option>-->
+										<!--<option value="63">菲律宾</option>-->
+										<!--<option value="66">泰国</option>-->
+										<!--<option value="598">乌克兰</option>-->
+									<!--</select>-->
+								<!--</div>-->
+							<!--</div>-->
+							<!--<div class="content_row">-->
+								<!--<div class="content_cell_title">手机号码<span>*</span></div>-->
+								<!--<div class="content_cell">-->
+									<!--<input type="text" id="mobile" name="mobile" value="">-->
+								<!--</div>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<button id="sendcode" onclick="mobilecheck()" class="deliver">传送验证码</button>-->
+					<!--</div>-->
+					<!--<div id="recheckcode" class="mobile_confirm sendbtfinish">-->
+						<!--<div class="content_table">-->
+							<!--<div class="content_row">-->
+								<!--<div class="content_cell_title">验&nbsp;证&nbsp;码<span>*</span></div>-->
+								<!--<div class="content_cell">-->
+									<!--<input type="text" id="code4" name="code4" disabled>-->
+								<!--</div>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<button id="re_sendcode" class="recheckcode_btn" disabled onclick="mobilecheck()">-->
+							<!--重新发送-->
+						<!--</button>-->
+						<!--<button id="ckcode4" class="recheckcode_btn" disabled onclick="codecheck()">-->
+							<!--确认验证码-->
+						<!--</button>-->
+						<div class="completed_btn">
+							<button id="sendbt" onclick="register1()" class="completed">填写完成</button>
+						</div>
+						<input id=mobile_ans type="hidden">
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="color_border"></div>
+	</div>
+
+
+	<script src="__JS__/jquery-3.2.1.min.js"></script>
+	<!--<script src="__JS__/registered.js"></script>-->
+	<!--<script src="__JS__/registeraction.js?v=20190709112359"></script>-->
+	<script>
+		function register1() {
+            var account = $("input[name='account']").val();
+            var password     = $("input[name='password']").val();
+            var password1     = $("input[name='password1']").val();
+            var nickname    = $("input[name='nickname']").val();
+            var s_nid       = "{$s_nid}";
+            $.post('/index/login/registerpost',{account:account,password:password,password1:password1,nickname:nickname,s_nid:s_nid},
+                function(res){
+                    if(res.code==1){
+                        alert(res.msg);
+                        location.href= '/index/login/login';
+                    }else{
+                        alert(res.msg);
+                    }
+                })
+		}
+	</script>
+</body>
+
+</html>

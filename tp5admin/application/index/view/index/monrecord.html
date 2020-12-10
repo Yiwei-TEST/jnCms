@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en"><script type="text/javascript" charset="utf-8" id="zm-extension" src="chrome-extension://fdcgdnkidjaadafnichfpabhfomcebme/scripts/webrtc-patch.js" async=""></script><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=414,user-scalable=no">
+	<title>TG</title>
+	<link rel="stylesheet" href="__CSS__/bootstrap.min.css">
+	<link rel="stylesheet" href="__CSS__/fontawesome-all.min.css">
+	<link rel="stylesheet" href="__CSS__/normalize.css">
+	<link rel="stylesheet" href="__CSS__/tab_style.css">
+	<link rel="stylesheet" href="__CSS__/side.css">
+	<link rel="stylesheet" href="__CSS__/Main_Style.css">
+	<link rel="stylesheet" href="__CSS__/withdrewal_deposits.css">
+	<link rel="stylesheet" href="__CSS__/FIFA_marketlist.css">
+	<link rel="stylesheet" href="__CSS__/ex.css">
+	<link rel="stylesheet" href="__CSS__/my_info_chg.css">
+	<link rel="stylesheet" href="__CSS__/switch.css">
+	<link rel="stylesheet" href="__CSS__/downloadApp.css">
+	<!--theme-->
+	<link rel="stylesheet" href="__CSS__/theme/APPui.css">
+	<script src="__JS__/jquery-3.2.1.min.js"></script>
+	<script src="__JS__/bootstrap.min.js"></script>
+	<script>
+	</script>
+</head>
+
+<body>
+	<!-- <img src="http://page-view.qsfsys.com/page-views?t=1561989383&amp;id=AMX141" style="display: none;"> -->
+	<div class="sidy" onclick="siidyy();">
+        {include file="public/nav" /}
+		<div class="sidy__content">
+			{include file="public/nav1" /}
+<div id="Modal_coverchgall" class="cover"></div>
+<link rel="stylesheet" href="__CSS__/withdrewal_deposits.css">
+<script>
+jQuery(function() {
+   jQuery('#tabss-3').attr('checked',true)
+   jQuery('#tabss-2').on('click', function () {
+   	    jQuery('.content-2').html('<div class="Loading"></div>');
+      });
+   jQuery('#tabss-1').on('click', function () {
+   	    jQuery('.content-1').html('<div class="Loading"></div>');
+      });
+	});
+
+//充提紀錄 開始
+// function wdrecord(value)
+// {
+//   location.href="monrecord.html?wdrecord="+value;
+// }
+
+//充提紀錄 結束
+</script>
+<style>
+.no_content {
+    font-size: 20px;
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #0d3675;
+    margin-top: 200px;
+}
+.cancel{
+  padding:0px 5px;
+  border: 1px solid #0f56f7;
+  background: #FFFFFF;
+  cursor:pointer;
+}
+</style>
+<div class="title_background ">
+  <div class="title">充值与提领</div>
+</div>
+
+<section class="tabs">
+            <input onclick="location.href='deposits.html'" style="outline:none;" type="radio" id="tabss-1" name="radio-set" class="tab-selector-1">
+            <label style="width:33%;" for="tab-1" class="tabss-label-1">充值</label>
+
+            <input onclick="location.href='/index/index/receive'" style="outline:none;" type="radio" id="tabss-2" name="radio-set" class="tab-selector-2">
+            <label style="left:33%;width:33%;" for="tab-2" class="tabss-label-2">提领</label>
+
+            <input onclick="location.href='/index/index/monrecord'" style="outline:none;" type="radio" id="tabss-3" name="radio-set" class="tab-selector-3" checked="checked">
+            <label style="left:66%;width:34%;" for="tab-3" class="tabss-label-3">交易记录</label>
+            <div class="clear-shadow"></div>
+
+            <div class="content" style="margin-top:0px;padding: 0px 0px 0px 0px;">
+              <div class="content-1"></div>
+              <div class="content-2"></div>
+              <div class="content-3">
+                    <!--<div class="btn_group">
+                        <button>本周</button>
+                        <button>上周</button>
+                        <button>本月</button>
+                        <button>全部</button>
+                    </div>-->
+                    <div>
+                        <div class="record_bg">
+                            <div class="record_line1">
+                                <div class="line_block date">交易日期</div>
+                                <div class="line_block time">交易金额</div>
+                                <div class="line_block state">交易类型</div>
+                            </div>
+							{foreach name="lists" item="v"}
+                            <div class="record_line2">
+                                <div class="line_block path">{$v.add_time}</div>
+                                <div class="line_block how_much color_red">22<span style="color:#FC3030">&nbsp;</span></div>
+                            </div>
+                            <div class="record_overage">{$v.money}</div>
+							{/foreach}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		</div>
+	</div>
+	<script src="__JS__/side.js"></script>
+	<!-- <script src="__JS__/withdrewel_deposits.js"></script> -->
+	<script src="__JS__/main.js"></script>
+	<script src="__JS__/scrollTop.js"></script>
+	<script src="__JS__/downloadApp.js"></script>
+	<script src="__JS__/deposit.js"></script>
+	<script src="__JS__/qrcode.js"></script>
+	<script src="__JS__/clipboard.min.js"></script>
+	<script>
+		var clipboard = new ClipboardJS('.copy_cell'),
+			pop = $("[data-toggle='popover']");
+		clipboard.on('success', function(e) {
+			setTimeout(function() {
+				pop.popover('hide');
+			}, 300);
+			setTimeout(function() {
+				pop.popover();
+			}, 1000);
+			e.clearSelection();
+		});
+	</script>
+
+
+
+</body></html>

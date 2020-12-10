@@ -1,0 +1,130 @@
+{include file="public/headers" /}
+<body>
+<div class="home">
+    <div class="main-top">
+        {include file="index/top_ajx"/}
+    </div>
+    <div class="nav-top">
+        <ul class="layui-nav layui-bg-green" lay-filter="demo">
+            <li class="layui-nav-item " ><a href="/home/index/index">市场列表</a></li>
+            <li class="layui-nav-item "><a href="/home/index/mingxi">交易明细</a></li>
+            <li class="layui-nav-item "><a href="/home/index/finance">历史账务</a></li>
+            <li class="layui-nav-item layui-this"><a href="/home/index/game_results">赛事结果</a></li>
+            <li class="layui-nav-item "><a href="/home/index/announcement">最新公告</a></li>
+        </ul>
+    </div>
+    <div class="bg-box">
+        <div class="details">
+            <div class="game-data" id="gameData">
+                <div class="table-top">
+                    <span class="txt1">赛事结果</span>
+                </div>
+                <form name="admin_list_sea" class="form-search" method="post" action="{:url('game_results')}">
+                <div class="search-box">
+                    <div class="ipt-div"><input type="text" id="start" name="start_time" value="{$start_time}"></div>
+                    <span class="zhi">至</span>
+                    <div class="ipt-div"><input type="text" id="end" name="end_time" value="{$end_time}"></div>
+                    <button class="layui-btn"  type="submit">查询</button>
+                </div>
+                </form>
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <td>开赛时间</td>
+                        <td>赛事</td>
+                        <td>波胆</td>
+                        <td>上半场波胆</td>
+                        <td>总得分</td>
+                    </tr>
+                    </thead>
+                    <script id="list-template" type="text/html">
+                        {{# for(var i=0;i<d.length;i++){  }}
+                        <tr class="long-td">
+                            <td>{{d[i].start_time}}</td>
+                            <td>【{{d[i].title}}】{{d[i].team_home}}<font color="red">(主队)</font>--{{d[i].team_guest}}</td>
+                            <td>{{d[i].result_full}}</td>
+                            <td>{{d[i].result_half}}</td>
+                            <td>{{d[i].result_full}}</td>
+                        </tr>
+                        {{# } }}
+                    </script>
+                    <tbody id="list-content"></tbody>
+                </table>
+                <div id="AjaxPage" style=" text-align: right;"></div>
+                <div id="allpage" style=" text-align: right;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="__JS__/laypage/laypage.js"></script>
+<script src="__JS__/laytpl/laytpl.js"></script>
+<script>
+    // var app = new Vue ({
+    //     el:'#gameData',
+    //     data:{
+    //         gamedata:{},
+    //         start_time:null,
+    //         end_time:null,
+    //     },
+    //     methods:{
+    //         search:function() {
+    //             let start_time = $("#start").val();
+    //             let end_time = $("#end").val();
+    //             axios
+    //                 .post("/home/index/game_results",{start_time:start_time,end_time:end_time})
+    //                 .then(function (response){
+    //                    data = response.data;
+    //             })
+    //             .catch(function (error) {
+    //             })
+    //         },
+    //     }
+    // })
+
+    //laypage分页
+    Ajaxpage();
+    function Ajaxpage(curr){
+        let start_time = $("#start").val();
+        let end_time = $("#end").val();
+        $.getJSON('/home/index/game_results', {page: curr || 1,start_time:start_time,end_time:end_time}, function(data){
+            $(".spiner-example").css('display','none'); //数据加载完关闭动画
+            if(data==''){
+                $("#list-content").html('<td colspan="20" style="padding-top:10px;padding-bottom:10px;font-size:16px;text-align:center">暂无数据</td>');
+            }else{
+                var tpl = document.getElementById('list-template').innerHTML;
+                laytpl(tpl).render(data, function(html){
+                    document.getElementById('list-content').innerHTML = html;
+                });
+                laypage({
+                    cont: $('#AjaxPage'),//容器。值支持id名、原生dom对象，jquery对象,
+                    pages:'{$allpage}',//总页数
+                    skip: true,//是否开启跳页
+                    skin: '#1AB5B7',//分页组件颜色
+                    curr: curr || 1,
+                    groups: 3,//连续显示分页数
+                    jump: function(obj, first){
+                        if(!first){
+                            Ajaxpage(obj.curr)
+                        }
+                        $('#allpage').html('第'+ obj.curr +'页，共'+ obj.pages +'页');
+                    }
+                });
+            }
+        });
+    }
+    layui.use('laydate', function() {
+        var laydate = layui.laydate;
+        //常规用法
+        laydate.render({
+            elem: '#start',
+            format: 'yyyy-MM-dd'
+        });
+
+        laydate.render({
+            elem: '#end',
+            format: 'yyyy-MM-dd'
+        });
+    });
+</script>

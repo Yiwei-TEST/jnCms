@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en"><script type="text/javascript" charset="utf-8" id="zm-extension" async=""></script><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=414,user-scalable=no">
+	<title>TG</title>
+	<link rel="stylesheet" href="__CSS__/bootstrap.min.css">
+	<link rel="stylesheet" href="__CSS__/fontawesome-all.min.css">
+    <link rel="stylesheet" href="__CSS__/normalize.css">
+    <link rel="stylesheet" href="__CSS__/tab_style.css">
+    <link rel="stylesheet" href="__CSS__/Main_Style.css">
+	<link rel="stylesheet" href="__CSS__/index.css">
+	<link rel="stylesheet" href="__CSS__/side.css">
+	<link rel="stylesheet" href="__CSS__/my_info_chg.css">
+	<link rel="stylesheet" href="__CSS__/switch.css">
+	<link rel="stylesheet" href="__CSS__/downloadApp.css">
+		<!--theme-->
+	<link rel="stylesheet" href="__CSS__/theme/APPui.css">
+	<script src="__JS__/jquery-3.2.1.min.js"></script>
+	<script src="__JS__/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="sidy" onclick="siidyy();">
+		{include file="public/nav" /}
+<div class="downloadApp">
+    <div class="row step_one">
+        <div class="col-xs-offset-1 col-xs-5"><button type="button" class="forAndriod" id="forAndriod">安卓下载</button></div>
+        <div class="col-xs-5"><button type="button" class="forIos" id="forIos">IOS下载</button></div>
+    </div>
+    <div class="step_two" id="andriod">
+        <div class="header">
+            <h2 class="downloadApp_title title_andriod">安卓下载</h2><button type="button" class="app_close"></button>
+        </div>
+        <div class="AppContent content_andriod">
+            <img class="QRcode QRcode_Android" src="__IMG__/downloadApp/android.png" alt="download android app qrcode">
+            <img src="__IMG__/downloadApp/index-white_Andrioid-flow_01.svg" alt="">
+            <p>步骤一<br>
+                下载QR Droid<br>扫码器</p>
+            <p>步骤二<br>
+                扫码进行下载<br>TG.apk</p>
+            <p>步骤三<br>
+                下载<br>apk Installer工具</p>
+            <img src="__IMG__/downloadApp/index-white_Andrioid-flow_02.svg" alt="">
+            <p class="w">步骤四<br>
+                开启APK Installer工具<br>点选Install APKs项目<br>开启TG.apk档</p>
+            <p class="w">步骤五<br>
+                TG安装完成</p>
+            <span class="download_btn"><a href="https://info.sxysrn.cn/AppInstallation/downloadQRCode.html">前往下载</a></span>
+        </div>
+    </div>
+    <div class="step_two" id="ios">
+        <div class="header">
+            <h2 class="downloadApp_title title_ios">IOS下载</h2><button type="button" class="app_close"></button>
+        </div>
+        <div class="AppContent content_ios">
+            <img class="QRcode QRcode_Ios" src="__IMG__/downloadApp/ios.png" alt="download ios app qrcode">
+            <img src="__IMG__/downloadApp/index-white_Ios-flow_01.svg" alt="">
+            <p>步骤一<br>
+                扫描QRcode 开启网页<br>点选前往下载按钮<br>接着点选上方<br>二维码讯息</p>
+            <p>步骤二<br>
+                点选安装<br>等待安装完成</p>
+            <p>步骤三<br>
+                点击设置进入通用<br>点选设备管理</p>
+
+            <img src="__IMG__/downloadApp/index-white_Ios-flow_02.svg" alt="">
+            <p class="w">步骤四<br>
+                验证TG应用</p>
+            <p class="w">步骤五<br>
+                TG安装完成</p>
+            <span class="download_btn"><a href="https://info.sxysrn.cn/AppInstallation/iOSdownload.html">前往下载</a></span>
+        </div>
+    </div>
+</div>
+<script>
+    //会员互转
+    // $("#modify111").on('click', function() {
+    //     $(".sidy").removeClass('sidy--opened');
+    //
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: 'pointc2c.html',
+    //         //data: 'IncomeUser=' + username + '&amount=' + amount + '&withdrawpassword=' + passwd ,
+    //         error: function(xhr) {
+    //             alert('error');
+    //             window.location.reload();
+    //             return false;
+    //         },
+    //         beforeSend: function(response) {
+    //             $("#Modal_coverchgall").html("<div class='Loading'></div>");
+    //         },
+    //         success: function(response) {
+    //             //			alert( response );
+    //             $("#Modal_coverchgall").on('keyup', function() {
+    //                 var _this = this;
+    //                 //setTimeout(function(){
+    //                 //_this.scrollIntoViewIfNeeded();
+    //                 //},400);
+    //             });
+    //             $("#Modal_coverchgall").html(response);
+    //         }
+    //     });
+    //     $("#Modal_coverchgall").css('display', 'block');
+    // });
+
+</script>
+		<div class="sidy__content">
+			{include file="public/nav1" /}
+			<div class="scroll_top" id="return-to-top">
+				<div class="scroll_top_bg"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+			</div>
+
+			<section class="indexTabsNcarousel">
+				<div class="carousel slide" id="carousel-example-generic" data-ride="carousel">
+					<ol class="carousel-indicators">
+		                <li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
+		                <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+		                <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+		                <li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
+		                <li data-target="#carousel-example-generic" data-slide-to="4" class=""></li>
+		                <li data-target="#carousel-example-generic" data-slide-to="5" class="active"></li>
+		                <li data-target="#carousel-example-generic" data-slide-to="6" class=""></li>
+
+					</ol>
+					<div class="carousel-inner" role="listbox">
+						<div class="item">
+							<a href="javascript:void(0);" class="bannervideo">
+								<video id="video" src="https://banner.711835.com/banner/m210.mp4" autoplay="" loop="" playsinline="" preload="auto" muted="muted" style="width:100%;"></video>
+							</a>
+						</div>
+						<div class="item">
+							<a href="https://banner.711835.com/banner/attach323.jpg" class="bannervideo">
+								<img src="https://banner.711835.com/banner/m323.jpg" alt="pawben" style="width:100%;">
+							</a>
+						</div>
+						<div class="item">
+							<a href="https://banner.711835.com/banner/attach328.jpg" class="bannervideo">
+								<img src="https://banner.711835.com/banner/m328.jpg" alt="pawben" style="width:100%;">
+							</a>
+						</div>
+						<div class="item">
+							<a href="https://banner.711835.com/banner/attach251.jpg" class="bannervideo">
+								<img src="https://banner.711835.com/banner/m251.jpg" alt="pawben" style="width:100%;">
+							</a>
+						</div>
+						<div class="item">
+							<a href="https://banner.711835.com/banner/attach319.jpg" class="bannervideo">
+								<img src="https://banner.711835.com/banner/m319.jpg" alt="pawben" style="width:100%;">
+							</a>
+						</div>
+						<div class="item active">
+							<a href="https://banner.711835.com/banner/attach256.jpg" class="bannervideo">
+								<img src="https://banner.711835.com/banner/m256.jpg" alt="pawben" style="width:100%;">
+							</a>
+						</div>
+						<div class="item">
+							<a href="https://banner.711835.com/banner/attach291.jpg" class="bannervideo">
+								<img src="https://banner.711835.com/banner/m291.jpg" alt="pawben" style="width:100%;">
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<ul class="indexNav nav nav-tabs" id="myTab">
+					<li class=" active"><a href="#popuPaces" data-toggle="tab">热门赛事</a></li>
+					<li class=""><a href="#hotNews" data-toggle="tab">今日头条</a></li>
+					<li class=""><a href="#downloadApp" data-toggle="tab">APP下载</a></li>
+				</ul>
+				<div id="myTabContent" class="tab-content">
+					<div class="tab-pane fade in active" id="popuPaces">
+						{foreach name="list" item="v"}
+						<div class="popuRaces_list">
+							<a href="/index/index/marketorder?id={$v.id_saishi}"}>
+								<div class="topChart">
+									<span id="topOneScore">{$v.m/1000}</span>
+									<svg class="indexSvg" width="140" height="140" viewBox="0 0 140 180">
+										<linearGradient id="OnelinearBG" x1="0" y1="0" x2="1" y2="1">
+										   <stop offset="0%" stop-color="#ffe9e9"></stop>
+										   <stop offset="100%" stop-color="#fdd3d3"></stop>
+										</linearGradient>
+										<circle stroke="url(#OnelinearBG)" stroke-width="17" stroke-linecap="round" fill="none" cx="70" cy="90" r="63"></circle>
+
+										 <linearGradient id="OnelinearColors" x1="1" y1="0" x2="0" y2="1">
+										   <stop offset="0%" stop-color="#fc7574"></stop>
+										   <stop offset="100%" stop-color="#ff0000"></stop>
+										</linearGradient>
+										<circle id="one_value" stroke="url(#OnelinearColors)" stroke-width="14" stroke-dasharray="396" stroke-dashoffset="70" stroke-linecap="round" fill="none" cx="70" cy="90" r="63"></circle>
+
+										<linearGradient id="Onestart" x1="1" y1="0" x2="0" y2="1">
+										   <stop offset="0%" stop-color="#ffd0d2"></stop>
+										   <stop offset="100%" stop-color="#d70000"></stop>
+										</linearGradient>
+										<circle fill="url(#Onestart)" cx="70" cy="27" r="7"></circle>
+
+										<circle id="oneEnd" stroke="#e10100" stroke-width="14" stroke-dasharray="1,396" stroke-dashoffset="70" stroke-linecap="round" fill="none" cx="70" cy="90" r="63"></circle>
+
+									</svg>
+								</div><!--
+							< --><div class="chartInfo">
+									<div class="infoView"><span class="countdownTag">开赛剩:</span><span class="countdownTime" id="cdTime0">01:30:21</span><span class="volume">{$v.m}</span></div>
+									<div class="dateNname">
+										<span>{$v.info['add_time']}</span>
+										<span>{$v.info['title']}</span>
+									</div>
+									<div class="index_BattleTeams">
+										<span>{$v.info['team_home']}</span><!--
+								< --><span>vs</span><!--
+								< --><span>{$v.info['team_guest']}</span>
+									</div>
+									<div class="score">
+										<!--<span>波胆</span>-->
+										<!--<span>3 - 3</span>-->
+										<!--<span class="Odds">@ 0.88%</span>-->
+										<!--<span class=""></span>-->
+									</div>
+								</div>
+							</a>
+						</div>
+
+						{/foreach}
+						<!--<div class="popuRaces_list">-->
+							<!--<a href="marketorder.html">-->
+								<!--<div class="topChart">-->
+									<!--<span id="topTwoScore">5618</span>-->
+									<!--<svg class="indexSvg" width="140" height="140" viewBox="0 0 140 180">-->
+										<!--<linearGradient id="TwolinearBG" x1="0" y1="0" x2="1" y2="1">-->
+										   <!--<stop offset="0%" stop-color="#fff"></stop>-->
+										   <!--<stop offset="100%" stop-color="#b4d6e3"></stop>-->
+										<!--</linearGradient>-->
+										<!--<circle stroke="url(#TwolinearBG)" stroke-width="17" stroke-linecap="round" fill="none" cx="70" cy="90" r="63"></circle>-->
+
+										 <!--<linearGradient id="TwolinearColors" x1="1" y1="0" x2="0" y2="1">-->
+										   <!--<stop offset="0%" stop-color="#1c87ce"></stop>-->
+										   <!--<stop offset="100%" stop-color="#00173b"></stop>-->
+										<!--</linearGradient>-->
+										<!--<circle id="two_value" stroke="url(#TwolinearColors)" stroke-width="14" stroke-dasharray="396" stroke-dashoffset="591.0647681925172" stroke-linecap="round" fill="none" cx="70" cy="90" r="63"></circle>-->
+
+										<!--<linearGradient id="TwolinearBG" x1="1" y1="0" x2="0" y2="1">-->
+										   <!--<stop offset="0%" stop-color="#f3f9ff"></stop>-->
+										   <!--<stop offset="100%" stop-color="#00a2e3"></stop>-->
+										<!--</linearGradient>-->
+										<!--<circle fill="url(#TwolinearBG)" cx="70" cy="27" r="7"></circle>-->
+
+										<!--<circle id="twoEnd" stroke="#0d4a7f" stroke-width="14" stroke-dasharray="1,396" stroke-dashoffset="591.0647681925172" stroke-linecap="round" fill="none" cx="70" cy="90" r="63"></circle>-->
+
+									<!--</svg>-->
+								<!--</div>&lt;!&ndash;-->
+							<!--< &ndash;&gt;<div class="chartInfo">-->
+									<!--<div class="infoView"><span class="countdownTag">开赛剩:</span><span class="countdownTime" id="cdTime1">02:00:21</span><span class="volume">5,617,422</span></div>-->
+									<!--<div class="dateNname">-->
+										<!--<span>07-01 23:30</span>-->
+										<!--<span>芬乙1</span>-->
+									<!--</div>-->
+									<!--<div class="index_BattleTeams">-->
+										<!--<span>克鲁比04(主)</span>&lt;!&ndash;-->
+								<!--< &ndash;&gt;<span>vs</span>&lt;!&ndash;-->
+								<!--< &ndash;&gt;<span>简沛斯</span>-->
+									<!--</div>-->
+									<!--<div class="score">-->
+										<!--<span>波胆</span>-->
+										<!--<span>3 - 3</span>-->
+										<!--<span class="Odds">@ 1.17%</span>-->
+										<!--<span class=""></span>-->
+									<!--</div>-->
+								<!--</div>-->
+							<!--</a>-->
+						<!--</div>-->
+						<!--<div class="popuRaces_list">-->
+							<!--<a href="marketorder.html">-->
+								<!--<div class="topChart">-->
+									<!--<span id="topThreeScore">3351</span>-->
+									<!--<svg class="indexSvg" width="140" height="140" viewBox="0 0 140 180">-->
+										<!--<linearGradient id="ThreelinearBG" x1="0" y1="0" x2="1" y2="1">-->
+										   <!--<stop offset="0%" stop-color="#fff"></stop>-->
+										   <!--<stop offset="100%" stop-color="#a7c190"></stop>-->
+										<!--</linearGradient>-->
+										<!--<circle stroke="url(#ThreelinearBG)" stroke-width="17" stroke-linecap="round" fill="none" cx="70" cy="90" r="63"></circle>-->
+
+										 <!--<linearGradient id="ThreelinearColors" x1="1" y1="0" x2="0" y2="1">-->
+										   <!--<stop offset="0%" stop-color="#68ab20"></stop>-->
+										   <!--<stop offset="100%" stop-color="#2c5209"></stop>-->
+										<!--</linearGradient>-->
+										<!--<circle id="three_value" stroke="url(#ThreelinearColors)" stroke-width="14" stroke-dasharray="396" stroke-dashoffset="594" stroke-linecap="round" fill="none" cx="70" cy="90" r="63"></circle>-->
+
+										<!--<linearGradient id="Threestart" x1="1" y1="0" x2="0" y2="1">-->
+										   <!--<stop offset="0%" stop-color="#f3f9ff"></stop>-->
+										   <!--<stop offset="100%" stop-color="#10991c"></stop>-->
+										<!--</linearGradient>-->
+										<!--<circle fill="url(#Threestart)" cx="70" cy="27" r="7"></circle>-->
+
+										<!--<circle id="threeEnd" stroke="#05760d" stroke-width="14" stroke-dasharray="1,396" stroke-dashoffset="594" stroke-linecap="round" fill="none" cx="70" cy="90" r="63"></circle>-->
+
+									<!--</svg>-->
+								<!--</div>&lt;!&ndash;-->
+							<!--< &ndash;&gt;<div class="chartInfo">-->
+									<!--<div class="infoView"><span class="countdownTag">开赛剩:</span><span class="countdownTime" id="cdTime2">03:30:21</span><span class="volume">3,350,069</span></div>-->
+									<!--<div class="dateNname">-->
+										<!--<span>07-02 01:00</span>-->
+										<!--<span>瑞超</span>-->
+									<!--</div>-->
+									<!--<div class="index_BattleTeams">-->
+										<!--<span>佐加顿斯(主)</span>&lt;!&ndash;-->
+								<!--< &ndash;&gt;<span>vs</span>&lt;!&ndash;-->
+								<!--< &ndash;&gt;<span>卡马亚</span>-->
+									<!--</div>-->
+									<!--<div class="score">-->
+										<!--<span>波胆</span>-->
+										<!--<span>3 - 3</span>-->
+										<!--<span class="Odds">@ 0.14%</span>-->
+										<!--<span class="indexGuaranteed"></span>-->
+									<!--</div>-->
+								<!--</div>-->
+							<!--</a>-->
+						<!--</div>-->
+						<!--<div class="popuRaces_list">-->
+							<!--<a href="marketorder.html">-->
+								<!--<div class="topChart">-->
+									<!--<span id="topFourScore">1959</span>-->
+									<!--<svg class="indexSvg" width="140" height="140" viewBox="0 0 140 180">-->
+										<!--<linearGradient id="FourlinearBG" x1="0" y1="0" x2="1" y2="1">-->
+										   <!--<stop offset="0%" stop-color="#fffee2"></stop>-->
+										   <!--<stop offset="100%" stop-color="#fff6b8"></stop>-->
+										<!--</linearGradient>-->
+										<!--<circle stroke="url(#FourlinearBG)" stroke-width="17" stroke-linecap="round" fill="none" cx="70" cy="90" r="63"></circle>-->
+
+										 <!--<linearGradient id="FourlinearColors" x1="1" y1="0" x2="0" y2="1">-->
+										   <!--<stop offset="0%" stop-color="#fff045"></stop>-->
+										   <!--<stop offset="100%" stop-color="#ffa200"></stop>-->
+										<!--</linearGradient>-->
+										<!--<circle id="four_value" stroke="url(#FourlinearColors)" stroke-width="14" stroke-dasharray="396" stroke-dashoffset="583.6691695632621" stroke-linecap="round" fill="none" cx="70" cy="90" r="63"></circle>-->
+
+										<!--<linearGradient id="Fourstart" x1="1" y1="0" x2="0" y2="1">-->
+										   <!--<stop offset="0%" stop-color="#f3f9ff"></stop>-->
+										   <!--<stop offset="100%" stop-color="#f4b200"></stop>-->
+										<!--</linearGradient>-->
+										<!--<circle fill="url(#Fourstart)" cx="70" cy="27" r="7"></circle>-->
+
+										<!--<circle id="fourEnd" stroke="#c48c00" stroke-width="14" stroke-dasharray="1,396" stroke-dashoffset="583.6691695632621" stroke-linecap="round" fill="none" cx="70" cy="90" r="63"></circle>-->
+
+									<!--</svg>-->
+								<!--</div>&lt;!&ndash;-->
+							<!--< &ndash;&gt;<div class="chartInfo">-->
+									<!--<div class="infoView"><span class="countdownTag">开赛剩:</span><span class="countdownTime" id="cdTime3">01:30:21</span><span class="volume">1,958,700</span></div>-->
+									<!--<div class="dateNname">-->
+										<!--<span>07-01 23:00</span>-->
+										<!--<span>友谊赛</span>-->
+									<!--</div>-->
+									<!--<div class="index_BattleTeams">-->
+										<!--<span>科罗纳(主)</span>&lt;!&ndash;-->
+								<!--< &ndash;&gt;<span>vs</span>&lt;!&ndash;-->
+								<!--< &ndash;&gt;<span>沃尔夫斯堡B队</span>-->
+									<!--</div>-->
+									<!--<div class="score">-->
+										<!--<span>波胆</span>-->
+										<!--<span>3 - 3</span>-->
+										<!--<span class="Odds">@ 1.23%</span>-->
+										<!--<span class=""></span>-->
+									<!--</div>-->
+								<!--</div>-->
+							<!--</a>-->
+						<!--</div>-->
+					</div>
+
+
+					<!--News-->
+					<div class="tab-pane fade " id="hotNews">
+						<div class="news_list"><a href="newsInfo.html">
+							<img src="https://img1.qunliao.info/fastdfs4/M00/CA/C5/180x135/crop/-/ChMf8F0Z-bWARom_AAF8N7lolPw544.jpg" width="100%"><!--
+							--><div class="news_title">
+								<h3>半场战报：申花0-2恒大，韦世豪世界波，严鼎皓破门</h3>
+								<div class="news_dates">
+									<!-- <span class="new_news"></span> -->
+									<span class="new_times">2019-07-01</span>
+									<!-- <span class="pv"></span> -->
+								</div>
+							</div></a>
+						</div>
+						<div class="news_list"><a href="newsInfo.html">
+							<img src="https://img1.qunliao.info/fastdfs4/M00/CA/C2/180x135/crop/-/ChNLkl0Z59GABhWbAAESX2E_L0c227.jpg" width="100%"><!--
+							--><div class="news_title">
+								<h3>官方：崔康熙不再担任大连一方主帅</h3>
+								<div class="news_dates">
+									<!-- <span class="new_news"></span> -->
+									<span class="new_times">2019-07-01</span>
+									<!-- <span class="pv"></span> -->
+								</div>
+							</div></a>
+						</div>
+						<div class="news_list"><a href="newsInfo.html">
+							<img src="https://img1.qunliao.info/fastdfs4/M00/CA/C3/180x135/crop/-/ChMf8F0ZslqAaphuAAChWUXOFPY883.jpg" width="100%"><!--
+							--><div class="news_title">
+								<h3>动画片世界杯Day12：半决赛开打！日漫上演“三英战吕布”</h3>
+								<div class="news_dates">
+									<!-- <span class="new_news"></span> -->
+									<span class="new_times">2019-07-01</span>
+									<!-- <span class="pv"></span> -->
+								</div>
+							</div></a>
+						</div>
+						<div class="news_list"><a href="newsInfo.html">
+							<img src="https://img1.qunliao.info/fastdfs4/M00/C9/73/180x135/crop/-/ChNLkly9lk2ACKiHAAX6ifbxX40970.png" width="100%"><!--
+							--><div class="news_title">
+								<h3>敲锣鼓、放鞭炮！本周国际赛事MVP提名揭晓</h3>
+								<div class="news_dates">
+									<!-- <span class="new_news"></span> -->
+									<span class="new_times">2019-04-22</span>
+									<!-- <span class="pv"></span> -->
+								</div>
+							</div></a>
+						</div>
+						<div class="news_list"><a href="newsInfo.html">
+							<img src="https://img1.qunliao.info/fastdfs4/M00/CA/C5/180x135/crop/-/ChMf8F0Z_daAKaeeAAK4b0Pxsd0155.jpg" width="100%"><!--
+							--><div class="news_title">
+								<h3>王霜：为了国家队选择结束留洋，全世界都误会了贾指导</h3>
+								<div class="news_dates">
+									<!-- <span class="new_news"></span> -->
+									<span class="new_times">2019-07-01</span>
+									<!-- <span class="pv"></span> -->
+								</div>
+							</div></a>
+						</div>
+						<div class="news_list"><a href="newsInfo.html">
+							<img src="https://img1.qunliao.info/fastdfs4/M00/CA/C3/180x135/crop/-/ChNLkl0aAWyABifWAAJMu7z6r-M496.jpg" width="100%"><!--
+							--><div class="news_title">
+								<h3>官方：多特蒙德年轻后腰布尔尼奇续租留在德累斯顿一年</h3>
+								<div class="news_dates">
+									<!-- <span class="new_news"></span> -->
+									<span class="new_times">2019-07-01</span>
+									<!-- <span class="pv"></span> -->
+								</div>
+							</div></a>
+						</div>
+						<div class="news_list"><a href="newsInfo.html">
+							<img src="https://img1.qunliao.info/fastdfs4/M00/CA/C3/180x135/crop/-/ChNLkl0Z_suASTmgAAFRMb_Q4Qs515.jpg" width="100%"><!--
+							--><div class="news_title">
+								<h3>足协杯赛程公布，国安七月再遇魔鬼赛程考验</h3>
+								<div class="news_dates">
+									<!-- <span class="new_news"></span> -->
+									<span class="new_times">2019-07-01</span>
+									<!-- <span class="pv"></span> -->
+								</div>
+							</div></a>
+						</div>
+						<div class="news_list"><a href="newsInfo.html">
+							<img src="https://img1.qunliao.info/fastdfs3/M00/A2/5D/180x135/crop/-/ChONol0Z8MuATckGAATfrhL183M554.jpg" width="100%"><!--
+							--><div class="news_title">
+								<h3>官方公告 | 卡博尼出任AC米兰青训总监</h3>
+								<div class="news_dates">
+									<!-- <span class="new_news"></span> -->
+									<span class="new_times">2019-07-01</span>
+									<!-- <span class="pv"></span> -->
+								</div>
+							</div></a>
+						</div>
+						<div class="news_list"><a href="newsInfo.html">
+							<img src="https://img1.qunliao.info/fastdfs4/M00/CA/26/180x135/crop/-/ChNLklzt8TeAZiSXAAGxQdzAnjE759.jpg" width="100%"><!--
+							--><div class="news_title">
+								<h3>意媒：德罗西拒绝了佛罗伦萨的邀请，不会加盟紫百合</h3>
+								<div class="news_dates">
+									<!-- <span class="new_news"></span> -->
+									<span class="new_times">2019-07-01</span>
+									<!-- <span class="pv"></span> -->
+								</div>
+							</div></a>
+						</div>
+						<div class="news_list"><a href="newsInfo.html">
+							<img src="https://img1.qunliao.info/fastdfs4/M00/CA/9A/180x135/crop/-/ChNLkl0R0xWAKONvAAHLJYNOWug949.jpg" width="100%"><!--
+							--><div class="news_title">
+								<h3>媒体人热议崔康熙下课：康熙来了又走，估计更大牌的已在路上</h3>
+								<div class="news_dates">
+									<!-- <span class="new_news"></span> -->
+									<span class="new_times">2019-07-01</span>
+									<!-- <span class="pv"></span> -->
+								</div>
+							</div></a>
+						</div>
+					</div>
+					<!--APP DOWNLOAD TAB PANE-->
+					<div class="tab-pane fade" id="downloadApp">
+						<div class="index_downloadApp_qr row">
+							<div class="col-xs-6">
+								<img class="qr_img" src="__IMG__/downloadApp/android.png" style="width: 100%" alt="download android app qrcode">
+								<span class="label label_app label_andriod">安卓下载</span>
+							</div>
+							<div class="col-xs-6">
+								<img class="qr_img" src="__IMG__/downloadApp/ios.png" style="width: 100%" alt="download ios app qrcode">
+								<span class="label label_app label_ios">Ios下载</span>
+							</div>
+						</div>
+						<div>
+						<ul class="app_nav nav nav-tabs" id="myAppTab">
+							<li class="active"><a href="#index_andriod" data-toggle="tab">安卓下载说明</a></li>
+							<li><a href="#index_ios" data-toggle="tab">IOS下载说明</a></li>
+						</ul>
+						<div id="app_tab" class="tab-content app_navtab_content">
+							<div class="tab-pane fade in active" id="index_andriod">
+								<img src="__IMG__/downloadApp/index-gray_Android-flow_01.svg" alt="">
+								<p>步骤一<br>
+								下载QR Droid<br>扫码器</p>
+								<p>步骤二<br>
+								扫码进行下载<br>TG.apk</p>
+								<p>步骤三<br>
+								下载apk Installer工具</p>
+
+								<img src="__IMG__/downloadApp/index-gray_Android-flow_02.svg" alt="">
+								<p class="w">步骤四<br>
+								开启APK Installer工具<br>点选Install APKs项目<br>开启TG.apk档</p>
+								<p class="w">步骤五<br>
+								TG安装完成</p>
+							</div>
+							<div class="tab-pane fade" id="index_ios">
+								<img src="__IMG__/downloadApp/index-gray_Ios-flow_01.svg" alt="">
+								<p>步骤一<br>扫描QRcode 开启网页<br>点选前往下载按钮<br>点选上方<br>二维码讯息</p>
+								<p>步骤二<br>
+								点选安装<br>等待安装完成</p>
+								<p>步骤三<br>
+								点击设置进入通用<br>点选设备管理</p>
+
+								<img src="__IMG__/downloadApp/index-gray_Ios-flow_02.svg" alt="">
+								<p class="w">步骤四<br>
+								验证TG应用</p>
+								<p class="w">步骤五<br>
+								TG安装完成</p>
+							</div>
+						</div>
+					</div>
+					<!--</div>
+					 /APP DOWNLOAD TAB PANE-->
+				</div>
+			</div></section>
+		</div>
+	</div>
+
+
+<!--APP DOWNLOAD MODAL -->
+	<!-- /APP DOWNLOAD MODAL -->
+
+	<!-- /APP DOWNLOAD MODAL -->
+	<script type="text/javascript">
+		//總成交量
+		  var tradingVolume = [ 8458930.94 , 5617421.99 , 3350069.00 , 1958699.63];
+		//可成交量
+		  var surplusVolume = [ 8671316 , 5786478 , 3350069 , 2174345 ];
+
+	 	var countDownStartTime = [ '2019/07/01 23:00:00', '2019/07/01 23:30:00', '2019/07/02 01:00:00', '2019/07/01 23:00:00' ];
+
+	</script>
+
+
+	<!--<script src="__JS__/index.js"></script>-->
+	<script>
+		function indexTabs (){
+			var pp = $('#popuPaces');
+			var hn = $('#hotNews');
+			$('.popuPaces').click(function(){
+				$('.hotNews').removeClass('active');
+				$(this).addClass('active');
+				pp.show().addClass('active');
+				hn.hide().removeClass('active');
+			})
+			$('.hotNews').click(function(){
+				$('.popuPaces').removeClass('active');
+				$(this).addClass('active');
+				hn.show().addClass('active');
+				pp.hide().removeClass('active');
+			})
+		}
+	 function setControl() {
+	        var video = document.getElementById("video");
+		    video.controls = false;
+		    document.addEventListener('onload', function(event) {
+		    	video.play();
+		    }, false);
+	    }
+    	setControl();
+	</script>
+	<script src="__JS__/side.js"></script>
+	<script src="__JS__/scrollTop.js"></script>
+	<script src="__JS__/main.js"></script>
+	<script src="__JS__/downloadApp.js"></script>
+
+</body></html>

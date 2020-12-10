@@ -1,0 +1,454 @@
+{include file="public/headers" /}
+<body>
+<div id="app">
+    <div class="home">
+        <div class="main-top">
+            {include file="index/top_ajx"/}
+        </div>
+        <div class="nav-top">
+            <ul class="layui-nav layui-bg-green" lay-filter="demo">
+                <li class="layui-nav-item layui-this" ><a href="/home/index/index">市场列表</a></li>
+                <li class="layui-nav-item "><a href="/home/index/mingxi">交易明细</a></li>
+                <li class="layui-nav-item "><a href="/home/index/finance">历史账务</a></li>
+                <li class="layui-nav-item "><a href="/home/index/game_results">赛事结果</a></li>
+                <li class="layui-nav-item "><a href="/home/index/announcement">最新公告</a></li>
+            </ul>
+        </div>
+        <div class="bg-box">
+            <div class="details">
+
+                <div class="outer-div">
+                    <div class="nav-left">
+                        <div class="title">市场列表</div>
+                        <div class="nav-list">
+                            <ul class="list-box">
+                                <li >
+                                    <div class="list-title">
+                                        <span class="txt"> {{ Todaydate }} 赛事</span>
+                                        <span class="num">{{Todaydata .length}}</span>
+                                    </div>
+                                    <ul class="list-ul hide">
+                                        <li v-for='(item,i) in Todaydata' :key='i' @click="getlistdata(item.id)">
+                                            <div class="time">{{item.start_time}}</div>
+                                            <div class="competition-name">{{item.title}}</div>
+                                            <div class="team"><span>{{item.team_home}}[主]</span> VS <span>{{item.team_guest}}</span></div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="list-title">
+                                        <span class="txt">{{ Tomorrowdate }} 赛事</span>
+                                        <span class="num">{{Tomorrowdata.length}}</span>
+                                    </div>
+                                    <ul class="list-ul hide">
+                                        <li v-for="item in Tomorrowdata" @click="getlistdata(item.id)"   >
+                                            <div class="time">{{item.start_time}}</div>
+                                            <div class="competition-name">{{item.title}}</div>
+                                            <div class="team"><span>{{item.team_home}}[主]</span> VS <span>{{item.team_guest}}</span></div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="list-title">
+                                        <span class="txt"> 所有赛事</span>
+                                        <span class="num">{{alllistdata.length}}</span>
+                                    </div>
+                                    <ul class="list-ul hide">
+                                        <li v-for="item in alllistdata" @click="getlistdata(item.id)">
+                                            <div class="time">{{item.start_time}}</div>
+                                            <div class="competition-name">{{item.title}}</div>
+                                            <div class="team"><span>{{item.team_home}}[主]</span> VS <span>{{item.team_guest}}</span></div>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="con-right">
+                    <div class="top">
+                        <div class="time">{{dateFormat(thisdate)}}</div>
+                        <div class="marquee">
+                            <marquee>{$ginfo}</marquee>
+                        </div>
+                        <div class="title"><a href='http://live.win007.com' target="_Blank">即时比分</a></div>
+
+                    </div>
+                    <div class="right-main-con buy-box">
+
+                        <div class="competition">
+                            <div class="area">
+                                <p class="txt">{{info.title}}</p>
+                                <p class="time">{{info.start_time }}</p>
+                            </div>
+                            <div class="team-box">
+                                <div class="host">{{info.team_home}} [主]</div>
+                                <div class="vs">vs</div>
+                                <div class="customer">{{info.team_guest }}</div>
+                            </div>
+                            <div class="other">
+                                <div class="record" style="display: none">对战记录</div>
+                                <div class="b-txt" style="line-height: 60px;font-size: 14px">手续费：<span class="c-orange">5%</span>   刷新：<span class="c-orange">{{time}}</span></div>
+                            </div>
+                        </div>
+
+                        <div class="game-data">
+                            <div class="data-left">
+                                <div class="table-top">
+                                    <span class="txt1">波胆</span>
+                                    <span class="txt2">成交量：<span class="c-orange">{{info.bosum}}</span></span>
+                                </div>
+                                <table cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td>选项</td>
+                                        <td>获利%</td>
+                                        <td>可交易量</td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr v-for="(item,i) in listdata.ysum" :key="i">
+                                        <td v-if="i==0">0 - 0</td>
+                                        <td v-else-if="i==1">0 - 1</td>
+                                        <td v-else-if="i==2">0 - 2</td>
+                                        <td v-else-if="i==3">0 - 3</td>
+                                        <td v-else-if="i==4">1 - 0</td>
+                                        <td v-else-if="i==5">1 - 1</td>
+                                        <td v-else-if="i==6">1 - 2</td>
+                                        <td v-else-if="i==7">1 - 3</td>
+                                        <td v-else-if="i==8">2 - 0</td>
+                                        <td v-else-if="i==9">2 - 1</td>
+                                        <td v-else-if="i==10">2 - 2</td>
+                                        <td v-else-if="i==11">2 - 3</td>
+                                        <td v-else-if="i==12">3 - 0</td>
+                                        <td v-else-if="i==13">3 - 1</td>
+                                        <td v-else-if="i==14">3 - 2</td>
+                                        <td v-else-if="i==15">3 - 3</td>
+                                        <td v-else-if="i==16">客队赢 <br> 进球4球以上</td>
+                                        <td v-else-if="i==17">主队赢 <br> 进球4球以上</td>
+
+                                        <td class="c-orange" v-if="item.odd!=='0.0000'">{{(item.odd * 100).toFixed(2)}}%</td>
+                                        <td class="c-orange" v-else></td>
+                                        <td class="c-blue"  v-if="item.odd!=='0.0000'">￥{{item.ysum}}</td>
+                                        <td class="c-orange" v-else></td>
+                                        <td><a  v-if="item.odd!=='0.0000'" class="buy" @click="xiadan(i+1,item.odd,1,item.ysum)">下单</a></td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <div class="data-right">
+                                <div class="table-top">
+                                    <span class="txt1">半场波胆</span>
+                                    <span class="txt2">成交量：<span class="c-orange">{{info.bbosum}}</span></span>
+                                </div>
+                                <table cellpadding="0" cellspacing="0" >
+                                    <tr>
+                                        <td>选项</td>
+                                        <td>获利%</td>
+                                        <td>可交易量</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr  v-for="(item,i) in listdata.bysum" :key="i">
+                                        <td v-if="i==0">0 - 0</td>
+                                        <td v-else-if="i==1">0 - 1</td>
+                                        <td v-else-if="i==2">0 - 2</td>
+                                        <td v-else-if="i==3">1 - 0</td>
+                                        <td v-else-if="i==4">1 - 1</td>
+                                        <td v-else-if="i==5">1 - 2</td>
+                                        <td v-else-if="i==6">2 - 0</td>
+                                        <td v-else-if="i==7">2 - 1</td>
+                                        <td v-else-if="i==8">2 - 2</td>
+                                        <td v-else-if="i==9">其他</td>
+                                        <td class="c-orange" v-if="item.odd!=='0.0000'">{{(item.odd * 100).toFixed(2)}}%</td>
+                                        <td class="c-orange" v-else></td>
+                                        <td class="c-blue"  v-if="item.odd!=='0.0000'">￥{{item.ysum}}</td>
+                                        <td class="c-orange" v-else></td>
+                                        <td><a  v-if="item.odd!=='0.0000'" class="buy" @click="xiadan(i+1,item.odd,1,item.ysum)">下单</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--对战记录-->
+    <div class="shade_c fight-record" style="display: none">
+        <div class="content_c">
+            <div class="con_top">
+                <div class="title"><span class="txt">对战记录</span><span class="icon-close">x</span></div>
+            </div>
+            <div class="con_details" >
+                <div class="game-data">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td>赛事时间</td>
+                            <td>联盟名称</td>
+                            <td>主队</td>
+                            <td>客队</td>
+                            <td>波胆</td>
+                            <td>上半场波胆</td>
+                        </tr>
+                        <tr>
+                            <td>2018-05-08</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--下单-->
+    <div class="shade_c purchase" style="display: none">
+        <div class="content_c">
+            <div class="con_top">
+                <div class="title"><span class="txt">对战记录</span><span class="icon-close">x</span></div>
+            </div>
+            <div class="con_details" >
+                <div class="game-data">
+                    <div class="search-box">
+                        <div class="balance">
+                            <span>账户余额：</span>
+                            <span class="c-orange">￥{{info.money}}</span>
+                        </div>
+                        <!-- <a class="refresh">即时比分</a>
+                         <a class="refresh">对战记录</a>-->
+                    </div>
+                    <div class="table-top" style='color:#000000'>
+                        <span class="txt1">
+                            <span class="time">{{info.start_time}}</span>
+                             <span>{{info.team_home}}</span>
+                             <span>vs</span>
+                             <span>{{info.team_guest }}</span>
+                        </span>
+                    </div>
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td colspan="2">您在<span class="c-orange">反对</span>这场赛事的结果为<span class="c-orange">波胆0-0</span></td>
+                            <td>可交易量：{{ysum}}&nbsp;&nbsp;手续费：5%</td>
+                        </tr>
+                        <tr>
+                            <td>交易金额</td>
+                            <td>获利%</td>
+                            <td>预估获利(元)</td>
+                        </tr>
+                        <tr class="bg-fff">
+                            <td><input type="text" placeholder="请输入最小为100的金额" v-model="rmb"></td>
+                            <td>{{(odd * 100).toFixed(2)}}%</td>
+                            <td>{{(rmb*odd*0.95).toFixed(2)}}</td>
+                        </tr>
+                    </table>
+
+                    <div class="bet">
+                        <ul>
+                            <li class="" @click="rmb = info.money">余额全投</li>
+                            <li @click="rmb= Number(rmb)+100">+100</li>
+                            <li @click="rmb= Number(rmb)+1000">+1,000</li>
+                            <li @click="rmb= Number(rmb)+10000">+10,000</li>
+                            <li class="" @click="rmb=''">清除</li>
+                        </ul>
+                    </div>
+                    <div class="btn-box">
+                        <a @click="outorder">取消</a>
+                        <a @click="sumorder">确定交易</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            thisdate: new Date(),
+            time:90,
+            Todaydate:'',
+            Todaydata:[],
+            Tomorrowdate:'',
+            Tomorrowdata:[],
+            alllistdata:"",
+            listdata:'',
+            info:'',
+            rmb:'',
+            odd:'',
+            xiazhutype:'',
+            ordertype:'',
+            orderid:'',
+            ysum:'',
+        },
+        methods:{
+            getDay:function (num, str) {
+                var today = new Date();
+                var nowTime = today.getTime();
+                var ms = 24*3600*1000*num;
+                today.setTime(parseInt(nowTime + ms));
+                var oYear = today.getFullYear();
+                var oMoth = (today.getMonth() + 1).toString();
+                if (oMoth.length <= 1) oMoth = '0' + oMoth;
+                var oDay = today.getDate().toString();
+                if (oDay.length <= 1) oDay = '0' + oDay;
+                return oYear + str + oMoth + str + oDay;
+            },
+            datalist:function (type) {
+                var _this=this
+                axios.get('/home/index/datalist?type='+type).then(function (response) {
+                    if(type==1){
+                        _this.Todaydata = response.data.data
+                        axios.get('/home/index/get_details?id='+response.data.data[0].id).then(function (response) {
+                            console.log(response);
+                            _this.listdata=response.data.data
+                            _this.info=response.data.info
+                            _this.orderid=response.data.info.id
+                        })
+                            .catch(function (error) {
+                                console.log(error);
+                            });
+                    }
+                    if(type==2){_this.Tomorrowdata=response.data.data}
+                    if(type==3){_this.alllistdata=response.data.data}
+                })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+            getlistdata:function (id) {
+                var _this=this
+                _this.time=90
+                console.log(id);
+                axios.get('/home/index/get_details?id='+id).then(function (response) {
+                    console.log(response);
+                    _this.listdata=response.data.data
+                    _this.info=response.data.info
+                    _this.orderid=response.data.info.id
+                })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+            xiadan:function (id,odd,type,ysum) {
+                var _this=this
+                _this.xiazhutype=id
+                _this.odd=odd
+                _this.ordertype=type
+                _this.ysum=ysum
+                $('.purchase').css('display','block')
+
+            },
+            sumorder:function () {
+                var _this=this
+                axios.post('/home/index/xiazhu',{
+                    xiazhu:_this.xiazhutype,
+                    money:_this.rmb,
+                    type:_this.ordertype,
+                    id_saishi:_this.orderid,
+                    huoli:_this.odd}) .then(function (response) {
+                    console.log(response);
+                    if(response.data.code==1){
+                        console.log(2);
+                        layer.msg("<em style='color:red'>"+response.data.msg+"</em>",{icon:6,time:1000,shade: 0.1});
+                        $('.purchase').css('display','none')
+                        _this.rmb=''
+                        _this.getlistdata(_this.orderid)
+                    }else{
+                        layer.msg("<em style='color:red'>"+response.data.msg+"</em>",{icon:2,time:1000,shade: 0.1});
+                    }
+                })
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    });
+            },
+            outorder:function(){
+                $('.purchase').css('display','none')
+            },
+            fortime:function () {
+                var _this=this
+                if(this.time>0){
+                    this.time--
+                    setTimeout(function () {
+                        _this.fortime()
+                    },1000)
+                }else {
+                    _this.getlistdata(_this.orderid)
+                    _this.time=90
+                    _this.fortime()
+                }
+            },
+            dateFormat(time) {
+                var date=new Date(time);
+                var year=date.getFullYear();
+                /* 在日期格式中，月份是从0开始的，因此要加0
+                 * 使用三元表达式在小于10的前面加0，以达到格式统一  如 09:11:05
+                 * */
+                var month= date.getMonth()+1<10 ? "0"+(date.getMonth()+1) : date.getMonth()+1;
+                var day=date.getDate()<10 ? "0"+date.getDate() : date.getDate();
+                var hours=date.getHours()<10 ? "0"+date.getHours() : date.getHours();
+                var minutes=date.getMinutes()<10 ? "0"+date.getMinutes() : date.getMinutes();
+                var seconds=date.getSeconds()<10 ? "0"+date.getSeconds() : date.getSeconds();
+                // 拼接
+                return year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds;
+            }
+        },
+        created:function () {
+            this.Todaydate = this.getDay(0, '/');
+            this.Tomorrowdate =this.getDay(1, '/');
+            this.datalist(1)
+            this.datalist(2)
+            this.datalist(3)
+            this.fortime()
+        },
+        mounted:function () {
+            let _this = this; // 声明一个变量指向Vue实例this，保证作用域一致
+            this.timer = setInterval(() => {
+                _this.thisdate = new Date(); // 修改数据date
+            }, 1000)
+        },
+        watch:{
+        },
+        beforeDestroy() {
+            if (this.timer) {
+                clearInterval(this.timer); // Vue实例销毁前，清除定时器
+            }
+        }
+    })
+</script>
+<script>
+    $(function () {
+        //对战记录弹窗
+        $('.record').click(function(){
+            $('.fight-record').css('display','block')
+        });
+        $('.icon-close').click(function(){
+            $(this).parents('.shade_c').css('display','none')
+        });
+        $('.buy-box .buy').click(function(){
+            console.log(123);
+            $('.purchase').css('display','block')
+        });
+
+
+
+
+        $('.list-title').click(function(){
+            $(this).parent().find('.list-ul').toggleClass('hide');
+        });
+        $('.list-box li').click(function(){
+            $(this).addClass('on').siblings().removeClass('on')
+        })
+    })
+</script>
+</html>

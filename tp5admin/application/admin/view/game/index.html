@@ -1,0 +1,270 @@
+{include file="public/header" /}
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <!-- Panel Other -->
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>赛事列表</h5>
+        </div>
+        <div class="ibox-content">
+            <!--搜索框开始-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col-sm-2" style="width: 100px">
+                    </div>
+                    <form name="admin_list_sea" class="form-search" method="post" action="{:url('index')}">
+                        <div class="col-sm-4">
+                                <span class="input-group-btn" id="dateShowBtn">
+                                    <input type="text" name="start_time" id="dateSelectorTwo" lay-verify="date" placeholder="开始时间" autocomplete="off"
+                                           class="form-control jeinput" value="{$start_time}">
+                                </span>
+                            <span class="input-group-btn" id="dateShowBtn1">
+                                    <input type="text" name="end_time" id="dateSelectorTwo1" lay-verify="date" placeholder="结束时间" autocomplete="off" class="form-control jeinput" value="{$end_time}">
+                                </span>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-primary"><i
+                                            class="fa fa-search"></i> 搜索</button>
+                                </span>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary" onclick="setDate(1)" style="margin-left: 5px">今日</button>
+                                </span>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary" onclick="setDate(2)" style="margin-left: 5px">昨日</button>
+                                </span>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary" onclick="setDate(3)" style="margin-left: 5px">本周</button>
+                                </span>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary" onclick="setDate(4)" style="margin-left: 5px">上周</button>
+                                </span>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary" onclick="setDate(5)" style="margin-left: 5px">本月</button>
+                                </span>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary" onclick="setDate(6)" style="margin-left: 5px">上月</button>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--搜索框结束-->
+            <div class="hr-line-dashed"></div>
+            <div class="example-wrap">
+                <div class="example">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr class="long-tr">
+                            <th width="10%">开赛时间</th>
+                            <th width="10%">标题</th>
+                            <th width="10%">主队</th>
+                          	<th width="10%">客队</th>
+                            <th width="10%">半场比分</th>
+                            <th width="10%">全场比分</th>
+                            <th width="10%">结束时间</th>
+                        </tr>
+                        </thead>
+                        <script id="list-template" type="text/html">
+                            {{# for(var i=0;i<d.length;i++){  }}
+                            <tr class="long-td">
+                                <td>{{d[i].start_time}}</td>
+                                <td>{{d[i].title}}</td>
+                                <td>{{d[i].team_home}}</td>
+                                <td>{{d[i].team_guest}}</td>
+                                <td>{{d[i].result_half}}</td>
+                                <td>{{d[i].result_full}}</td>
+                                <td>{{d[i].end_time}}</td>
+                            </tr>
+                            {{# } }}
+                        </script>
+                        <tbody id="list-content">
+                        </tbody>
+                    </table>
+                    <div id="AjaxPage" style="text-align:right;"></div>
+                    <div style="text-align: right;">
+                        共1条数据，<span id="allpage"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- 加载动画 -->
+<div class="spiner-example" >
+    <div class="sk-spinner sk-spinner-three-bounce">
+        <div class="sk-bounce1"></div>
+        <div class="sk-bounce2"></div>
+        <div class="sk-bounce3"></div>
+    </div>
+</div>
+{include file="public/footer" /}
+<script type="text/javascript">
+    var GETFA_URL = "/admin/fiance/index";
+    //laypage分页
+    Ajaxpage();
+    function Ajaxpage(curr){
+        var key=$('#key').val();
+        var start_time=$('#dateSelectorTwo').val();
+        var end_time=$('#dateSelectorTwo1').val();
+        $.getJSON("/admin/game/index", {page: curr || 1,key:key,start_time:start_time,end_time:end_time}, function(data){
+            $(".spiner-example").css('display','none'); //数据加载完关闭动画
+            if(data==''){
+                $("#list-content").html('<td colspan="20" style="padding-top:10px;padding-bottom:10px;font-size:16px;text-align:center">暂无数据</td>');
+            }else{
+                var tpl = document.getElementById('list-template').innerHTML;
+                laytpl(tpl).render(data, function(html){
+                    document.getElementById('list-content').innerHTML = html;
+                });
+                laypage({
+                    cont: $('#AjaxPage'),//容器。值支持id名、原生dom对象，jquery对象,
+                    pages:'{$allpage}',//总页数
+                    skip: true,//是否开启跳页
+                    skin: '#1AB5B7',//分页组件颜色
+                    curr: curr || 1,
+                    groups: 3,//连续显示分页数
+                    jump: function(obj, first){
+                        if(!first){
+                            Ajaxpage(obj.curr)
+                        }
+                        $('#allpage').html('第'+ obj.curr +'页，共'+ obj.pages +'页');
+                    }
+                });
+            }
+        });
+    }
+
+    var now = new Date(); //当前日期
+    var now1 = new Date(now - 1000*60*60*24);
+    var now7 = new Date(now - 1000*60*60*24*7);
+    var nowDayOfWeek = now.getDay()-1; //今天本周的第几天
+    var nowDayOfWeek1 = now.getDay()+6; //今天本周的第几天
+    var nowDay = now.getDate(); //当前日
+    var nowMonth = now.getMonth(); //当前月
+    var nowYear = now.getFullYear(); //当前年
+    nowYear += (nowYear < 2000) ? 1900 : 0; //
+    var lastMonthDate = new Date(); //上月日期
+    lastMonthDate.setDate(1);
+    lastMonthDate.setMonth(lastMonthDate.getMonth()-1);
+    var lastYear = lastMonthDate.getFullYear();
+    var lastMonth = lastMonthDate.getMonth();
+    //时间控件
+
+    function setDate(type) {
+        switch (type){
+            case 1: //今日
+                start_time = formatDate(now);
+                end_time = formatDate(now);
+                break;
+            case 2: //昨日
+                start_time = formatDate(now1);
+                end_time = formatDate(now1);
+                break;
+            case 3: //本周
+                start_time = getWeekStartDate(nowYear, nowMonth, nowDay,nowDayOfWeek);
+                end_time = getWeekEndDate(nowYear, nowMonth, nowDay,nowDayOfWeek);
+                break;
+            case 4: //上周
+                start_time = getWeekStartDate(nowYear, nowMonth, nowDay,nowDayOfWeek1);
+                end_time = getWeekEndDate(nowYear, nowMonth, nowDay,nowDayOfWeek1);
+                break;
+            case 5: //本月
+                start_time = getMonthStartDate(nowYear, nowMonth);
+                end_time = getMonthEndDate(nowYear, nowMonth);
+                break;
+            case 6: //上月
+                start_time = getLastMonthStartDate(nowYear, lastMonth);
+                end_time = getLastMonthEndDate(nowYear, lastMonth);
+                break;
+        }
+        var html = "";
+        html +=  "<input id='dateSelectorTwo' class='form-control jeinput' type='text' value='"+start_time+" 00:00:00' name='start_time'>";
+        var html1 = "";
+        html1 += "<input id='dateSelectorTwo1' class='form-control jeinput' type='text' value='"+end_time+" 23:59:59' name='end_time'>";
+        $("#dateShowBtn").html(html);
+        $("#dateShowBtn1").html(html1);
+        jeDate("#dateSelectorTwo",{
+            theme:{bgcolor:"#1ab394",pnColor:"#00CCFF"},
+            format: "YYYY-MM-DD hh:mm:ss"
+        });
+        jeDate("#dateSelectorTwo1",{
+            theme:{bgcolor:"#1ab394",pnColor:"#00CCFF"},
+            format: "YYYY-MM-DD hh:mm:ss"
+        });
+    }
+
+    //格式化日期：yyyy-MM-dd
+
+    function formatDate(date) {
+        var myyear = date.getFullYear();
+        var mymonth = date.getMonth()+1;
+        var myweekday = date.getDate();
+
+        if(mymonth < 10){
+            mymonth = "0" + mymonth;
+        }
+        if(myweekday < 10){
+            myweekday = "0" + myweekday;
+        }
+        return (myyear+"-"+mymonth + "-" + myweekday);
+    }
+
+    //获得某月的天数
+    function getMonthDays(myMonth){
+        var monthStartDate = new Date(nowYear, myMonth, 1);
+        var monthEndDate = new Date(nowYear, myMonth + 1, 1);
+        var days = (monthEndDate - monthStartDate)/(1000 * 60 * 60 * 24);
+        return days;
+    }
+
+    //获得本周的开始日期
+    function getWeekStartDate(nowYear, nowMonth, nowDay,nowDayOfWeek) {
+        var weekStartDate = new Date(nowYear, nowMonth, nowDay - nowDayOfWeek);
+        return formatDate(weekStartDate);
+    }
+
+    //获得本周的结束日期
+    function getWeekEndDate(nowYear, nowMonth, nowDay,nowDayOfWeek) {
+        var weekEndDate = new Date(nowYear, nowMonth, nowDay + (6 - nowDayOfWeek));
+        return formatDate(weekEndDate);
+    }
+
+    //获得本月的开始日期
+    function getMonthStartDate(nowYear, nowMonth){
+        var monthStartDate = new Date(nowYear, nowMonth, 1);
+        return formatDate(monthStartDate);
+    }
+
+    //获得本月的结束日期
+    function getMonthEndDate(nowYear, nowMonth){
+        var monthEndDate = new Date(nowYear, nowMonth, getMonthDays(nowMonth));
+        return formatDate(monthEndDate);
+    }
+
+    //获得上月开始时间
+    function getLastMonthStartDate(nowYear, lastMonth){
+        var lastMonthStartDate = new Date(nowYear, lastMonth, 1);
+        return formatDate(lastMonthStartDate);
+    }
+
+    //获得上月结束时间
+    function getLastMonthEndDate(nowYear, lastMonth){
+        var lastMonthEndDate = new Date(nowYear, lastMonth, getMonthDays(lastMonth));
+        return formatDate(lastMonthEndDate);
+    }
+
+    jeDate("#dateSelectorTwo",{
+        theme:{bgcolor:"#1ab394",pnColor:"#00CCFF"},
+        format: "YYYY-MM-DD hh:mm:ss"
+    });
+    jeDate("#dateSelectorTwo1",{
+        theme:{bgcolor:"#1ab394",pnColor:"#00CCFF"},
+        format: "YYYY-MM-DD hh:mm:ss"
+    });
+</script>
+</body>
+</html>

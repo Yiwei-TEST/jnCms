@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en"><script type="text/javascript" charset="utf-8" id="zm-extension" src="chrome-extension://fdcgdnkidjaadafnichfpabhfomcebme/scripts/webrtc-patch.js" async=""></script><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=414,user-scalable=no">
+	<title>TG</title>
+
+	<link rel="stylesheet" href="__CSS__/bootstrap.min.css">
+	<link rel="stylesheet" href="__CSS__/fontawesome-all.min.css">
+	<link rel="stylesheet" href="__CSS__/normalize.css">
+	<link rel="stylesheet" href="__CSS__/tab_style.css">
+	<link rel="stylesheet" href="__CSS__/side.css">
+	<link rel="stylesheet" href="__CSS__/Main_Style.css">
+	<link rel="stylesheet" href="__CSS__/trade_detail.css">
+	<link rel="stylesheet" href="__CSS__/FIFA_marketlist.css">
+	<link rel="stylesheet" href="__CSS__/my_info_chg.css">
+	<link rel="stylesheet" href="__CSS__/statistics.css">
+	<link rel="stylesheet" href="__CSS__/switch.css">
+	<link rel="stylesheet" href="__CSS__/downloadApp.css">
+		<!--theme-->
+	<link rel="stylesheet" href="__CSS__/theme/APPui.css">
+	<script src="__JS__/jquery-3.2.1.min.js"></script>
+	<script src="__JS__/bootstrap.min.js"></script>
+
+	<script>
+	</script>
+
+</head>
+
+<body>
+	<div class="sidy" onclick="siidyy();">
+        {include file="public/nav" /}
+<div class="downloadApp">
+    <div class="row step_one">
+        <div class="col-xs-offset-1 col-xs-5"><button type="button" class="forAndriod" id="forAndriod">安卓下载</button></div>
+        <div class="col-xs-5"><button type="button" class="forIos" id="forIos">IOS下载</button></div>
+    </div>
+    <div class="step_two" id="andriod">
+        <div class="header">
+            <h2 class="downloadApp_title title_andriod">安卓下载</h2><button type="button" class="app_close"></button>
+        </div>
+        <div class="AppContent content_andriod">
+            <img class="QRcode QRcode_Android" src="template/www/img/downloadApp/android.png" alt="download android app qrcode">
+            <img src="template/www/img/downloadApp/index-white_Andrioid-flow_01.svg" alt="">
+            <p>步骤一<br>
+                下载QR Droid<br>扫码器</p>
+            <p>步骤二<br>
+                扫码进行下载<br>TG.apk</p>
+            <p>步骤三<br>
+                下载<br>apk Installer工具</p>
+            <img src="template/www/img/downloadApp/index-white_Andrioid-flow_02.svg" alt="">
+            <p class="w">步骤四<br>
+                开启APK Installer工具<br>点选Install APKs项目<br>开启TG.apk档</p>
+            <p class="w">步骤五<br>
+                TG安装完成</p>
+            <span class="download_btn"><a href=" https://info.sxysrn.cn/AppInstallation/downloadQRCode.html">前往下载</a></span>
+        </div>
+    </div>
+    <div class="step_two" id="ios">
+        <div class="header">
+            <h2 class="downloadApp_title title_ios">IOS下载</h2><button type="button" class="app_close"></button>
+        </div>
+        <div class="AppContent content_ios">
+            <img class="QRcode QRcode_Ios" src="template/www/img/downloadApp/ios.png" alt="download ios app qrcode">
+            <img src="template/www/img/downloadApp/index-white_Ios-flow_01.svg" alt="">
+            <p>步骤一<br>
+                扫描QRcode 开启网页<br>点选前往下载按钮<br>接着点选上方<br>二维码讯息</p>
+            <p>步骤二<br>
+                点选安装<br>等待安装完成</p>
+            <p>步骤三<br>
+                点击设置进入通用<br>点选设备管理</p>
+
+            <img src="template/www/img/downloadApp/index-white_Ios-flow_02.svg" alt="">
+            <p class="w">步骤四<br>
+                验证TG应用</p>
+            <p class="w">步骤五<br>
+                TG安装完成</p>
+            <span class="download_btn"><a href="https://info.sxysrn.cn/AppInstallation/iOSdownload.html">前往下载</a></span>
+        </div>
+    </div>
+</div>
+<script>
+    //会员互转
+    $("#modify111").on('click', function() {
+        $(".sidy").removeClass('sidy--opened');
+        $.ajax({
+            type: 'POST',
+            url: 'pointc2c.html',
+            //data: 'IncomeUser=' + username + '&amount=' + amount + '&withdrawpassword=' + passwd ,
+            error: function(xhr) {
+                alert('error');
+                window.location.reload();
+                return false;
+            },
+            beforeSend: function(response) {
+                $("#Modal_coverchgall").html("<div class='Loading'></div>");
+            },
+            success: function(response) {
+                $("#Modal_coverchgall").on('keyup', function() {
+                    var _this = this;
+                    //setTimeout(function(){
+                    //_this.scrollIntoViewIfNeeded();
+                    //},400);
+                });
+                $("#Modal_coverchgall").html(response);
+            }
+        });
+        $("#Modal_coverchgall").css('display', 'block');
+    });
+
+</script>
+		<div class="sidy__content">
+<div class="scroll_top" id="return-to-top">
+	<div class="scroll_top_bg"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+</div>
+            {include file="public/nav1" /}
+
+<div id="Modal_coverchgall" class="cover"></div>
+<link rel="stylesheet" href="__CSS__/my.css">
+<div class="title_background ">
+<div class="title">我　的</div>
+</div>
+ <div class="content" style="margin-top:0px;padding: 0px 0px 0px 0px;" id="topApp">
+       <div class="head_bg">
+        <div class="my_profile">
+            <div class="arrow_left" onclick="javascript:window.history.go(-1);"><i class=" fa fa-angle-left" aria-hidden="true"></i></div>
+            <div class="head"><img src="__IMG__/icon/user.png" height="67" width="67"></div>
+            <div class="acc_name">{{username}}</div>
+            <button class="logout" onclick="location.href='/index/login/loginOut'">登　出</button>
+            <div class="color_border_bottom"></div>
+        </div>
+        </div>
+        <div class="my_detail">
+
+            <div class="line"></div>
+            <div class="line2"></div>
+            <div class="detail_bg">
+                <div class=""></div>
+            <div class="block">
+                <div class="block_title">未结算金额</div>
+                <div class="block_num">{{njmoney}}</div>
+            </div>
+            <div class="block">
+                <div class="block_title">可用余额</div>
+                <div class="block_num">{{money}}</div>
+            </div>
+            <div class="block">
+                <div class="block_title">正在交易笔数</div>
+                <div class="block_num">{{total}}</div>
+            </div>
+
+           </div>
+        </div>
+            <div class="service_padding">
+          <div class="service_title">TG服务</div>
+            <div>
+            <div class="service_block" onclick="location.href='deposits.html'">
+                <div><img src="__IMG__/icon/wallet.png" height="22" width="22"></div>
+                <div class="service_text">充值与提领</div>
+            </div>
+            <div class="service_block" onclick="location.href='monrecord.html'">
+                <div><img src="__IMG__/icon/account-1.png" height="22" width="22"></div>
+                <div class="service_text">交易记录</div>
+            </div>
+            <div class="service_block" onclick="location.href='personal.html'">
+                <div><img src="__IMG__/icon/menu-icon.png" height="22" width="22"></div>
+                <div class="service_text">个人资料</div>
+            </div>
+           </div>
+            <div class="service_title">合作服务</div>
+            <div>
+                <div class="service_block" onclick="location.href='products/html/contact/index.html'">
+                    <div><img src="__IMG__/icon/coo.png" height="25" width="25"></div>
+                    <div class="service_text">与我们合作</div>
+                </div>
+                <div class="service_block" onclick="location.href='companyinfo.html'">
+                    <div><img src="__IMG__/icon/about.png" height="25" width="25"></div>
+                    <div class="service_text">关于TG网</div>
+                </div>
+					<!--<div class="service_block" onclick="window.open('https://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=698946&configID=1586&jid=5625358570&s=1')">-->
+					<!--<div class="service_block" onclick="_MICHAT.floatClick();return false;">-->
+					<div class="service_block" onclick="window.open('http://mdt.me0001.com/Web/im.aspx?_=t&amp;accountid=101584&amp;cp=m1.tg333.net', '_blank')">
+                    <div><img src="__IMG__/icon/24h.png" height="25" width="25"></div>
+                    <div class="service_text">24H线上客服</div>
+                </div>
+            </div>
+            </div>
+  </div>
+<script>
+$('.icon_bar_cell > a').removeClass('active');
+  $('.icon_bar_cell > #my_a').addClass('active');
+</script>
+	</div>
+	</div>
+	<script src="__JS__/jquery.cookies.2.2.0.js"></script>
+	<script src="__JS__/side.js"></script>
+	<script src="__JS__/trade_detail.js"></script>
+	<script src="__JS__/main.js"></script>
+	<script src="__JS__/scrollTop.js"></script>
+	<script src="__JS__/history_stat.js"></script>
+	<script src="__JS__/downloadApp.js"></script>
+</body>
+</html>
+<script>
+    var app = new Vue ({
+        el: '#topApp',
+        data: {
+            username:null,
+            njmoney: 0,
+            total: 0,
+            money:0,
+            timer:'',
+        },
+        methods:{
+            getMoney() {
+                _this = this;
+                axios
+                    .get('/index/index/getMoney')
+                    .then(function (response) {
+                        _this.money = response.data.money;
+                        _this.username = response.data.account;
+                        _this.njmoney = response.data.nmoney;
+                        _this.total = response.data.total;
+                    })
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    });
+            }
+        },
+        mounted: function() {
+            //_this = this;
+            this.getMoney()
+            this.timer = setInterval(this.getMoney,10000);
+        },
+        beforeDestroy() {
+            _this = this;
+            clearInterval( _this.timer);
+        }
+    })
+</script>

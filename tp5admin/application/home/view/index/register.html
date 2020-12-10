@@ -1,0 +1,87 @@
+{include file="public/headers" /}
+<style>
+    .div_dialog{
+        color: #333;
+    }
+</style>
+
+<style>
+
+</style>
+<body>
+<div class="rotate-canvas" id="rotateFade">
+    <div class="main-top">
+        <div class="logo" style="line-height: 40px;margin-top: 10px">
+            <img src="__IMGS__/119x27-logo.png">
+            <div style="width: 1000px;line-height: 18px;font-size: 12px">
+                <span class="on"></span>
+                English Español Deutsch Italiano Português Dansk Svenska Norsk
+                简体中文 <span style="color: #FFDF1B">繁體中文</span> Български
+                Ελληνικά Polski Română Česky Magyar Slovenčina Nederlands Eesti
+            </div>
+        </div>
+        <ul>
+            <li><a class="">登陆</a></li>
+        </ul>
+    </div>
+    <div class="register-box">
+        <div class="form" id="newTabActivity">
+            <div class="register-top">注&nbsp;册</div>
+            <div class="input-div"><input type="text" name="account" v-model="userInfo.account" placeholder="账号"></div>
+            <div class="input-div"><input type="text"  name="nickname" v-model="userInfo.nickname" placeholder="昵称（必填资料）"></div>
+            <div class="input-div"><input type="password" name="password" v-model="userInfo.password" placeholder="密码（必填资料）"></div>
+            <div class="input-div"><input type="text" name="password1" v-model="userInfo.password1" placeholder="确认密码（必填资料）"></div>
+            <div class="input-div"><input type="text" name="mobile" v-model="userInfo.mobile" placeholder="手机号（必填资料）"></div>
+            <div class="input-div"><input type="text" name="email" v-model="userInfo.email" placeholder="电子邮箱"></div>
+            <div class="input-div"><input type="text" name="qq" v-model="userInfo.qq" placeholder="QQ号"></div>
+            <div class="input-div"><input type="text" name="vx" v-model="userInfo.vx" placeholder="微信号"></div>
+            <div class="btn-box">
+                <a class="registerBtn" v-on:click="pop()">注册</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    ;(function(){
+        var h_w = $(window).height();
+        var w_w = $(window).width();
+        $(".rotate-canvas").css('height',h_w+"px");
+    })()
+    var app = new Vue({
+        el: '#rotateFade',
+        data: {
+            userInfo:{
+                account:null,
+                nickname:null,
+                password:null,
+                password1:null,
+                mobile:null,
+                email:null,
+                qq:null,
+                vx:null
+            }
+        },
+        methods: {
+             pop:function() {
+                 let  data =  this.userInfo;
+                 axios
+                     .post('/home/register/registerpost',{data})
+                     .then(function (response) {
+                         if(response.data.code!==1) {
+                             layer.msg(response.data.msg,{iocn:2,time:1000});
+                         }else{
+                             layer.msg(response.data.msg,{iocn:6,time:1000},function () {
+                                 window.history.go(-1);
+                             });
+                         }
+                         console.log(response);
+                     })
+                     .catch(function (error) { // 请求失败处理
+                         console.log(error);
+                     });
+             }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en"><script type="text/javascript" charset="utf-8" id="zm-extension" src="chrome-extension://fdcgdnkidjaadafnichfpabhfomcebme/scripts/webrtc-patch.js" async=""></script><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=414,user-scalable=no">
+	<title>TG</title>
+
+	<link rel="stylesheet" href="__CSS__/bootstrap.min.css">
+	<link rel="stylesheet" href="__CSS__/fontawesome-all.min.css">
+	<link rel="stylesheet" href="__CSS__/normalize.css">
+	<link rel="stylesheet" href="__CSS__/tab_style.css">
+	<link rel="stylesheet" href="__CSS__/side.css">
+	<link rel="stylesheet" href="__CSS__/Main_Style.css?v=20190605114015">
+	<link rel="stylesheet" href="__CSS__/trade_detail.css?v=20190605114015">
+	<link rel="stylesheet" href="__CSS__/FIFA_marketlist.css">
+	<link rel="stylesheet" href="__CSS__/my_info_chg.css?v=20190605114015">
+	<link rel="stylesheet" href="__CSS__/statistics.css?v=20190605114015">
+	<link rel="stylesheet" href="__CSS__/switch.css?v=20190605114015">
+	<link rel="stylesheet" href="__CSS__/downloadApp.css?v=20190605114015">
+		<!--theme-->
+	<link rel="stylesheet" href="__CSS__/theme/APPui.css?v=20190605114015">
+	<script src="__JS__/jquery-3.2.1.min.js"></script>
+	<script src="__JS__/bootstrap.min.js"></script>
+
+	<script>
+	</script>
+
+</head>
+
+<body>
+	<div class="sidy" onclick="siidyy();">
+        {include file="public/nav" /}
+		<div class="sidy__content">
+<div class="scroll_top" id="return-to-top">
+	<div class="scroll_top_bg"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+</div>
+<div class="head_banner nav-bar navbar-fixed-top">
+	<div data-panel="panel-1" class="sidy--to-open menu_btn" style="cursor: pointer;">
+		<span></span><br>
+		<span></span><br>
+		<span></span><br>
+	</div>
+	<div class="acc"><img class="top_user" src="__IMG__/top_user.png" width="11" height="11">AMX141</div>
+	<div class="money"><img class="top_coin" src="__IMG__/top_coin.png" width="11" height="11"><span id="quotaView">0.00</span></div>
+</div>
+<div class="title_background">
+	<button class="announcement_btn" onclick="titleannice()">公告<i class="fa fa-caret-right arrow_2" aria-hidden="true"></i></button>
+	<div class="title_market">
+		<marquee id="marqinfo" direction="left">
+
+		</marquee>
+	<div id="markettitle" name="markettitle">市场列表</div>
+	</div>
+	<div class="mail"><img src="__IMG__/icon/mail.png" height="18" width="27"><span onclick="document.location.href='/index/index/announce'" class="message_number"></span></div>
+</div>
+
+            {include file="public/nav1" /}
+
+<div id="Modal_coverchgall" class="cover"></div>
+<link rel="stylesheet" href="__CSS__/account_history.css">
+<link rel="stylesheet" href="__CSS__/public.css">
+<script>
+
+function gettoday(a)
+	 {
+	 	document.location.href='history.html?week=day&f_date1='+a+'';
+	 }
+
+  function checkmenu(a,b)
+   {
+   	document.location.href='history.html?week='+b+'';
+   	//jQuery('.tab-pane').css("display","none");
+   	//jQuery('#'+a+'').css("display","none");
+   	//jQuery('#'+a+'').addClass('active');
+   }
+
+  function getmenunum(a)
+   {
+  $.cookies.set('myCookie', a);
+   }
+
+$(document).ready(function() {
+
+
+	var b = $.cookies.get('myCookie');
+
+
+      if(b=='years')
+      {
+     $('#tab-4').attr('checked',true);
+      }
+      if(b=='farweek')
+      {
+     $('#tab-3').attr('checked',true)
+
+      }
+      if(b=='midweek')
+      {
+   $('#tab-2').attr('checked',true)
+
+      }
+      if(b=='lastweek')
+      {
+   $('#tab-1').attr('checked',true)
+
+      }
+
+	$.cookies.set('myCookie', null);
+
+	$('.icon_bar_cell > a').removeClass('active');
+  $('.icon_bar_cell > #history_a').addClass('active');
+	});
+
+</script>
+
+<div class="title_background ">
+
+<div class="title">历史帐务</div>
+
+</div>
+            <section class="tabs" style="position: relative; margin: 173px auto 0px auto;width: 100%;">
+                <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked">
+                <label for="tab-1" class="tab-label-1">本周</label>
+                <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2">
+                <label for="tab-2" class="tab-label-2">上周</label>
+                <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3">
+                <label for="tab-3" class="tab-label-3">本月</label>
+                <input id="tab-4" type="radio" name="radio-set" class="tab-selector-4">
+                <label for="tab-4" class="tab-label-4">上月</label>
+                <div class="clear-shadow"></div>
+                <div style="margin-top:0px;" class="content">
+                    <div class="content-1">
+                        <div class="table_head">
+                            <div class="table_head_cell date">日期</div>
+                            <div class="table_head_cell trade_amount">累计流水</div>
+                            <div class="table_head_cell result">总收益</div>
+                        </div>
+                        <div class="history_table">
+                            {foreach name="list" item="v"}
+                            <div class="history_row" onclick="">
+                                <div class="history_cell date ">{$v.add_time1}</div>
+                                <div class="history_cell trade_amount" style="text-align: center;width: 40%">{$v.money}</div>
+                                <div class="history_cell result color_green" style="width: 20%;text-align: center"><div class="moneycoor_green">{$v.money1}</div></div>
+                            </div>
+                            {/foreach}
+                        </div>
+                    </div>
+                    <div class="content-2">
+                        <div class="table_head">
+                            <div class="table_head_cell date">日期</div>
+                            <div class="table_head_cell trade_amount">累计流水</div>
+                            <div class="table_head_cell result">总收益</div>
+                        </div>
+                        <div class="history_table">
+                            {foreach name="list2" item="v"}
+                            <div class="history_row" onclick="">
+                                <div class="history_cell date ">{$v.add_time1}</div>
+                                <div class="history_cell trade_amount" style="text-align: center;width: 40%">{$v.money}</div>
+                                <div class="history_cell result color_green" style="width: 20%;text-align: center"><div class="moneycoor_green">{$v.money1}</div></div>
+                            </div>
+                            {/foreach}
+                        </div>
+                    </div>
+                    <div class="content-3">
+                        <div class="table_head">
+                            <div class="table_head_cell date">日期</div>
+                            <div class="table_head_cell trade_amount">累计流水</div>
+                            <div class="table_head_cell result">总收益</div>
+                        </div>
+                        <div class="history_table">
+                            {foreach name="list3" item="v"}
+                            <div class="history_row" onclick="">
+                                <div class="history_cell date ">{$v.add_time1}</div>
+                                <div class="history_cell trade_amount" style="text-align: center;width: 40%">{$v.money}</div>
+                                <div class="history_cell result color_green" style="width: 20%;text-align: center"><div class="moneycoor_green">{$v.money1}</div></div>
+                            </div>
+                            {/foreach}
+                        </div>
+                    </div>
+                    <div class="content-4">
+                        <div class="table_head">
+                            <div class="table_head_cell date">日期</div>
+                            <div class="table_head_cell trade_amount">累计流水</div>
+                            <div class="table_head_cell result">总收益</div>
+                        </div>
+                        <div class="history_table">
+                            {foreach name="list4" item="v"}
+                            <div class="history_row" onclick="">
+                                <div class="history_cell date ">{$v.add_time1}</div>
+                                <div class="history_cell trade_amount" style="text-align: center;width: 40%">{$v.money}</div>
+                                <div class="history_cell result color_green" style="width: 20%;text-align: center"><div class="moneycoor_green">{$v.money1}</div></div>
+                            </div>
+                            {/foreach}
+                        </div>
+                    </div>
+            </section>
+
+		</div>
+	</div>
+
+	<script src="__JS__/jquery.cookies.2.2.0.js"></script>
+	<script src="__JS__/side.js"></script>
+	<script src="__JS__/trade_detail.js"></script>
+	<script src="__JS__/main.js"></script>
+	<script src="__JS__/scrollTop.js"></script>
+	<script src="__JS__/history_stat.js"></script>
+	<script src="__JS__/downloadApp.js?v=20190605114015"></script>
+
+
+
+
+
+</body></html>
