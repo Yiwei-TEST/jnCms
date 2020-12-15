@@ -1,0 +1,170 @@
+.table_head {
+    width: 100%;
+    background: #1f5392; /* Old browsers */
+    background: -moz-linear-gradient(left, #1f5392 0%, #458dca 35%, #458dca 65%, #1f5392 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #1f5392 0%, #458dca 35%, #458dca 65%, #1f5392 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #1f5392 0%, #458dca 35%, #458dca 65%, #1f5392 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1f5392', endColorstr='#1f5392', GradientType=1); /* IE6-9 */
+    color: white;
+    padding: 3px 0px 3px 0px;
+    letter-spacing: 1px;
+    border-bottom: solid 1px #c3c3c3;
+
+}
+
+.table_head_cell {
+    display: inline-block;
+    text-align: right;
+
+}
+
+.history_table {
+    display: table;
+    width: 100%;
+    font-family: Times New Roman, Symbol, Arial, Tahoma;
+    background-color: white;
+    border-left: solid 1px #c3c3c3;
+
+}
+
+.history_row {
+    display: table-row;
+}
+
+.history_row:nth-of-type(even) {
+    background-color: #edf7ff;
+}
+
+.history_cell {
+    display: table-cell;
+    text-align: right;
+    padding: 14px 0px;
+    font-size: 16px;
+    border-right: solid 1px #c3c3c3;
+    border-bottom: solid 1px #c3c3c3;
+}
+
+.total_table {
+    display: table;
+    width: 100%;
+    margin-bottom: 20px;
+    font-family: Times New Roman, Symbol, Arial, Tahoma;
+    border-bottom: solid 1px #c3c3c3;
+    border-right: solid 1px #c3c3c3;
+    border-left: solid 1px #c3c3c3;
+}
+
+.total_row {
+    display: table-row;
+    width: 100%;
+}
+
+.total_cell {
+    display: table-cell;
+    text-align: right;
+    padding: 7px 0px;
+    font-size: 18px;
+    background-color: #ced7e5;
+    color: #292d2d;
+
+}
+
+.color_green {
+    color: #0c7c00;
+    font-weight: bold;
+}
+
+.color_red {
+    color: red;
+    font-weight: bold;
+}
+
+.date {
+    width: 23%;
+    text-align: center;
+}
+
+.trade_amount {
+    width: 32%;
+    padding-right: 6px;
+
+}
+
+.result {
+    width: 40%;
+    padding-right: 6px;
+}
+
+.bg {
+    background: #1f5392; /* Old browsers */
+    background: -moz-linear-gradient(left, #1f5392 0%, #458dca 35%, #458dca 65%, #1f5392 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #1f5392 0%, #458dca 35%, #458dca 65%, #1f5392 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #1f5392 0%, #458dca 35%, #458dca 65%, #1f5392 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1f5392', endColorstr='#1f5392', GradientType=1); /* IE6-9 */
+    color: white;
+}
+
+.history_row:nth-of-type(even) {
+    background-color: #edf7ff;
+}
+
+.month_title{
+    background-color: white;
+    width: 100%;
+    height: 50px;
+    vertical-align: middle;
+    border-top: solid 1px #c3c3c3;
+    border-right: solid 1px #c3c3c3;
+    border-left: solid 1px #c3c3c3;
+}
+.arrow_left{
+ font-size: 32px;
+    display: inline-block;
+    margin-top: 4px;
+    margin-left: 3%;
+    color: #00235b;
+
+}
+.year_month{
+    display: inline-block;
+    font-size: 18px;
+    font-family: Times New Roman, Symbol, Arial, Tahoma;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-left: 3%;
+    margin-top: -12px;
+    vertical-align: middle;
+    color: #00235b;;
+}
+
+.icon_bar_history{
+    display: block;
+    background: url("../img/04-1.png") no-repeat ;
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 8px;
+    margin: 0px auto;
+}
+
+.icon_bar_cell .active{
+    background: #074b8a; /* Old browsers */
+    background: -moz-linear-gradient(45deg, #074b8a 0%, #3b658a 37%, #3b658a 65%, #074b8a 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, #074b8a 0%,#3b658a 37%,#3b658a 65%,#074b8a 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #074b8a 0%,#3b658a 37%,#3b658a 65%,#074b8a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#074b8a', endColorstr='#074b8a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    color: white;
+    text-decoration: none;
+}
+
+.icon_bar_trade {
+    display: block;
+    background: url(../img/02-2.png) no-repeat;
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 8px;
+    margin: 0px auto;
+}

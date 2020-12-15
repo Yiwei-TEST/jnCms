@@ -13,6 +13,15 @@
                 <div  class="col-sm-2" style="width: 100px">
                 </div>                                            
                     <form name="admin_list_sea" class="form-search" method="post" action="{:url('journal_log')}">
+                        <div class="col-sm-4">
+                                <span class="input-group-btn" id="dateShowBtn">
+                                    <input type="text" name="start_time" id="dateSelectorTwo" lay-verify="date" placeholder="开始时间" autocomplete="off"
+                                           class="form-control jeinput" value="{$start_time}">
+                                </span>
+                            <span class="input-group-btn" id="dateShowBtn1">
+                                    <input type="text" name="end_time" id="dateSelectorTwo1" lay-verify="date" placeholder="结束时间" autocomplete="off" class="form-control jeinput" value="{$end_time}">
+                                </span>
+                        </div>
                         <div class="col-sm-3">
                             <div class="input-group">
                                 <input type="text" id="key" class="form-control" name="key" value="{$val}" placeholder="输入需查询的userId" />
@@ -38,6 +47,7 @@
                                 <th>操作时间</th>
                                 <th>赠送数量</th>
                                 <th>补偿数量</th>
+                                <th>剩余库存</th>
                                 <th>操作人</th>
                             </tr>
                         </thead>
@@ -51,6 +61,7 @@
                                 <td>{{d[i].add_time}}</td>
                                 <td>{{d[i].cards}}</td>
                                 <td>{{d[i].freeCards}}</td>
+                                <td>{{d[i].p_cards}}</td>
                                 <td>{{d[i].nickname}}</td>
                             </tr>
                             {{# } }}
@@ -85,7 +96,9 @@
     Ajaxpage();
     function Ajaxpage(curr){
         var key=$('#key').val();
-        $.getJSON('{:url("Journal/journal_log")}', {page: curr || 1,key:key}, function(data){
+        var start_time=$('#dateSelectorTwo').val();
+        var end_time=$('#dateSelectorTwo1').val();
+        $.getJSON('{:url("Journal/journal_log")}', {page: curr || 1,key:key,start_time:start_time,end_time:end_time}, function(data){
             $(".spiner-example").css('display','none'); //数据加载完关闭动画 
             if(data==''){
                 $("#list-content").html('<td colspan="20" style="padding-top:10px;padding-bottom:10px;font-size:16px;text-align:center">暂无数据</td>');
@@ -111,7 +124,14 @@
             }
         });
     }
-
+    jeDate("#dateSelectorTwo",{
+        theme:{bgcolor:"#1ab394",pnColor:"#00CCFF"},
+        format: "YYYY-MM-DD hh:mm:ss"
+    });
+    jeDate("#dateSelectorTwo1",{
+        theme:{bgcolor:"#1ab394",pnColor:"#00CCFF"},
+        format: "YYYY-MM-DD hh:mm:ss"
+    });
 </script>
 </body>
 </html>
