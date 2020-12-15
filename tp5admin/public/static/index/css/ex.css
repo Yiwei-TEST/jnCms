@@ -1,0 +1,34 @@
+.Loading {
+	width:100px;
+	height:100px;
+	margin:100px 35%;
+	background: url(../img/loading.svg) no-repeat;
+	background-size: 100% 100%;
+}
+
+.guaranteedNomo {
+	color: #fff;
+	background: url(../img/FIFA/holdIco.png) center center no-repeat;
+	background-size: cover;
+	position: absolute;
+	z-index: 1;
+	top: 2px;
+	right: 0px;
+	width: 35px;
+	height: 45px;
+	line-height: 32px;
+	font-size: 12px;
+	text-align: center;
+	font-weight: 600;
+}
+
+.guaranteed_detailNomo {
+	background: url(../img/FIFA/sIco.png) center center no-repeat;
+	background-size: cover;
+	position: absolute;
+	z-index: 1;
+	width: 28px;
+	height: 31px;
+	left:5px;
+	margin-top:-15px;
+}

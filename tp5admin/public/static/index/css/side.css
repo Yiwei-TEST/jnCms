@@ -1,0 +1,46 @@
+*, *:after, *::before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+html, body {
+    height: 100%;
+}
+.sidy {
+	height: 100%;
+}
+
+.sidy__content {
+    position: relative;
+    overflow-y: auto;
+    height: 100%;
+}
+.sidy__panel {
+    position: fixed;
+    overflow: auto;
+	top: 0;
+	bottom: 0;
+	left: -262px;
+	z-index: -9999;
+	background-color: #e6ebef;
+}
+.sidy--opened .sidy__panel {
+	left: 0px;
+	z-index: 9999;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+.sidy--opened .sidy__content::after {
+	position: fixed;
+    top: 0;
+    left: 0;
+	right: 0;
+	bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    content: '';
+    -webkit-transition: all 0s;
+    transition: all 0s;
+	z-index: 1031;
+}

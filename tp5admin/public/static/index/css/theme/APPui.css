@@ -1,0 +1,1437 @@
+@charset "utf-8";
+
+a,
+button,
+a:focus,
+a:hover {
+	text-decoration: none;
+}
+
+body {
+	font-family: Arial, 微軟正黑體, Tahoma;
+}
+
+.bg_img {
+	background: url('../../img/theme/APPui/new_bg.png') center no-repeat fixed;
+	background-size: cover;
+	min-height: 100vh;
+	width: 100vw;
+	height: 100%;
+}
+
+.sidy__content {
+	background: url('../../img/theme/APPui/background_in.png') center no-repeat fixed;
+	background-size: cover;
+	height: 100vh;
+}
+
+.logo {
+	position: relative;
+	background: url(../../img/FIFA/newLogo.png) center no-repeat;
+	background-size: contain;
+	width: 195px;
+	height: 200px;
+	margin: 0px auto 15px;
+	vertical-align: middle;
+}
+
+.logo::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	height: 55px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	background: url('../../img/theme/APPui/wclogo_2019.png') center no-repeat;
+	background-size: contain;
+	width: 70px;
+}
+
+.login_content {
+	width: 74.5%;
+	margin: auto;
+}
+
+.input_style,
+.input_style_lock {
+	background: #fff;
+	border-radius: 3px;
+	border: 1px solid #c9c9c9;
+	height: 40px;
+	margin-bottom: 5px;
+	padding: 7px 13px;
+}
+
+input#inputcode {
+	padding: 0 5px;
+}
+
+.input_style_lock {
+	margin-bottom: 20px;
+}
+
+.input_style::-webkit-input-placeholder,
+.input_style_lock::-webkit-input-placeholder {
+	color: #c0c0c0;
+}
+
+.input_icon {
+	color: rgb(162, 126, 80);
+	font-size: 16px;
+}
+
+.input_font {
+	margin-left: 10px;
+	width: 90%;
+	font-size: 16px;
+	background: none;
+	border: 0;
+}
+
+.input_font_lock {
+	margin-left: 10px;
+	width: 90%;
+	font-size: 16px;
+	background: none;
+	border: 0;
+}
+
+.select_lang {
+	margin-top: 15px;
+}
+
+input:checked + .slider {
+	background-color: #0080f7;
+}
+
+label[for="certificate"] {
+	padding: 10px 5px 0 15px;
+}
+
+#certificate {
+	padding: 0 5px;
+}
+
+#certificate + img {
+	margin-top: 8px;
+	height: 25px;
+	padding-left: 5px;
+}
+
+.certificateimg {
+	margin-top: 8px;
+	height: 25px;
+	padding-left: 5px;
+}
+
+.acc_pwd {
+	margin-top: 30px;
+}
+
+.switch_on_off {
+	margin-top: 1px;
+	padding-right: 0;
+	display: inline-block;
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 65px;
+	height: 30px;
+}
+
+.switch input {
+	display: none;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 30px;
+	width: 30px;
+	background-image: url(../../img/switch_btn.png);
+	background-size: cover;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(36px);
+	transform: translateX(36px);
+}
+
+.slider.round {
+	border-radius: 30px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
+}
+
+.download_btn:focus,
+.download_btn:hover {
+	color: #fff;
+}
+
+.remember_acc_pwd {
+	color: #000;
+	margin-right: 7px;
+	text-align: left;
+	padding-top: 5px;
+	display: inline-block;
+	font-size: 15px;
+	vertical-align: top;
+	padding-left: 5px;
+	font-weight: bold;
+}
+
+.forgot_pwd {
+	display: inline-block;
+	font-size: 15px;
+	vertical-align: top;
+	font-weight: bold;
+	color: #1f2a24;
+	border-radius: 0;
+	background: none;
+	border-bottom: 1px solid #1f2a24;
+	margin-top: 3px;
+}
+
+.login_btn_group {
+	width: 100%;
+	margin: 5px auto 15px;
+	padding: 0;
+	clear: both;
+}
+
+.register_btn {
+	background: url(../../img/FIFA/signBtn.png) no-repeat;
+	width: 49.3%;
+	height: 42px;
+	border: none;
+	border-radius: 4px;
+	color: #484848;
+	font-weight: bold;
+	font-size: 14px;
+	letter-spacing: 2px;
+}
+
+.login_btn {
+	background: url(../../img/FIFA/loginBtn.png) no-repeat;
+	width: 49.3%;
+	height: 42px;
+	border: none;
+	border-radius: 4px;
+	color: white;
+	font-weight: bold;
+	font-size: 14px;
+	letter-spacing: 2px;
+}
+
+.cover {
+	display: none;
+	position: fixed;
+	z-index: 1031;
+	padding-top: 40%;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.order_content {
+	position: relative;
+	margin: auto;
+	padding: 0;
+	border: 1px solid #c3c3c3;
+	width: 95%;
+	-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	-webkit-animation-name: animatetop;
+	-webkit-animation-duration: 0.4s;
+	animation-name: animatetop;
+	animation-duration: 0.4s;
+	-webkit-animation: animatezoom 0.4s;
+	animation: animatezoom 0.4s;
+	border-radius: 5px 5px 0px 0px;
+}
+
+.qq_title,
+.weixin_title {
+	padding: 10px;
+	font-size: 16px;
+	width: 100%;
+	text-align: center;
+	letter-spacing: 1px;
+}
+
+.close_x {
+	right: 3%;
+	top: 7px;
+	position: absolute;
+	font-size: 20px;
+}
+
+.QRcode {
+	width: 70%;
+	min-height: 250px;
+	height: auto;
+	background-color: #959f9f;
+	margin: 25px auto;
+}
+
+.QRcode img {
+	width: 100%;
+}
+
+.order_content2 {
+	position: relative;
+	margin: auto;
+	padding: 0;
+	border: 1px solid #c3c3c3;
+	width: 95%;
+	-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	-webkit-animation-name: animatetop;
+	-webkit-animation-duration: 0.4s;
+	animation-name: animatetop;
+	animation-duration: 0.4s;
+	height: 505px;
+	-webkit-animation: animatezoom 0.4s;
+	animation: animatezoom 0.4s;
+	border-radius: 5px 5px 0px 0px;
+}
+
+
+.icon_bar {
+	box-shadow: none;
+	background: #fff;
+	border-top: 1px solid #ccc;
+}
+
+.icon_bar_cell a {
+	border: 0;
+	background: none;
+}
+
+.icon_bar_cell a.active {
+	color: #76532e;
+	background: none;
+}
+
+.icon_bar_cell a.active .icon_bar_marketlist {
+	background: url(../../img/theme/APPui/gamelist_ico_off.png) no-repeat;
+	background-size: cover;
+}
+
+.icon_bar_cell a.active .icon_bar_trade {
+	background: url(../../img/theme/APPui/acclist_ico_on.png) no-repeat;
+	background-size: cover;
+}
+
+.icon_bar_cell a.active .icon_bar_index {
+	background: url(../../img/theme/APPui/home_ico_o_n.png) no-repeat;
+	background-size: contain;
+	width: 23px;
+	height: 20px;
+}
+
+.icon_bar_cell a.active .icon_bar_history {
+	background: url(../../img/theme/APPui/acc_ico_on.png) no-repeat;
+	background-size: cover;
+}
+
+.icon_bar_cell a .icon_bar_my {
+	background: url("../../img/05-2.png") no-repeat;
+	background-size: cover;
+}
+
+.icon_bar_cell a.active .icon_bar_my {
+	background: url(../../img/theme/APPui/mine_ico_off.png) no-repeat;
+	background-size: cover;
+}
+
+.head_banner {
+	background: url('../../img/theme/APPui/topbar.png') center top no-repeat;
+	background-size: 100% auto;
+	height: 50px;
+}
+
+.title_background {
+	background: url('../../img/theme/APPui/titlebar.png') 50% 30% no-repeat;
+	box-shadow: none;
+	height: 35px;
+}
+
+.announcement_btn {
+	background: linear-gradient(to right, #7d7d7d 0%, #a3a3a3 100%);
+	color: #fff;
+	font-weight: 700;
+	font-family: 微軟正黑體, sans-serif, Arial, Tahoma;
+	border: 0;
+}
+
+.mail {
+	background: url('../../img/theme/APPui/mail_ico.png') center no-repeat;
+	background-size: contain;
+	margin-top: 5px;
+	margin-right: 10px;
+	height: 25px;
+	width: 35px;
+}
+
+.arrow,
+.arrow_2 {
+	color: #fff;
+}
+
+.title_market,
+#Modal_coverchgall .member_info_wrap .member_info .info_title {
+	color: #333;
+}
+
+.acc {
+	background: url('../../img/theme/APPui/userbar_ico.png') 8% 50% no-repeat, #fff7e7;
+	background-size: auto 50%, cover;
+	border: solid 1px #937a54;
+	color: #856241;
+	font-weight: 700;
+	border-radius: 2px;
+	margin-top: 11px;
+	padding: 3px 4px 3px 2px;
+}
+
+.money {
+	background: url('../../img/theme/APPui/asset_ico.png') 8% 50% no-repeat, #fff7e7;
+	background-size: auto 50%, cover;
+	border: solid 1px #937a54;
+	color: #856241;
+	font-weight: 700;
+	border-radius: 2px;
+	margin-top: 11px;
+	padding: 3px 4px 3px 2px;
+}
+
+.menu_head_bg {
+	background: linear-gradient(to right, #8a7b5d 0%, #d8cfbe 100%);
+}
+
+.my_info_cell input {
+	padding: 5px;
+}
+
+.chart .chart_title,
+.color_border,
+.color_border_bottom,
+.content .color_border_bottom,
+.blue_border,
+.order_content4 .blue_line,
+.blue_line,
+.trade_line,
+.account_bg,
+#Modal_coverchgall .blue_line_formember,
+.border_blue {
+	background: linear-gradient(to right, #846240 0%, #ffd884 100%) !important;
+	height: 8px;
+	width: 100%;
+	margin-bottom: 5px;
+}
+
+.help_content .blue_line,
+#tab1 .blue_line,
+.message_content_head,
+.content .message_content_head {
+	background: linear-gradient(to right, #846240 0%, #ffd884 100%) !important;
+	height: 8px;
+	width: 100%;
+	margin-bottom: 0;
+}
+
+.cover .modal_title,
+.notice_bg .notice,
+.notice,
+#Modal_coverchgall .modal_title,
+#Modal_coverchgall .modal_title,
+.head_bg {
+	background: linear-gradient(to right, #846240 0%, #ffd884 100%) !important;
+	width: 100%;
+	margin-bottom: 0;
+	height: auto;
+}
+
+.head_bg {
+	padding-bottom: 2px;
+}
+
+.trade_head .color_border_bottom {
+	margin-bottom: 0;
+}
+
+.game_trade .color_border,
+.game_list li .color_border {
+	background: linear-gradient(to bottom, #846240 0%, #ffd884 100%) !important;
+}
+
+.table_head,
+.content .table_head,
+.against {
+	background: linear-gradient(to right, #91764b 0%, #d1b181 50%, #91764b 100%);
+	padding: 5px 0px;
+}
+
+
+.content .history_table,
+.content .total_table,
+.block .block_num {
+	font-family: inherit;
+}
+
+.total_table .total_cell {
+	background-color: #c7c3bb;
+	color: #787878;
+}
+
+.menu_head_title {
+	background: url(../../img/theme/APPui/side_logo.png) 0% 50% no-repeat;
+	background-size: auto 70%;
+	height: inherit;
+	top: 0;
+}
+
+.menu_rules_icon {
+	width: 30px;
+	height: 30px;
+	margin-top: 6px;
+	margin-left: 6px;
+}
+
+.menu_qrcode_icon {
+	width: 24px;
+	height: 24px;
+	margin-top: 8px;
+}
+
+.menu_announce_icon {
+	width: 28px;
+	height: 28px;
+	margin-top: 6px;
+	margin-left: 8px;
+}
+
+.menu_logout_icon {
+	margin-left: 5px;
+}
+
+.menu_block_group .menu_block {
+	padding: 1px;
+	box-shadow: none;
+}
+
+.menu_block_outline01,
+.menu_block_outline02,
+.menu_block_outline03 {
+	height: 58px;
+}
+
+.title {
+	color: #79542e;
+	font-weight: 700;
+}
+
+li .arrow,
+.no_content,
+.choose_alliance div,
+.money_btn {
+	color: #9a542e;
+	border-color: #9a542e;
+}
+
+.number {
+	color: #0087d7;
+}
+
+.checked,
+.message_detail .message_btn button,
+.message_btn button,
+.history_content .table_title,
+.help,
+.battle_record_head,
+.onoffswitch-inner:before,
+#Modal_coverchgall .notice_list li div {
+	background: #9a542e;
+}
+
+.th_blue {
+	background: #8f7b5d;
+}
+
+.main_mark {
+	color: #32bfc2;
+}
+
+.open .main_mark {
+	color: #fff;
+}
+
+.game_trade .arrow {
+	color: #76532e;
+}
+
+.total_rate_num {
+	font-family: inherit;
+	font-weight: 700;
+	color: #056500;
+}
+
+.trade_amount_num {
+	font-family: inherit;
+	font-weight: 700;
+	color: #002b51;
+}
+
+.modal_content_title_cell2,
+.window2,
+.game_list.open .game_trade {
+	background: #9f927d;
+}
+
+.whole_table_block .trade_table {
+	border-color: #9f927d;
+}
+
+.game_team,
+.arrow_left,
+.content .arrow_left,
+.blank,
+.trade_head .blank {
+	color: #002b51;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.head_bg .arrow_left {
+	color: #fff;
+}
+
+.open .number {
+	color: #0087d7;
+	font-weight: 700;
+}
+
+.back_to_menu {
+	background: #580000;
+}
+
+.update {
+	background: linear-gradient(to right, #d1b181 0%, #91764b 100%);
+}
+
+.help_bg,
+.rules_bg {
+	margin-top: -5px;
+	height: 100%;
+}
+
+.rules_content_1 {
+	margin-top: -5px;
+}
+
+.help_bg .back_to_menu {
+	top: 102px;
+}
+
+.help_content {
+	height: 96%;
+	padding: 1.3rem 0.5rem 5rem;
+}
+
+.help_content .carousel {
+	top: 5%;
+}
+
+.table_padding {
+	color: #222;
+}
+
+.table_padding th {
+	font-weight: 500;
+}
+
+.check_content {
+	padding: 15px 10px;
+}
+
+.clean {
+	color: #000;
+}
+
+.all {
+	color: #000;
+	background: #fff;
+	border-color: #000;
+}
+
+.box {
+	border-color: #000;
+}
+
+.confirm_btn {
+	width: 30%;
+	background: #ff9600;
+	color: #fff;
+	border-radius: 2px;
+	border-color: #9dd7f6;
+	letter-spacing: 20px;
+	padding-left: 26px;
+	vertical-align: middle;
+}
+
+.overage::before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	height: 20px;
+	width: 20px;
+	background: url('../../img/theme/2019CNY/coin.png') center no-repeat;
+	background-size: contain;
+}
+
+.fa-gear:before,
+.fa-cog:before {
+	color: #af8955;
+}
+
+.trade_detail {
+	border-bottom: solid 4px #9e917d;
+}
+
+.money_total,
+.table_padding .money_total {
+	background-color: #fffbf3;
+	border-bottom: solid 1px #ddd;
+}
+
+.content_row:nth-of-type(even),
+.content_rowss:nth-of-type(even),
+.history_table .history_row:nth-of-type(even),
+.history_content .head,
+.battle_record_name {
+	background-color: #fffbf3;
+}
+
+
+.history_table {
+	font-family: inherit;
+	font-weight: 700;
+}
+
+.tabs input:checked + label {
+	border-bottom: solid 2px #fbb100;
+	font-weight: 700;
+}
+
+.content > .head_bg {
+	margin-top: 85px;
+	background: none;
+	height: 235px;
+	background: none !important;
+}
+
+.content .head_bg .my_profile {
+	background: url('../../img/theme/APPui/card_bg_1.png') 50% 50% no-repeat;
+	background-size: auto 90%;
+	height: inherit;
+}
+
+.menu_list ul li div.menu_arrow,
+.menu_block .new_icon,
+.top_user,
+.top_coin,
+.mail > img,
+.my_profile .color_border_bottom,
+.my_detail .line,
+.my_detail .line2,
+.my_profile .head,
+.my_profile .arrow_left,
+.service_title,
+.page_padding .deposits_title,
+.logo_position,
+#order1 .close_btn,
+#order2 .close_btn {
+	display: none;
+}
+
+.content .service_padding {
+	padding: 0;
+}
+
+.service_padding > div {
+	margin-bottom: 0.5rem;
+}
+
+.service_padding .service_block {
+	display: block;
+	text-align: left;
+	width: 100%;
+	background-color: white;
+	border: 0;
+	border-bottom: solid 1px rgba(135, 148, 148, 0.5);
+	margin: 0;
+	height: 50px;
+	padding: 0.5rem 2rem;
+	box-shadow: none;
+}
+
+.service_padding .service_block > div {
+	display: inline-block;
+	margin-right: 1rem;
+}
+
+.my_detail {
+	position: absolute;
+	top: 140px;
+	left: 0;
+	right: 0;
+	padding: 0 2.5rem;
+}
+
+.my_detail .detail_bg {
+	margin-bottom: 0.5rem;
+	background: none;
+}
+
+.my_detail .detail_bg .block_title {
+	color: #000;
+}
+
+.my_profile .acc_name {
+	position: absolute;
+	top: 110px;
+	font-size: 20px;
+	margin-left: 13%;
+	font-weight: bold;
+	color: #000;
+}
+
+.my_profile .logout {
+	top: 24px;
+	right: 33px;
+	width: 15%;
+	height: 35px;
+	background: #fff;
+	border-radius: 2px;
+	margin-left: 0;
+	letter-spacing: -5px;
+	padding-right: 10px;
+}
+
+.content .selector {
+	color: #235d87
+}
+
+.trade_success_table {
+	margin: auto;
+	width: 100%;
+	padding: 1rem;
+}
+
+.cancel_button > button {
+	box-shadow: none;
+	border: 0;
+	padding: 5px 12px;
+	border-radius: 15px;
+	color: #fff;
+	background: linear-gradient(to right, #ff0000 0%, #fc7574 100%);
+}
+
+.cover .order_content,
+.cover .order_content2,
+.cover .order_content3,
+.cover .order_content4 {
+	height: auto;
+	min-height: 260px;
+	background: #fff;
+}
+
+.cover .order_content::after,
+.cover .order_content2::after,
+.cover .order_content3::after,
+.cover .order_content4::after {
+	content: "";
+	clear: both;
+	width: inherit;
+	height: 5px;
+	position: relative;
+	display: block;
+}
+
+.trade_msg {
+	font-size: 16px;
+	padding: 10px;
+	font-weight: 700;
+}
+
+.btn_group,
+.btn_group_order {
+	width: 100%;
+	margin: 15px auto;
+	padding: 0;
+	clear: both;
+	display: table;
+}
+
+button.confirm,
+button.cancel,
+#confirm1,
+#cancel1,
+#confirm2,
+#cancel2,
+#confirm3,
+#cancel3 {
+	display: table-cell;
+	background: #fff !important;
+	height: 45px !important;
+	width: 50% !important;
+}
+
+.content message_bg {
+	padding: 13px 0px 0px 30px;
+	position: relative;
+}
+
+.content .green_spot {
+	background-color: #ccc;
+	width: 10px;
+	height: 10px;
+	right: auto;
+	left: 10px;
+	top: 22px;
+}
+
+.bg {
+	padding-bottom: 0;
+	background: #fff;
+}
+
+.content_block {
+	background: none;
+	padding-bottom: 35px;
+}
+
+.acc_pwd_part1,
+.bank_acc_pwd,
+.mobile_confirm,
+.sendbtfinish {
+	background-color: #fffaed;
+}
+
+.acc_pwd_part1 .content_row:nth-of-type(even),
+.acc_pwd_part2 .content_row:nth-of-type(even),
+.bank_acc_pwd .content_row:nth-of-type(even),
+.mobile_confirm .content_row:nth-of-type(even),
+.sendbtfinish .content_row:nth-of-type(even) {
+	background: none;
+}
+
+.acc_pwd_part2 {
+	background: #faf2d6;
+}
+
+.join_title {
+	display: block;
+	color: #000;
+	font-weight: 700;
+	text-shadow: none;
+	text-align: center;
+}
+
+.account_name {
+	background: linear-gradient(to right, #91764b 0%, #d1b181 50%, #91764b 100%);
+	padding: 5px 0px;
+	line-height: 32px;
+	font-size: 16px;
+}
+
+
+.content_cell_title,
+.content_cell_title.align_left {
+	width: 30%;
+	font-size: 13px;
+	text-align: left;
+}
+
+.content_cell_title span {
+	margin: 0px 5px 0px 2px;
+}
+
+.content_cell {
+	width: 20%;
+}
+
+.color_border {
+	width: auto;
+	margin: 0 auto;
+	text-align: center;
+	display: block;
+	left: 5px;
+	right: 5px;
+}
+
+.game_trade .color_border,
+.game_list li .color_border {
+	width: 3px;
+	left: 0;
+	right: auto;
+	height: inherit;
+}
+
+.check_group .color_border {
+	left: 0;
+	right: 0;
+}
+
+#Modal_coverchgall .order_content_memeber,
+.pay_block,
+.take_bg,
+.pay_block .white_bg_table {
+	background: #fff !important;
+}
+
+#usercenter_saveup_sec .pay_block {
+	padding: 15px 15px 30px 6px;
+}
+
+#usercenter_saveup_sec .pay_please {
+	margin-bottom: 5px;
+}
+
+#usercenter_saveup_sec .pay_table,
+#usercenter_saveup_sec .pay_row {
+	display: block;
+	letter-spacing: -1px;
+    word-spacing: -1px;
+    font-size: 0;
+}
+
+#usercenter_saveup_sec .pay_cell_title {
+	display: inline-block;
+	width: 33%;
+	word-spacing: normal;
+}
+
+#usercenter_saveup_sec .pay_cell_input {
+	display: inline-block;
+	word-spacing: normal;
+	letter-spacing: 0;
+}
+
+.copy_cell {
+	/*	display: table-cell;*/
+	display: inline-block;
+	word-break: keep-all;
+	width: 12%;
+	background: none;
+	border: 1px solid #006be4;
+	color: #006be4;
+	border-radius: 2px;
+	cursor: pointer;
+	word-spacing: normal;
+	letter-spacing: 0;
+	font-size: 14px;
+}
+
+.letter_space.saveup-num {
+	letter-spacing: 3px;
+	padding-left: 4px;
+}
+
+.letter_space.saveup-name {
+	letter-spacing: -1px;
+	padding-left: 0;
+}
+
+#amounts,
+.color_red {
+	color: red;
+}
+
+#note {
+	color: red;
+	padding: 0 5px 0 15px;
+	font-size: 14px;
+}
+
+
+
+.scan-to-pay {
+	border-top: 4px solid #eae6db;
+    padding-top: 15px;
+    margin: 10px auto;
+}
+
+.verificationContainer {
+	margin-top: 85px;
+	padding: 0px 15px;
+}
+
+.form-verification .form-group {
+	background: #fff;
+	margin-bottom: 0;
+	border-bottom: 1px solid #eee;
+	padding: 5px;
+}
+
+.form-verification .form-group label {
+	padding: 7px 10px 0 25px;
+}
+
+.form-verification .form-group input {
+	border: 0;
+	box-shadow: none;
+	text-align: right;
+}
+
+.verification_code {
+	margin-top: 1em;
+	background: #93b5c9;
+	color: #fff;
+	border: 1px solid #9dd7f6;
+}
+
+.classification_title::before {
+	content: "";
+	border-top: 1px solid #a6937c;
+	display: inline-block;
+	width: 10%;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+.classification_title::after {
+	content: "";
+	border-top: 1px solid #a6937c;
+	display: inline-block;
+	width: 65%;
+	vertical-align: middle;
+	margin-left: 12px;
+}
+
+.classification_title + .block_group {
+	display: flex;
+	border: 0;
+	box-shadow: none;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	width: auto;
+	overflow-x: auto;
+	margin-bottom: 15px;
+}
+
+.block_group .block {
+	flex: 0 0 30%;
+}
+
+.pl-1 {
+	padding-left: 1em;
+}
+
+.take_cell.take_input input {
+	padding-left: 5px;
+}
+
+.take_cell input#widthdrawVerification,
+.take_cell input.widthdrawVerification {
+	width: 50%;
+}
+
+.take_cell input#widthdrawVerification + img,
+.take_cell input.widthdrawVerification + img {
+	width: 48%;
+}
+
+#Modal_coverchgall .my_info_cell input#coverchgVerification,
+#Modal_coverchgall .my_info_cell input#coverchgVerification + img,
+#Modal_coverchgall .my_info_cell input.coverchgVerification,
+#Modal_coverchgall .my_info_cell input.coverchgVerification + img {
+	width: 40%;
+	margin-left: 0;
+	margin-right: 10px;
+}
+
+#Modal_coverchgall .cover {
+	display: none;
+	position: fixed;
+	z-index: 1035;
+	padding-top: 20%;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+#Modal_verificationCode #codeError {
+	height: 280px;
+}
+
+#Modal_verificationCode #codeError .text_fail {
+	width: 100%;
+	text-align: center;
+	font-size: 18px;
+	margin: 5px 0px;
+	letter-spacing: 2px;
+	color: red;
+}
+
+#Modal_verificationCode #codeError .errorInfo {
+	width: calc(100% - 85px);
+	margin: 40px auto 45px auto;
+	font-size: 1.3em;
+	color: red;
+	text-align: center;
+	font-weight: 700;
+}
+
+#Modal_verificationCode #codeError .btn_group_member {
+	border-top: 1px solid #ccc;
+	padding-top: 15px;
+}
+
+#Modal_verificationCode #codeError #confirmClose {
+	background: none;
+	border: 0;
+	color: #333;
+	font-size: 1.5em;
+}
+
+.verification_cancel {
+	margin-top: 1em;
+	background: #a4a7a8;
+	color: #fff;
+	border: 1px solid #9dd7f6;
+}
+
+
+.qrCodeLine {
+	background: none;
+	height: 17px;
+	display: table-cell;
+	border-top: 4px solid #eae6db;
+}
+
+.iForgotMyPassword {
+	text-align: right;
+}
+
+.iForgotMyPassword a {
+	color: #006be4;
+	text-decoration: none;
+	border-bottom: 1px solid #006be4;
+	font-weight: 700;
+}
+
+
+.services {
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100vh;
+	background: rgba(225, 225, 225, 0.8);
+	margin: 0 auto;
+	overflow: hidden;
+	text-align: center;
+	font-family: 'Microsoft JhengHei' !important;
+	z-index: 99;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.service_content {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 14%;
+}
+
+.service_content a {
+	display: inline-block;
+	height: 70px;
+}
+
+.qq_icon {
+	display: inline-block;
+	background: url("../../img/FIFA/infoQqIco.png") center no-repeat;
+	background-size: cover;
+	width: 70px;
+	height: 70px;
+	margin: 0 auto;
+}
+
+.weixin_icon {
+	display: inline-block;
+	background: url("../../img/FIFA/infoWcIco.png") center no-repeat;
+	background-size: cover;
+	width: 70px;
+	height: 70px;
+	margin: 0 auto;
+}
+
+.online_icon {
+	display: inline-block;
+	background: url("../../img/FIFA/info24HIco.png") center no-repeat;
+	background-size: cover;
+	width: 70px;
+	height: 70px;
+	margin: 0 auto;
+}
+
+.service_24hr {
+	color: #a27e50;
+	border: 1px solid #a27e50;
+	border-radius: 45px;
+	display: block;
+	padding: 10px 15px;
+	text-align: center;
+	width: fit-content;
+	margin: 45px auto 30px;
+	width: 120px
+}
+
+.services .service_24hr {
+	background: linear-gradient(to right, #c89f30 0%, #d59f59 100%);
+	color: #fff;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.59);
+}
+
+.download_btn {
+	background: url('../../img/theme/APPui/downloadbtn.png') center no-repeat;
+	background-size: contain;
+	color: #fff;
+	padding: 13px 5px 13px 45px;
+	border: 0;
+	width: inherit;
+	font-size: 13px;
+	letter-spacing: 2px;
+	font-weight: 700;
+	border-radius: 12px;
+	margin: -6px auto 0;
+	display: block;
+	cursor: pointer;
+}
+
+.download_btn:focus,
+.download_btn:hover {
+	color: #fff;
+}
+
+.verificationContainer .certificateStr.form-group {
+	padding: 5px 20px 5px 5px;
+}
+
+#Modal_coverchgall .btn_group_member {
+	padding-top: 7px !important;
+	display: table;
+}
+
+.AppContent .QRcode {
+	display: block;
+	margin: 0 auto 1rem;
+	width: 120px;
+	height: 120px;
+	border-radius: 25px;
+	background: none;
+	min-height: auto;
+}
+
+.record_bg {
+	background-color: white;
+	height: auto !important;
+	padding: 10px;
+	margin-bottom: 3px;
+	min-height: 75px;
+}
+
+.downloadApp.downloadAppLogin > div.step_one {
+	display: block;
+}
+
+.chart_title .chart_alliance {
+	background: url(../../img/hint_3.png) right center no-repeat;
+	background-size: cover;
+}
+
+.chart_content #chart_bg {
+	background: linear-gradient(to right, #eee9e0 13%, #fff 100%);
+}
+
+.saveup-btn-group {
+	font-size: 0;
+	letter-spacing: -5px;
+	word-spacing: -5px;
+	padding: 0px 0px 0px 10px;
+	text-align: center;
+}
+
+.saveup-btn-group button {
+	margin: 0 auto;
+	border-radius: 5px;
+	width: 48%;
+	border: 0;
+	font-size: 17px;
+	letter-spacing: 1px;
+	word-spacing: normal;
+	height: 50px;
+	display: inline-block;
+}
+
+button.bankDepositSubmit {
+	background: linear-gradient(to right, #d5b46d 13%, #846240 100%);
+	color: #fff;
+	text-shadow: 1px 1px 2px #666;
+	margin-left: 2%;
+}
+
+button.bankDepositCancel {
+	background: linear-gradient(to top, #cdcdcd 13%, #f4f4f4 100%);
+	color: #6d6d6d;
+	margin-right: 2%;
+	border: 1px solid #bfbfbf;
+}
+
+
+.sys_block_notice {
+    text-align: center;
+}
+
+.sys_block_notice h3 {
+    font-weight: 900;
+    margin: 0 auto 1em;
+}
+
+.sys_block_notice p {
+    font-size: 1.1em;
+    margin-bottom: 1.5em;
+}

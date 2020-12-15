@@ -1,0 +1,512 @@
+.icon_bar_index {
+	background: url('../img/03-2.png') no-repeat;
+	background-size: cover;
+}
+
+.icon_bar_cell .active {
+	background: linear-gradient(45deg, #074b8a 0%, #3b658a 37%, #3b658a 65%, #074b8a 100%);
+	color: #fff;
+}
+
+.icon_bar_cell .active .icon_bar_index {
+	background: url('../img/03-1.png') no-repeat;
+	background-size: cover;
+}
+
+.indexTabsNcarousel {
+	position: relative;
+	margin: 85px auto 55px;
+	width: 100%;
+	font-family: "Helvetica", "Microsoft JhengHei";
+	overflow: hidden;
+}
+
+.indexTabsNcarousel .carousel-caption {
+	text-align: left;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	top: 75%;
+	padding: 0 11px 13px;
+	background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, rgba(0, 0, 0, 1)), color-stop(70%, rgba(0, 0, 0, 0)));
+	background: linear-gradient(to top, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 70%);
+}
+
+.indexTabsNcarousel .carousel-caption > h3 {
+	font-size: 18px;
+	font-weight: 700;
+	margin: 0px;
+	padding-top: 10px;
+	letter-spacing: 2px;
+	text-shadow: 0 0 2px #000
+}
+
+.indexTabsNcarousel .carousel-indicators {
+	bottom: -7px;
+	left: 90%;
+}
+
+.indexTabsNcarousel .carousel-indicators li {
+	width: 8px;
+	height: 8px;
+	background: #e6e6e6;
+	border: 0;
+	margin: 0;
+}
+
+.indexTabsNcarousel .carousel-indicators .active {
+	width: 8px;
+	height: 8px;
+	background: #00b4ff;
+	border: 0;
+}
+
+.indexImgs {
+	width: 100%;
+	max-height: 165px;
+}
+
+ul.indexNav {
+	-webkit-box-shadow: 0 0 1px 2px rgba(127, 127, 127, 0.5);
+	box-shadow: 0 0 1px 2px rgba(127, 127, 127, 0.5);
+	z-index: 3;
+}
+
+ul.indexNav li {
+	width: 50%;
+	text-align: center;
+}
+
+ul.indexNav li > a {
+	font-size: 15px;
+	font-weight: 800;
+	letter-spacing: 1px;
+	color: #c0c0c0;
+	background: #fff;
+	border-radius: 0;
+	border: 0;
+	border-top: 3px solid #fff;
+	border-bottom: 3px solid #fff;
+	margin: 0px;
+	padding: 4px 15px;
+}
+
+ul.indexNav li.active > a,
+ul.indexNav li.active > a:focus,
+ul.indexNav li.active > a:hover {
+	color: #00235b;
+	border: 0;
+	border-top: 3px solid #fff;
+	border-bottom: 3px solid #fbb100;
+	margin: 0px;
+}
+
+.popuRaces_list {
+	z-index: 2;
+	background: #fff;
+	width: 100%;
+	height: 130px;
+	margin-bottom: 3px;
+	-webkit-box-shadow: 0 0 1px 2px rgba(127, 127, 127, 0.3);
+	box-shadow: 0 0 1px 2px rgba(127, 127, 127, 0.3);
+	padding: 5px 10px 5px 0px;
+	vertical-align: middle;
+	font-size: 16px;
+}
+
+.popuRaces_list:first-child {
+	-webkit-box-shadow: 0px 2px 1px 0px rgba(127, 127, 127, 0.3) inset;
+	box-shadow: 0px 2px 1px 0px rgba(127, 127, 127, 0.3) inset;
+}
+
+.topChart {
+	position: relative;
+	background: url(../img/Races/circle_bg.png) 50% 52% no-repeat;
+	background-size: 55%;
+	width: 40%;
+	text-align: center;
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+svg.indexSvg {
+	position: relative;
+	top: -52px;
+	width: 140px;
+	margin: 0 auto;
+}
+
+#topOneScore,
+#topTwoScore,
+#topThreeScore,
+#topFourScore {
+	position: relative;
+	top: 35px;
+	font-size: 25px;
+	letter-spacing: 0px;
+	font-weight: 700;
+	line-height: 40px;
+	display: block;
+	width: 100%;
+}
+
+#topOneScore {
+	color: #e60000;
+}
+
+#topTwoScore {
+	color: #083461;
+}
+
+#topThreeScore {
+	color: #05760d;
+}
+
+#topFourScore {
+	color: #c48c00;
+}
+
+#topOneScore::before,
+#topTwoScore::before,
+#topThreeScore::before,
+#topFourScore::before {
+	content: "总成交量";
+	font-size: 14px;
+	display: block;
+	position: absolute;
+	bottom: -21px;
+	left: 0;
+	right: 0;
+	text-align: center;
+	font-weight: 400;
+	letter-spacing: 0px;
+}
+
+#topOneScore::after,
+#topTwoScore::after,
+#topThreeScore::after,
+#topFourScore::after {
+	content: "K";
+	font-size: 18px;
+	text-align: center;
+	font-weight: 700;
+	letter-spacing: 0px;
+	padding-left: 1px;
+}
+
+/*SVG*/
+#one_value,
+#two_value,
+#three_value,
+#four_value,
+#oneEnd,
+#twoEnd,
+#threeEnd,
+#fourEnd {
+	-webkit-transform: rotate(270deg);
+	transform: rotate(270deg);
+	-webkit-transform-origin: center;
+	transform-origin: center;
+	-webkit-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+}
+
+
+
+.chartInfo {
+	width: 60%;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 14px;
+}
+
+.chartInfo > div {
+	display: block;
+	width: 100%;
+	margin: 3px 0;
+}
+
+div.infoView {
+	text-align: left;
+	color: #787878;
+	letter-spacing: 1px;
+	margin: -2px 0 3px;
+	font-size: 12px;
+}
+
+span.countdownTag {
+	font-weight: 900;
+}
+
+span.countdownTime {
+	color: #a41b00;
+	font-weight: 900;
+}
+
+span.volume {
+	position: absolute;
+	right: 10px;
+	color: #1b6a94;
+	letter-spacing: 1px;
+	font-size: 12px;
+}
+
+.volume::before {
+	content: "成交量：";
+}
+
+div.dateNname {
+	margin: 1px 0 -5px;
+}
+
+.dateNname span {
+	color: #787878;
+	margin-right: 5px;
+}
+
+.index_BattleTeams {
+	border-bottom: 1px solid #d2d2d2;
+	padding: 5px 0;
+}
+
+.index_BattleTeams span {
+	color: #222;
+	font-size: 16px;
+	font-weight: 700;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 18px;
+}
+
+.index_BattleTeams span:nth-child(1) {
+	width: 44%;
+	text-align: left;
+}
+
+.index_BattleTeams span:nth-child(2) {
+	width: 12%;
+	text-align: center;
+}
+
+.index_BattleTeams span:nth-child(3) {
+	width: 44%;
+	text-align: left;
+}
+
+.score {
+	position: relative;
+}
+
+.score span {
+	color: #002b51;
+	font-size: 16px;
+	font-weight: 600;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+span.Odds {
+	color: #ff0000;
+}
+
+span.indexGuaranteed {
+	background: url('../img/Races/hold.png') center no-repeat;
+	background-size: contain;
+	display: inline-block;
+	width: 40px;
+	height: 20px;
+	position: absolute;
+	right: 0;
+	top: 3px;
+}
+
+.news_list {
+	padding: 10px 8px 9px;
+	margin-bottom: 1px;
+	background: #fff;
+}
+
+.news_list:first-child {
+	-webkit-box-shadow: 0px 2px 1px 0px rgba(127, 127, 127, 0.3) inset;
+	box-shadow: 0px 2px 1px 0px rgba(127, 127, 127, 0.3) inset;
+}
+
+.news_list > a > img {
+	display: inline-block;
+	width: 35%;
+	vertical-align: middle;
+}
+
+.news_list .news_title {
+	display: inline-block;
+	width: 65%;
+	padding: 5px 10px 5px 5px;
+	vertical-align: middle;
+}
+
+.news_list .news_title h3 {
+	font-size: 18px;
+	color: #002b51;
+	margin: 0 0 15px;
+}
+
+.news_dates {
+	position: relative;
+	font-size: 16px;
+	font-family: "Helvetica";
+	color: #787878;
+}
+
+.new_times {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.new_news {
+	background: url('../img/Races/new_ico.png') center no-repeat;
+	background-size: contain;
+	display: inline-block;
+	width: 55px;
+	height: 30px;
+	margin-right: 5px;
+	vertical-align: middle;
+}
+
+.pv {
+	text-align: right;
+	position: absolute;
+	right: 0;
+	top: 3px;
+}
+
+.pv::before {
+	content: '';
+	display: inline-block;
+	width: 15px;
+	height: 12px;
+	margin-right: 5px;
+	background: url('../img/Races/eyes_ico.png') center no-repeat;
+	background-size: contain;
+}
+
+
+
+
+
+
+
+/* news */
+.backTOindex {
+	display: inline-block;
+	height: 100%;
+	padding-top: 10px;
+	width: 50px;
+	text-align: center;
+}
+
+.indexNews {
+	background: #fff;
+	margin: 75px auto 65px;
+	padding: 10px 10px 25px;
+	width: 97%;
+	height: auto;
+}
+
+.newsTitle {
+	color: #222;
+	font-size: 22px;
+	font-weight: 900;
+	line-height: 27px;
+	margin: 5px 0 10px;
+}
+
+.newsTimes {
+	margin: 0px 0 20px;
+}
+
+.newsTimes span {
+	margin-right: 8px;
+	font-size: 15px;
+	color: #787878;
+}
+
+span.journalist {
+	color: #002b51;
+
+}
+
+.indexNews p {
+	font-size: 16px;
+	color: #222;
+}
+
+
+
+
+
+
+
+/* hold_bn */
+.activityInfo {
+	background: #004181 url('../img/Races/tg_hold_bg.png') top center no-repeat;
+	background-size: contain;
+	width: 100%;
+	height: auto;
+	margin: 85px auto 2px;
+	text-align: center;
+}
+
+.activityInfo img {
+	width: 100%;
+	margin: 10px auto 3px;
+}
+
+img.sections {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 75px;
+	z-index: 2;
+}
+
+.act_section {
+	padding: 0 20px;
+}
+
+.first_section {
+	padding: 155px 20px 15px;
+}
+
+.act_section ul {
+	background: rgba(0, 53, 70, 0.7);
+	color: #fff;
+	margin: 0 3px;
+	;
+	padding: 15px 5px 5px 30px;
+	text-align: left;
+}
+
+.act_section ul li {
+	margin-bottom: 10px;
+	list-style: none;
+	vertical-align: middle;
+	position: relative;
+}
+
+.act_section ul li::before {
+	content: "";
+	position: absolute;
+	left: -20px;
+	top: 3px;
+	background: url('../img/Races/maney_ico_6.png') center no-repeat;
+	background-size: contain;
+	display: inline-block;
+	width: 17px;
+	height: 17px;
+	vertical-align: middle;
+}
+
+.act_section ul li strong {
+	color: #fcff00;
+}

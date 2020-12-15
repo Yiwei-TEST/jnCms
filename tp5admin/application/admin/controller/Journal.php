@@ -5,6 +5,7 @@ use think\Config;
 use think\Loader;
 use think\Db;
 use app\admin\model\CardsInfoModel;
+use app\admin\model\CardsKcinfoModel;
 use org\Crypt;
 class Journal extends Base
 {
@@ -20,11 +21,22 @@ class Journal extends Base
      */
     public function journal_log() {
         $key = input('key');
-        $map = [];
+        $map = " 1";
+        $start_time = input('start_time');
+        $end_time = input('end_time');
         if($key&&$key!=="")
         {
-            $map['userId'] = intval($key);
+            $key = intval($key);
+            $map .= " and userId = $key";
         }
+        if(!empty($start_time) && !empty($end_time) ){
+            $start_time = $start_time;
+            $end_time = $end_time;
+        }else{
+            $start_time = date('Y-m-d')." 00:00:00";
+            $end_time = date('Y-m-d')." 23:59:59";
+        }
+        $map .= " and add_time >= '$start_time' and add_time <= '$end_time'";
         $Nowpage = input('get.page') ? input('get.page'):1;
         $limits = config('list_rows');// 获取总条数
         $count = Db::name('cards_info')->where($map)->count();//计算总页面
@@ -39,6 +51,50 @@ class Journal extends Base
             }
             $lists[$k]['nickname'] = getuid_byname($v['admin_id']);
         }
+        $this->assign('start_time', $start_time);
+        $this->assign('end_time', $end_time);
+        $this->assign('Nowpage', $Nowpage); //当前页
+        $this->assign('allpage', $allpage); //总页数
+        $this->assign('val',$key );
+        if(input('get.page'))
+        {
+            return json($lists);
+        }
+        return $this->fetch();
+    }
+
+    /**
+     *扣除记录
+     */
+    public function kclist_info() {
+        $key = input('key');
+        $map = " 1";
+        $start_time = input('start_time');
+        $end_time = input('end_time');
+        if($key&&$key!=="")
+        {
+            $key = intval($key);
+            $map .= " and userId = $key";
+        }
+        if(!empty($start_time) && !empty($end_time) ){
+            $start_time = $start_time;
+            $end_time = $end_time;
+        }else{
+            $start_time = date('Y-m-d')." 00:00:00";
+            $end_time = date('Y-m-d')." 23:59:59";
+        }
+        $map .= " and add_time >= '$start_time' and add_time <= '$end_time'";
+        $Nowpage = input('get.page') ? input('get.page'):1;
+        $limits = config('list_rows');// 获取总条数
+        $count = Db::name('cards_kcinfo')->where($map)->count();//计算总页面
+        $allpage = intval(ceil($count / $limits));
+        $cards = new CardsKcinfoModel();
+        $lists =  $cards->getUsersByWhere($map, $Nowpage, $limits);
+        foreach ($lists as $k=>$v) {
+            $lists[$k]['nickname'] = getuid_byname($v['admin_id']);
+        }
+        $this->assign('start_time', $start_time);
+        $this->assign('end_time', $end_time);
         $this->assign('Nowpage', $Nowpage); //当前页
         $this->assign('allpage', $allpage); //总页数
         $this->assign('val',$key );
@@ -78,8 +134,9 @@ class Journal extends Base
             if($res_info['code']===0){
                 $inser_parm['status']   = 1;
                 Db::startTrans();
-                $res = Db::name('cards_info')->insert($inser_parm);
                 $res2 = Db::name('cards_stock')->where('id',1)->setDec('stock',$sum_card);
+                $inser_parm['p_cards'] = $t_card - $sum_card;
+                $res = Db::name('cards_info')->insert($inser_parm);
                 $res_infos = json_encode($res_info);
                 apilog($mid."添加用户钻石成功".$res_infos);
                 if(!empty($res) && !empty($res2)){
@@ -105,6 +162,7 @@ class Journal extends Base
     public function kc_cards () {
         if(input('post.')){
             $mid = session('mid');
+            $t_card   = Db::name('cards_stock')->where('id',1)->value('stock');
             $parm = input('post.');
             $cardss = intval($parm['cards']);
             $parm['cards'] = 0-$cardss;
@@ -122,8 +180,9 @@ class Journal extends Base
             if($res_info['code']===0){
                 $inser_parm['status']   = 1;
                 Db::startTrans();
-                $res = Db::name('cards_kcinfo')->insert($inser_parm);
                 $res2 = Db::name('cards_stock')->where('id',1)->setInc('stock',$cardss);
+                $inser_parm['p_cards'] = $t_card + $cardss;
+                $res = Db::name('cards_kcinfo')->insert($inser_parm);
                 $res_infos = json_encode($res_info);
                 apilog($mid."扣除钻石成功".$res_infos);
                 if(!empty($res) && !empty($res2)){
@@ -144,6 +203,7 @@ class Journal extends Base
     public function qc_cards () {
         if(input('post.')){
             $mid = session('mid');
+            $t_card   = Db::name('cards_stock')->where('id',1)->value('stock');
             $parm = input('post.');
             $cardss = intval($parm['freeCards']);
             $parm['freeCards'] = 0 - $cardss;
@@ -161,8 +221,9 @@ class Journal extends Base
             if($res_info['code']===0){
                 $inser_parm['status']   = 1;
                 Db::startTrans();
-                $res = Db::name('cards_kcinfo')->insert($inser_parm);
                 $res2 = Db::name('cards_stock')->where('id',1)->setInc('stock',$cardss);
+                $inser_parm['p_cards'] = $t_card + $cardss;
+                $res = Db::name('cards_kcinfo')->insert($inser_parm);
                 $res_infos = json_encode($res_info);
                 apilog($mid."清除钻石成功".$res_infos);
                 if(!empty($res) && !empty($res2)){

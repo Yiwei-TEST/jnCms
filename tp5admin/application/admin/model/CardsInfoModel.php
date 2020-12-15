@@ -13,7 +13,7 @@ class CardsInfoModel extends Model
      */
     public function getUsersByWhere($map, $Nowpage, $limits)
     {
-        return $this->where($map)->page($Nowpage, $limits)->order('id desc')->select();
+        return $this->where($map)->page($Nowpage, $limits)->order('add_time desc')->select();
     }
 
     /**

@@ -1,0 +1,321 @@
+.scroll_top {
+	display: none;
+	position: fixed;
+	bottom: 75px;
+	right: 25px;
+	z-index: 1031;
+	font-size: 30px;
+	color: rgba(104, 104, 104, 0.5);
+}
+
+.scroll_top_bg {
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	background-color: rgba(255, 255, 255, 0.5);
+	border: solid 1px rgba(104, 104, 104, 0.5);
+	text-align: center;
+	vertical-align: middle;
+}
+
+.title_background {
+	height: 10px;
+	z-index: 1030;
+}
+
+.rules_title {
+	color: white;
+	font-size: 20px;
+	text-align: center;
+	letter-spacing: 2px;
+	padding-top: 12px;
+}
+
+.back_to_marketlist {
+	width: 20%;
+	background: #fdfdfd;
+	/* Old browsers */
+	/* FF3.6-15 */
+	/* Chrome10-25,Safari5.1-6 */
+	background: -webkit-gradient(linear, left top, left bottom, from(#fdfdfd), to(#d4d4d6));
+	background: linear-gradient(to bottom, #fdfdfd 0%, #d4d4d6 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdfdfd', endColorstr='#d4d4d6', GradientType=0);
+	/* IE6-9 */
+	padding: 8px 0px;
+	border: none;
+	position: fixed;
+	top: 6px;
+	left: 2%;
+	font-size: 16px;
+	color: #7d8a8a;
+	font-weight: bold;
+	z-index: 2000;
+	border-radius: 3px;
+
+}
+
+.blue_border {
+	width: 100%;
+	height: 7px;
+	background: #0d3675;
+	/* Old browsers */
+	/* FF3.6-15 */
+	/* Chrome10-25,Safari5.1-6 */
+	background: -webkit-gradient(linear, left top, right top, from(#0d3675), to(#00ecd5));
+	background: linear-gradient(to right, #0d3675 0%, #00ecd5 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0d3675', endColorstr='#00ecd5', GradientType=1);
+	/* IE6-9 */
+}
+
+.black_line {
+	width: 100%;
+	height: 1px;
+	background-color: black;
+	margin-bottom: 10px;
+}
+
+.rules_content_1 {
+	background-color: white;
+	padding: 10px 4% 15px 5%;
+	width: 100%;
+	margin-bottom: 10px;
+
+}
+
+.rules_text li {
+	list-style-type: decimal;
+	width: 93%;
+	margin-left: 5%;
+	line-height: 22px;
+	color: #0d3675;
+	padding-left: 1%;
+}
+
+.rules_text p {
+	color: black;
+}
+
+.rules_head {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.rules_text span {
+	color: red;
+	font-weight: bold;
+}
+
+.container {
+	margin-top: 50px;
+	padding: 0px;
+}
+
+.nav-tabs > li > a {
+	border-radius: 0px;
+	margin-right: 0px;
+}
+
+.nav-tabs {
+	border-bottom: none;
+	position: fixed;
+	width: 100%;
+	z-index: 1030;
+}
+
+.nav-tabs > li {
+	width: 25%;
+	background-color: white;
+}
+
+.nav > li > a {
+	text-align: center;
+	padding: 9px 0px 4px 0px;
+	color: #b9b9b9;
+	font-weight: bold;
+	letter-spacing: 1px;
+	border-bottom: solid 4px white;
+	-webkit-box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1), -1px 0 0px rgba(0, 0, 0, 0.1);
+	box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1), -1px 0 0px rgba(0, 0, 0, 0.1);
+	font-size: 16px;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
+	border-bottom: solid 4px #fbb100;
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	color: #0d3675;
+	letter-spacing: 1px;
+	padding: 10px 0px 4px 0px;
+	font-size: 16px;
+}
+
+.tab-content {
+	padding: 50px 2% 10px 2%;
+}
+
+.scroll_top {
+	bottom: 35px;
+}
+
+.rules_bg {
+	background-color: white;
+	padding: 10px 2% 20px 2%;
+
+}
+
+.rules_soccer {
+	font-size: 16px;
+	font-weight: bold;
+	text-align: left;
+	margin-bottom: 5px;
+
+}
+
+.fa-arrow-left:before {
+	padding-right: 5px;
+	color: white;
+}
+
+.back_to_menu {
+	position: absolute;
+	top: 120px;
+	background-color: #0d3675;
+	color: white;
+	padding: 5px 8px;
+	font-weight: bold;
+	border-radius: 3px;
+}
+
+a:active .back_to_menu {
+	text-decoration: none;
+	color: white;
+}
+
+.back_to_menu a:visited,
+a:hover,
+a:focus {
+	color: white;
+}
+
+
+
+.page1 {
+	background: url("../img/rules/01.png");
+	background-size: cover;
+	width: 280px;
+	height: 605px;
+	margin: auto;
+}
+
+.page2 {
+	background: url("../img/rules/02.png");
+	background-size: cover;
+	width: 280px;
+	height: 605px;
+	margin: auto;
+}
+
+.page3 {
+	background: url("../img/rules/03.png");
+	background-size: cover;
+	width: 280px;
+	height: 605px;
+	margin: auto;
+}
+
+.page4 {
+	background: url("../img/rules/04.png");
+	background-size: cover;
+	width: 280px;
+	height: 605px;
+	margin: auto;
+}
+
+.page5 {
+	background: url("../img/rules/05.png");
+	background-size: cover;
+	width: 280px;
+	height: 605px;
+	margin: auto;
+}
+
+.page6 {
+	background: url("../img/rules/06.png");
+	background-size: cover;
+	width: 280px;
+	height: 605px;
+	margin: auto;
+}
+
+
+.carousel-control.right {
+	background-image: none;
+	left: 87%;
+}
+
+.carousel-control.left {
+	background-image: none;
+	left: -2%;
+}
+
+.carousel-control.right2 {
+	background-image: none;
+	left: 87%;
+}
+
+.carousel-control.left2 {
+	background-image: none;
+	left: -2%;
+}
+
+.carousel-control.right3 {
+	background-image: none;
+	left: 87%;
+}
+
+.carousel-control.left3 {
+	background-image: none;
+	left: -2%;
+}
+
+.carousel-control.right4 {
+	background-image: none;
+	left: 87%;
+}
+
+.carousel-control.left4 {
+	background-image: none;
+	left: -2%;
+}
+
+
+.glyphicon-chevron-right:before {
+	content: "\e080";
+	color: #000;
+}
+
+.carousel-control:focus,
+.carousel-control:hover {
+	color: transparent;
+	text-decoration: none;
+	outline: 0;
+	opacity: 1;
+}
+
+.glyphicon-chevron-left:before {
+	content: "\e079";
+	color: black;
+}
+
+.carousel-control {
+	opacity: 1;
+}
+
+.rules_describe p {
+	margin: 10px 0px 20px 0px;
+}

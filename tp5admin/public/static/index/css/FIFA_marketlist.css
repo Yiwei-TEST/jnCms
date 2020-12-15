@@ -1,0 +1,76 @@
+/* bottom_menu (marketlist) */
+
+.icon_bar_cell {
+	position: relative;
+	top: 0px;
+}
+
+.iconBar_fifa_bg::after {
+	content: "";
+    position: absolute;
+    top: -7px;
+    left: 0;
+    right: 0;
+    background: url(../img/FIFA/e_unselect_mubg_top.png) no-repeat;
+    background-position: top center;
+    background-size: contain;
+    height: 10px;
+    z-index: 1;
+}
+
+.iconBar_fifa_bg a {
+	background: url(../img/FIFA/e_unselect_mubg_bottom.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    z-index: -2;
+}
+
+.icon_bar_fifa {
+	display: block;
+	width: 30px;
+	height: 30px;
+	position: relative;
+	top: -2px;
+	left: -1px;
+	background: url(../img/FIFA/fifaWorldIcoOff.png) no-repeat;
+	background-size: cover;
+	background-position: center;
+	margin: -2px auto -8px;
+	z-index: 2;
+}
+
+.Loading {
+	width:100px;
+	height:100px;
+	margin:100px 35%;
+	background: url(../img/loading.svg) no-repeat;
+	background-size: 100% 100%;
+}
+
+.guaranteedNomo {
+	color: #fff;
+	background: url(../template/www/img/FIFA/holdIco.png) center center no-repeat;
+	background-size: cover;
+	position: absolute;
+	z-index: 1;
+	top: 2px;
+	right: 0px;
+	width: 35px;
+	height: 45px;
+	line-height: 32px;
+	font-size: 12px;
+	text-align: center;
+	font-weight: 600;
+}
+
+.guaranteed_detailNomo {
+	background: url(../template/www/img/FIFA/sIco.png) center center no-repeat;
+	background-size: cover;
+	position: absolute;
+	z-index: 1;
+	width: 28px;
+	height: 31px;
+	left:5px;
+	margin-top:-15px;
+}
