@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name=”renderer” content=”webkit”>
+    <meta content=”IE=Edge,chrome=1″>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/LCalendar.css" />
+    <script src="js/LCalendar.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<style>
+    .top-box .icon img{
+        width: 3rem;
+    }
+    .top-box{
+        padding-top: 0;
+    }
+    .top-box .back img{
+        width: 6rem;
+    }
+    .top-box .select img{
+        width: 6rem;
+    }
+</style>
+<body>
+<div class="container3">
+    <div class="top-box">
+        <div>
+            <span class="back"><img src="img/back.png"></span>
+            <span class="icon"><img src="img/icon04.png"></span>
+            <span class="select"><img src="img/icon05.png"></span>
+        </div>
+    </div>
+   <div class="top-item">
+       <div class="item">
+           <p>排莊</p>
+           <p class="txt">
+               <span class="name">名稱1 </span>
+               <span class="name">名稱2 </span>
+               <span class="name">名稱3</span>
+           </p>
+       </div>
+       <div class="item">
+           <p>A5廳/單注30</p>
+           <p class="txt">
+               莊:赤兔 尾波
+           </p>
+           <p class="txt">
+               莊家選位:29
+           </p>
+       </div>
+       <div class="item">
+           <p>本期期號</p>
+           <p class="txt">
+               10232493459
+           </p>
+           <p id="timer">
+
+           </p>
+       </div>
+   </div>
+    <div class="main-container">
+        <div class="left">
+            <img src="lottery_draw_10.gif" style="display: none" class="left-gif">
+            <img src="lottery_draw_10.png" class="left-png">
+        </div>
+        <div class="right">
+            <ul class="list-ball fade-ul">
+                <!--<li>-->
+                    <!--<span>-->
+                        <!--<img src="img/11.png"><span class="sp">20</span>-->
+                    <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span>-->
+                        <!--<img src="img/22.png"><span class="sp">20</span>-->
+                    <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span>-->
+                        <!--<img src="img/33.png"><span class="sp">20</span>-->
+                    <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span>-->
+                        <!--<img src="img/44.png"><span class="sp">20</span>-->
+                    <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span>-->
+                        <!--<img src="img/55.png"><span class="sp">20</span>-->
+                    <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span>-->
+                        <!--<img src="img/66.png"><span class="sp">20</span>-->
+                    <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span>-->
+                        <!--<img src="img/77.png"><span class="sp">20</span>-->
+                    <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span>-->
+                        <!--<img src="img/88.png"><span class="sp">20</span>-->
+                    <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span>-->
+                        <!--<img src="img/99.png"><span class="sp">20</span>-->
+                    <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span>-->
+                        <!--<img src="img/10.png"><span class="sp">20</span>-->
+                    <!--</span>-->
+                <!--</li>-->
+            </ul>
+            <ul class="list-ball fade-ul2">
+                <li>
+                    <span>
+                        <img src="img/11.png"><span class="sp">20</span>
+                    </span>
+                </li>
+                <!--<li>-->
+                    <!--<span>-->
+                        <!--<img src="img/22.png"><span class="sp">20</span>-->
+                    <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span>-->
+                        <!--<img src="img/33.png"><span class="sp">20</span>-->
+                    <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span>-->
+                        <!--<img src="img/44.png"><span class="sp">20</span>-->
+                    <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span>-->
+                        <!--<img src="img/55.png"><span class="sp">20</span>-->
+                    <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span>-->
+                        <!--<img src="img/66.png"><span class="sp">20</span>-->
+                    <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span>-->
+                        <!--<img src="img/77.png"><span class="sp">20</span>-->
+                    <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span>-->
+                        <!--<img src="img/88.png"><span class="sp">20</span>-->
+                    <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span>-->
+                        <!--<img src="img/99.png"><span class="sp">20</span>-->
+                    <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<span>-->
+                        <!--<img src="img/10.png"><span class="sp">20</span>-->
+                    <!--</span>-->
+                <!--</li>-->
+            </ul>
+            <div>
+                <ul class="bun-ul">
+                    <li>3</li>
+                    <li>3</li>
+                    <li>3</li>
+                    <li>3</li>
+                    <li>3</li>
+                    <li>3</li>
+                    <li class="green">8</li>
+                    <li class="orange">牛</li>
+                    <li>3</li>
+                    <li>3</li>
+                </ul>
+            </div>
+
+            <ul class="list-ball mc" style="display: none;">
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/kong.png"><span class="sp"></span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/zhuang.png"><span class="sp"></span></li>
+            </ul>
+            <ul class="list-ball mc"style="display: none;">
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/kong.png"><span class="sp"></span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/zhuang.png"><span class="sp"></span></li>
+            </ul>
+            <div style="float: right;width: 24rem;color: #fff;font-size: 0.6rem;text-align: center">— 無倍數區域 —</div>
+            <ul class="list-ball mc" style="display: none;">
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/kong.png"><span class="sp"></span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/huan.png"><span class="sp">名稱</span></li>
+                <li><img src="img/zhuang.png"><span class="sp"></span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="bottom-btn">
+        <div class="left"><img src="img/pz.png"><img src="img/wxpz.png"></div>
+        <div class="center">
+            <span class="title">遊戲點數:10,000</span>
+            <span >上局結算:2000</span>
+        </div>
+        <div class="right"><img src="img/tcpz.png"></div>
+    </div>
+</div>
+
+</body>
+<script>
+    $(function () {
+        $(".fade-ul li>span").hide();
+        $(".fade-ul2 li>span").hide();
+        var timeout = 5000; //每隔50ms
+        var index = 10;
+        var addClassOn;
+        //alert($(".fade-ul li").length)
+        var q_l = 0;
+        var a = [10,11,22,33,44,55,66,77,88,99];
+        var b =  [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+        // if(index>q_l) {
+        //     addClassOn();
+        // }
+                     //结算完成清空球
+        var maxtime = 60;
+        CountDown =  setInterval(function(){
+                 if (maxtime >= 0) {
+                     openGif();
+                     console.log(maxtime);
+                        seconds = Math.floor(maxtime);
+                        msg = "距离结束还有"+ seconds + "秒";
+                        document.all["timer"].innerHTML = msg;
+                        if(maxtime % 6 == 0){
+                            var indexa = Math.floor((Math.random()*a.length));
+                            var indexb = Math.floor((Math.random()*b.length));
+                            var html = "<li>\n" +
+                                "                    <span>\n" +
+                                "                        <img src=\"img/"+a[indexa]+".png\"><span class=\"sp\">"+b[indexb]+"</span>\n" +
+                                "                    </span>\n" +
+                                "                </li>";
+                            $('.fade-ul').append(html);
+                        }
+                         --maxtime;
+                    } else{
+                     closeGif();
+                     clearInterval(timer);
+                     $('.fade-ul').empty();
+                     maxtime  = 60;
+                   }
+         },1000);
+        // addClassOn = setInterval(function(){
+        //     if(index > q_l){
+        //         console.log(q_l);
+        //         //index = 1; //此处改动，可以无限循环 1 2 3 1 2 3 1 2 3  。。。
+        //         $('.fade-ul').append(html);
+        //         q_l++;
+        //     }else {
+        //         return false;
+        //         $('.fade-ul li>span').eq(index++).fadeIn(1000);
+        //     }
+        //     //openGif();
+        // },timeout);
+        // setTimeout("$('.fade-ul2 li>span').fadeIn(3500)",5000);
+        //var html;
+
+
+    })
+
+
+</script>
+</html>

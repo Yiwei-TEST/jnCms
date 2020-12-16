@@ -1,0 +1,154 @@
+{include file="public/header" /}
+<body>
+<div class="sidy" onclick="siidyy();">
+    {include file="public/nav" /}
+    <div class="sidy__content">
+        <div class="scroll_top" id="return-to-top">
+            <div class="scroll_top_bg"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+        </div>
+        {include file="public/nav1" /}
+        <div id="Modal_coverchgall" class="cover"></div>
+        <link rel="stylesheet" href="__CSS__/my.css">
+        <div class="title_background ">
+            <div class="title">我　的</div>
+        </div>
+        <div class="content" style="margin-top:0px;padding: 0px 0px 0px 0px; display: none" id="topApp" >
+            <div class="head_bg">
+                <div class="my_profile">
+                    <div class="arrow_left" onclick="javascript:window.history.go(-1);"><i class=" fa fa-angle-left"
+                                                                                           aria-hidden="true"></i></div>
+                    <div class="head"><img src="__IMG__/icon/user.png" height="67" width="67"></div>
+                    <div class="acc_name">{{username}}</div>
+                    <button class="logout" onclick="location.href='/index/login/loginOut'">登　出</button>
+                    <div class="color_border_bottom"></div>
+                </div>
+            </div>
+            <div class="my_detail">
+                <div class="line"></div>
+                <div class="line2"></div>
+                <div class="detail_bg">
+                    <div class=""></div>
+                    <div class="block">
+                        <div class="block_title">昵称</div>
+                        <div class="block_num">{{nickname}}</div>
+                    </div>
+                    <div class="block">
+                        <div class="block_title">推广码</div>
+                        <div class="block_num">{{PayBindid}}</div>
+                    </div>
+                    <div class="block">
+                        <div class="block_title">级别</div>
+                        <div class="block_num" v-if="group_id==2">包负责人</div>
+                        <div class="block_num" v-if="group_id==4">业务员</div>
+                    </div>
+                </div>
+            </div>
+            <div class="service_padding">
+                <div class="service_title">个人中心</div>
+                <div>
+                    <div class="service_block" v-if="group_id==4" @click ="get_qz_list(PayBindid)" >
+                        <div><img src="__IMG__/icon/menu-icon.png" height="22" width="22"></div>
+                        <div class="service_text">昵称:{{nickname}}</div>
+                    </div>
+                    <div class="service_block" v-for="item in agent" @click ="get_qz_list(item.PayBindid)" >
+                        <div><img src="__IMG__/icon/menu-icon.png" height="22" width="22"></div>
+                        <div class="service_text">业务员昵称:{{item.nickname}}</div>
+                    </div>
+                    <div class="service_block" style="background: #ade0d3"  v-for="item in qz_list"  v-on:click ="qyq_info(item.groupId)">
+                        <div><img src="__IMG__/icon/menu-icon.png" height="22" width="22"></div>
+                        <div class="service_text">群主昵称:{{item.userName}}</div>
+                        <div class="service_text">群主id:{{item.userId}}</div>
+                        <div class="service_text">亲友圈id:{{item.groupId}}</div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $('.icon_bar_cell > a').removeClass('active');
+            $('.icon_bar_cell > #my_a').addClass('active');
+        </script>
+    </div>
+</div>
+<script src="__JS__/jquery.cookies.2.2.0.js"></script>
+<script src="__JS__/side.js"></script>
+<script src="__JS__/trade_detail.js"></script>
+<script src="__JS__/main.js"></script>
+<script src="__JS__/scrollTop.js"></script>
+<script src="__JS__/history_stat.js"></script>
+<script src="__JS__/downloadApp.js"></script>
+</body>
+</html>
+<script>
+    var app = new Vue({
+        el: '#topApp',
+        data: {
+            username: null,
+            njmoney: 0,
+            total: 0,
+            money: 0,
+            timer: '',
+            nickname: '',
+            PayBindid: '',
+            agent: [],
+            group_id: '',
+            qz_list: [],
+        },
+        methods: {
+            getMoney() {
+                _this = this;
+                axios
+                    .get('/index/index/getMoney')
+                    .then(function (response) {
+                        _this.PayBindid = response.data.PayBindid;
+                        _this.nickname = response.data.nickname;
+                        _this.group_id = response.data.group_id;
+                    })
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    });
+            },
+            get_agent() {
+                _this = this;
+                axios
+                    .get('/index/index/get_agent')
+                    .then(function (response) {
+                        _this.agent = response.data.data;
+                    })
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    });
+            },
+            get_qz_list(a) {
+                _this = this;
+                axios
+                    .post('/index/index/get_qz_list',{PayBindid:a})
+                    .then(function (response) {
+                        _this.qz_list = response.data.data;
+                    })
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    });
+            },
+            qyq_info(gid){
+                console.log(gid);
+                if(!gid) {
+                    alert(gid);
+                    return;
+                }
+                location.href="/index/index?group_id="+gid;
+            }
+
+        },
+        mounted: function () {
+            //_this = this;
+            this.getMoney();
+            this.get_agent();
+            $('#topApp').show();
+        },
+        beforeDestroy() {
+            _this = this;
+            clearInterval(_this.timer);
+        }
+    })
+</script>

@@ -1,0 +1,502 @@
+@charset "utf-8";
+
+.menu_qrcode_icon {
+	width: 26px;
+	height: 26px;
+	background: url(../img/downloadApp/index_list_icon_goto_download.svg) center no-repeat;
+	background-size: cover;
+	margin-top: 7px;
+	margin-left: 10px;
+}
+
+ul.indexNav li {
+	width: 33.3%;
+}
+
+.index_downloadApp_qr {
+	background: #fff;
+	padding: 1.5rem 2rem;
+}
+
+.index_downloadApp_qr > div {
+	text-align: center;
+}
+
+.qr_img {
+	margin: 1rem auto;
+}
+
+.label_app {
+	color: #666;
+	font-size: 1.7rem;
+	font-weight: 500;
+	letter-spacing: .2rem;
+	margin: 1rem auto;
+	display: block;
+	width: 130px;
+	border-radius: 12px;
+}
+
+.label_andriod::before {
+	content: "";
+	display: inline-block;
+	vertical-align: bottom;
+	width: 30px;
+	height: 20px;
+	background: url('../img/downloadApp/index_header_icon_Android.svg')center no-repeat;
+	background-size: contain;
+	padding-right: 1rem;
+}
+
+.label_ios::before {
+	content: "";
+	display: inline-block;
+	vertical-align: bottom;
+	width: 30px;
+	height: 20px;
+	background: url('../img/downloadApp/index_header_icon_IOS.svg')center no-repeat;
+	background-size: contain;
+	padding-right: 1rem;
+}
+
+.app_nav > li {
+	width: 50%;
+	text-align: center;
+	margin: 0 0 -1px;
+	border-radius: 0;
+}
+
+.app_nav > li.active {
+	background: #c9c9ca;
+}
+
+.app_nav > li > a {
+	background: #fff;
+	color: #95a0a0;
+	font-size: 1.6rem;
+	letter-spacing: 0.2rem;
+	border: 0;
+	margin: 0;
+	border-radius: 0;
+}
+
+.app_nav > li.active > a,
+.app_nav > li.active > a:focus,
+.app_nav > li.active > a:hover {
+	background: #c9c9ca;
+	color: #fff;
+	border: 0;
+	margin: 0;
+	border-radius: 0;
+}
+
+.app_navtab_content {
+	text-align: center;
+	background: #efefef;
+	padding: 1.5rem 1rem;
+	color: #8b7d5d
+}
+
+.downloadApp {
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.5);
+	margin: 0 auto;
+	overflow: hidden;
+	text-align: center;
+	font-family: 'Microsoft JhengHei' !important;
+	z-index: 99999;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.downloadApp > div {
+	margin: 0 auto;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	margin-bottom: 85px;
+}
+
+.downloadApp > div.step_one {
+	display: none;
+	height: inherit;
+	width: inherit;
+	margin: 0 auto;
+	position: fixed;
+	top: 70%;
+	bottom: 0px;
+	left: 0;
+	right: 0;
+	transform: none;
+}
+
+.step_one > div {
+	height: 50%;
+}
+
+.forAndriod {
+	background: url(../img/downloadApp/index_btn_icon_Android.svg) no-repeat center 28%, linear-gradient(to right, rgba(205, 201, 174, 1) 0%, rgba(139, 125, 93, 1) 100%);
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	border: 0;
+	box-shadow: none;
+	color: #fefefe;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 11;
+	letter-spacing: 0.1rem;
+	cursor: pointer;
+	font-family: 'Microsoft JhengHei';
+}
+
+.forIos {
+	background: url(../img/downloadApp/index_btn_icon_IOS.svg) no-repeat center 29%, linear-gradient(to right, rgba(205, 201, 174, 1) 0%, rgba(139, 125, 93, 1) 100%);
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	border: 0;
+	box-shadow: none;
+	color: #fefefe;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 11;
+	letter-spacing: 0.1rem;
+	cursor: pointer;
+	font-family: 'Microsoft JhengHei';
+}
+
+.step_two {
+	display: none;
+	width: 90%;
+	max-width: 500px;
+	min-height: 100%;
+}
+
+.header {
+	background: #efefef;
+	border-radius: 10px 10px 0 0;
+	position: relative;
+}
+
+.downloadApp_title {
+	color: #9fa0a0;
+	font-size: 16px;
+	font-weight: 500;
+	letter-spacing: 2px;
+	padding: 0.8rem 2rem;
+	position: relative;
+	margin-left: -1rem;
+	margin-bottom: -1px;
+}
+
+.title_andriod::before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	width: 30px;
+	height: 30px;
+	background: url('../img/downloadApp/index_header_icon_Android.svg')center no-repeat;
+	background-size: contain;
+	padding-right: 1rem;
+}
+
+.title_ios::before {
+	content: "";
+	display: inline-block;
+	vertical-align: text-top;
+	width: 30px;
+	height: 20px;
+	background: url('../img/downloadApp/index_header_icon_IOS.svg')center no-repeat;
+	background-size: contain;
+	padding-right: 1rem;
+}
+
+.app_close {
+	background: url('../img/downloadApp/index_header_botton_close.svg') center no-repeat;
+	background-size: contain;
+	border: 0;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	right: 20px;
+	top: 30%;
+}
+
+.AppContent {
+	background: linear-gradient(to right, rgba(205, 201, 174, 1) 0%, rgba(139, 125, 93, 1) 100%);
+	border-radius: 0 0 10px 10px;
+	margin: 0 auto;
+	padding: 1.5rem 0.5rem 1rem;
+}
+
+.AppContent img {
+	display: block;
+	margin: auto;
+}
+
+.help_img {
+	width: 80%;
+}
+
+.AppContent .QRcode {
+	display: block;
+	margin: 0 auto 1rem;
+	width: 120px;
+	height: 120px;
+	border-radius: 25px;
+}
+
+.AppContent > p {
+	color: #fff;
+	width: 32%;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 7px;
+	font-size: 12px;
+	white-space: nowrap;
+}
+
+.AppContent > p.w {
+	color: #fff;
+	width: 38%;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 7px;
+	font-size: 12px;
+	white-space: nowrap;
+}
+
+.app_navtab_content img {
+	display: block;
+	margin: auto;
+}
+
+.app_navtab_content p {
+	color: #666;
+	width: 32%;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 7px;
+	font-size: 12px;
+	white-space: nowrap;
+}
+
+.app_navtab_content p.w {
+	color: #666;
+	width: 38%;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 7px;
+	font-size: 12px;
+	white-space: nowrap;
+}
+
+label input {
+	display: none;
+}
+
+label.download_btn {
+	background: #fefefe;
+	border: 1px solid #c9c9ca;
+	color: #9fa0a0;
+	font-size: 13px;
+	letter-spacing: 2px;
+	font-weight: 700;
+	padding: 8px 20px 11px;
+	border-radius: 12px;
+	margin: 15px auto 10px;
+	display: block;
+	width: 110px;
+	cursor: pointer;
+}
+
+label.download_btn:active {
+	background: #c9c9ca;
+	border: 1px solid #c9c9ca;
+	color: #9fa0a0;
+}
+
+span.download_btn {
+	background: #fefefe;
+	border: 1px solid #c9c9ca;
+	color: #9fa0a0;
+	font-size: 13px;
+	letter-spacing: 2px;
+	font-weight: 700;
+	padding: 8px 15px 9px;
+	border-radius: 5px;
+	margin: 12px auto 10px;
+	display: block;
+	width: 130px;
+	cursor: pointer;
+}
+
+span.download_btn:active {
+	background: #c9c9ca;
+	border: 1px solid #c9c9ca;
+	color: #9fa0a0;
+}
+
+.download_btn a {
+	color: #9fa0a0;
+}
+
+.qa_btn {
+	background: url('../img/downloadApp/button_w1.svg') center no-repeat;
+	background-size: contain;
+	font-size: 13px;
+	letter-spacing: 2px;
+	font-weight: 700;
+	padding: 10px 20px;
+	border-radius: 12px;
+	margin: 10px auto 15px;
+	display: block;
+	width: 130px;
+	cursor: pointer;
+}
+
+.qa_btn a {
+	color: #443D2E;
+}
+
+
+.new_windows_bg {
+	background: #000;
+}
+
+.new_windows {
+	text-align: center;
+	width: 90%;
+	max-width: 500px;
+	margin: 35px auto 0;
+}
+
+.new_windows .title_andriod::before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	width: 30px;
+	height: 25px;
+	background: url('../img/index_header_icon_Android.svg')center no-repeat;
+	background-size: contain;
+	padding-right: 1rem;
+	margin-right: 0.5rem;
+}
+
+.new_windows .title_ios::before {
+	content: "";
+	display: inline-block;
+	vertical-align: text-top;
+	width: 30px;
+	height: 20px;
+	background: url('../img/index_header_icon_IOS.svg')center no-repeat;
+	background-size: contain;
+	padding-right: 1rem;
+}
+
+
+
+.help_content {
+	padding: 1rem 0.5rem 5rem;
+}
+
+.help_content p {
+	color: #fff;
+	font-size: 15px;
+	letter-spacing: 2px;
+}
+
+.pages {
+	width: 65%;
+	height: 500px;
+	margin: auto;
+}
+
+
+
+.qa1 {
+	background: url("../img/qa1.gif") center no-repeat;
+	background-size: contain;
+}
+
+.qa2 {
+	background: url("../img/qa2.gif") center no-repeat;
+	background-size: contain;
+}
+
+.qa3 {
+	background: url("../img/qa3.gif") center no-repeat;
+	background-size: contain;
+}
+
+.qa4 {
+	background: url("../img/qa4.gif") center no-repeat;
+	background-size: contain;
+}
+
+.qa5 {
+	background: url("../img/qa5.gif") center no-repeat;
+	background-size: contain;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+	background: none;
+}
+
+.btn_left {
+	background: url('../img/button_left.svg') center no-repeat;
+	background-size: contain;
+	padding: 15px;
+	position: absolute;
+	top: 50%;
+	z-index: 5;
+	display: inline-block;
+	margin-top: -10px;
+	left: 50%;
+	margin-left: -10px;
+}
+
+.btn_right {
+	background: url('../img/button_right.svg') center no-repeat;
+	background-size: contain;
+	padding: 15px;
+	position: absolute;
+	top: 50%;
+	z-index: 5;
+	display: inline-block;
+	margin-top: -10px;
+	right: 50%;
+	margin-right: -10px;
+}
+
+
+
+
+.download_btn {
+	background: url('../img/theme/2019CNY/downloadbtn.png') center no-repeat;
+	background-size: contain;
+	color: #fff;
+	padding: 13px 5px 13px 45px;
+	border: 0;
+	width: 125px;
+	font-size: 13px;
+	letter-spacing: 2px;
+	font-weight: 700;
+	border-radius: 12px;
+	margin: 10px auto 35px;
+	display: block;
+	cursor: pointer;
+}
+
+.download_btn:focus,
+.download_btn:hover {
+	color: #fff;
+}

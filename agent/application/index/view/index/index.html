@@ -1,0 +1,134 @@
+{include file="public/header" /}
+<style>
+    ul.indexNav li {
+        width: 50%;
+    }
+    .list-group-item{
+        margin-bottom: 0.2rem;
+    }
+</style>
+<body>
+<div class="sidy" onclick="siidyy();">
+    {include file="public/nav" /}
+    <div class="sidy__content" id="index">
+        <div class="panel panel-success"style="margin-top: 20%"></div>
+        <div class="list-group">
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">亲友圈id</h4>
+                <p class="list-group-item-text">{{groupId}}</p>
+                <button style="position: relative;left:50%;font-size: 2rem" class="btn-success" @click="gs_qyq(groupId)">查看亲友圈统计数据</button>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">亲友圈名称</h4>
+                <p class="list-group-item-text">{{groupName}}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">最大人数</h4>
+                <p class="list-group-item-text">{{maxCount}}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">成员人数</h4>
+                <p class="list-group-item-text">{{currentCount}}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">创建时间</h4>
+                <p class="list-group-item-text">{{createdTime}}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">状态</h4>
+                <p class="list-group-item-text">
+                    <span class="label label-primary" v-if="groupState==1">
+                        开启
+                    </span>
+                    <span class="label label-primary" v-if="groupState==0">
+                        关闭
+                    </span>
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">昨日局数</h4>
+                <p class="list-group-item-text">{{day_js}}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">本月局数</h4>
+                <p class="list-group-item-text">{{month_js}}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">群主id</h4>
+                <p class="list-group-item-text">{{userId}}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">群主昵称</h4>
+                <p class="list-group-item-text">{{name}}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">联系人</h4>
+                <p class="list-group-item-text">{{nickname}}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">手机号码</h4>
+                <p class="list-group-item-text">{{phoneNum}}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">群主当前房钻</h4>
+                <p class="list-group-item-text" style="color: red;font-weight: bold">{{card}}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading"></h4>
+                <p class="list-group-item-text"></p>
+            </a>
+        </div>
+        {include file="public/nav1" /}
+        <div class="scroll_top" id="return-to-top">
+            <div class="scroll_top_bg"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+        </div>
+
+    </div>
+</div>
+<!--<script src="__JS__/index.js"></script>-->
+<script>
+</script>
+<script src="__JS__/side.js"></script>
+<script src="__JS__/scrollTop.js"></script>
+<script src="__JS__/main.js"></script>
+<script src="__JS__/downloadApp.js"></script>
+</body>
+</html>
+<script>
+    var app = new Vue({
+        el: '#index',
+        data: {
+            groupId: "{$groupId}",
+            groupName: "{$groupName}",
+            maxCount: "{$maxCount}",
+            currentCount: "{$currentCount}",
+            createdTime: "{$createdTime}",
+            day_js: "{$yesterday_info}",
+            month_js: "{$month_info}",
+            userId: "{$userId}",
+            name: "{$name}",
+            nickname: "{$nickname}",
+            phoneNum: "{$phoneNum}",
+            card: "{$card}",
+            groupState: "{$groupState}",
+        },
+        methods: {
+            gs_qyq (gid) {
+                if(gid) {
+                    location.href = "/index/index/statistics?groupId="+gid;
+                }
+            }
+        },
+        mounted: function () {
+            //_this = this;
+            $('#index').show();
+            this.getMoney();
+            this.get_agent();
+
+        },
+        beforeDestroy() {
+            _this = this;
+            clearInterval(_this.timer);
+        }
+    })
+</script>

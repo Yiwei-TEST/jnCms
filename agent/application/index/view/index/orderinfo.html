@@ -1,0 +1,186 @@
+{include file="public/header" /}
+<body>
+<div class="sidy" onclick="siidyy();">
+    {include file="public/nav" /}
+    <script>
+    </script>
+    <div class="sidy__content" id="qyqData">
+        <div class="scroll_top" id="return-to-top">
+            <div class="scroll_top_bg"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+        </div>
+        <div class="head_banner nav-bar navbar-fixed-top">
+            <div data-panel="panel-1" class="sidy--to-open menu_btn">
+                <span></span><br>
+                <span></span><br>
+                <span></span><br>
+            </div>
+        </div>
+        <div class="title_background">
+            <div class="mail"><img src="__IMG__/icon/mail.png" height="18" width="27"/><span
+                    onclick="document.location.href='index/index/announce'" class="message_number"></span></div>
+        </div>
+
+        {include file="public/nav1" /}
+
+        <div id="Modal_coverchgall" class="cover"></div>
+        <style>
+            .icon_bar_trade {
+                display: block;
+                background: url("./__IMG__/02-1.png") no-repeat;
+                background-size: cover;
+                width: 20px;
+                height: 20px;
+                position: relative;
+                top: 8px;
+                margin: 0px auto;
+            }
+
+            .history_row {
+                display: table-row;
+            }
+
+            .no_content {
+                font-size: 20px;
+                width: 100%;
+                font-weight: bold;
+                text-align: center;
+                letter-spacing: 1px;
+                color: #0d3675;
+                margin-top: 200px;
+            }
+
+        </style>
+        <link rel="stylesheet" href="__CSS__/account_history.css">
+        <link rel="stylesheet" href="__CSS__/public.css">
+        <div class="title_background ">
+            <div class="title">亲友圈数据</div>
+        </div>
+        <div class="trade_head">
+            <div class="color_border_bottom">
+            </div>
+            <i onclick="javascript:window.history.go(-1);" class=" fa fa-angle-left" aria-hidden="true"></i>
+            <div class="input-group" style="width: 50%">
+                <input type="text" class="form-control" placeholder="请输入亲友圈Id" aria-label="...">
+                <div class="input-group-btn">
+                    <button class="btn btn-primary" type="button" @click="seach()"><i class="glyphicon glyphicon-search"></i>搜索</button>
+                </div>
+            </div>
+        </div>
+        <section class="tabs" style="position: relative; margin: 173px auto 0px auto;width: 100%;">
+            <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked">
+            <label for="tab-1" class="tab-label-1">本周</label>
+            <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2">
+            <label for="tab-2" class="tab-label-2">上周</label>
+            <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3">
+            <label for="tab-3" class="tab-label-3">本月</label>
+            <input id="tab-4" type="radio" name="radio-set" class="tab-selector-4">
+            <label for="tab-4" class="tab-label-4">上月</label>
+            <div class="clear-shadow"></div>
+            <div style="margin-top:0px;" class="content">
+                <div class="content-1">
+                    <div class="table_head">
+                        <div class="table_head_cell" style="width: 15%">日期</div>
+                        <div class="table_head_cell" style="width: 18%;margin-left: 5%">注册人数玩牌人数</div>
+                        <div class="table_head_cell" style="width: 14%;margin-left: 9%">总局数小局数</div>
+                        <div class="table_head_cell" style="width: 18%;margin-left: 9%">钻石消耗钻石剩余</div>
+                    </div>
+                    <div class="history_table">
+                        <div class="history_row" onclick="">
+                            <div class="history_cell" style="width: 15%;text-align: center">1111</div>
+                            <div class="history_cell" style="width: 18%;text-align: center">1111</div>
+                            <div class="history_cell" style="width: 14%;text-align: center">1111</div>
+                            <div class="history_cell" style="width: 18%;text-align: center">1111</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-2">
+                    <div class="table_head">
+                        <div class="table_head_cell" style="width: 15%">日期</div>
+                        <div class="table_head_cell" style="width: 18%;margin-left: 5%">注册人数玩牌人数</div>
+                        <div class="table_head_cell" style="width: 14%;margin-left: 9%">总局数小局数</div>
+                        <div class="table_head_cell" style="width: 18%;margin-left: 9%">钻石消耗钻石剩余</div>
+                    </div>
+                    <div class="history_table">
+                        <div class="history_row" onclick="">
+                            <div class="history_cell" style="width: 15%;text-align: center">1111</div>
+                            <div class="history_cell" style="width: 18%;text-align: center">1111</div>
+                            <div class="history_cell" style="width: 14%;text-align: center">1111</div>
+                            <div class="history_cell" style="width: 18%;text-align: center">1111</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-3">
+                    <div class="table_head">
+                        <div class="table_head_cell date">日期</div>
+                        <div class="table_head_cell trade_amount">对战信息</div>
+                        <div class="table_head_cell result">下注金额</div>
+                    </div>
+                    <div class="history_table">
+                        <div class="history_row" onclick="">
+                            <div class="history_cell date "></div>
+                            <div class="history_cell trade_amount" style="text-align: center;width: 40%"></div>
+                            <div class="history_cell result color_green" style="width: 20%;text-align: center">
+                                <div class="moneycoor_green"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="content-4">
+                    <div class="table_head">
+                        <div class="table_head_cell date">日期</div>
+                        <div class="table_head_cell trade_amount">对战信息</div>
+                        <div class="table_head_cell result">下注金额</div>
+                    </div>
+                    <div class="history_table">
+                        <div class="history_row" onclick="">
+                            <div class="history_cell date "></div>
+                            <div class="history_cell trade_amount" style="text-align: center;width: 40%"></div>
+                            <div class="history_cell result color_green" style="width: 20%;text-align: center">
+                                <div class="moneycoor_green"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </div>
+</div>
+<script src="__JS__/jquery.cookies.2.2.0.js"></script>
+<script src="__JS__/side.js"></script>
+<script src="__JS__/trade_detail.js"></script>
+<script src="__JS__/main.js"></script>
+<script src="__JS__/scrollTop.js"></script>
+<script src="__JS__/history_stat.js"></script>
+<script src="__JS__/downloadApp.js"></script>
+</body>
+</html>
+<script>
+    var app = new Vue({
+        el: '#qyqData',
+        data: {
+            groupId: '',
+        },
+        created () {
+
+        },
+        methods: {
+            seach () {
+                let vm = this;
+                let groupId= vm.groupId;
+                axios
+                    .post('/index/index/get_st',{groupId: groupId})
+                    .then(function (response) {
+                        if(response.data.code==1) {
+
+                        }else{
+
+                        }
+                    })
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    });
+            },
+        }
+
+    })
+</script>

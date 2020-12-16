@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=414, user-scalable=no">
+	<title>TG</title>
+	<link rel="stylesheet" href="__CSS__/bootstrap.min.css">
+	<link rel="stylesheet" href="__CSS__/fontawesome-all.min.css">
+
+	<link rel="stylesheet" href="__CSS__/normalize.css">
+	<link rel="stylesheet" href="__CSS__/tab_style.css">
+	<link rel="stylesheet" href="__CSS__/side.css">
+	<link rel="stylesheet" href="__CSS__/swiper.css">
+	<link rel="stylesheet" href="__CSS__/Main_Style.css?v=20190605114015">
+	<link rel="stylesheet" href="__CSS__/help.css?v=20190605114015">
+	<link rel="stylesheet" href="__CSS__/downloadApp.css?v=20190605114015">
+		<!--theme-->
+	<link rel="stylesheet" href="__CSS__/theme/APPui.css?v=20190605114015">
+	<script src="__JS__/jquery-3.2.1.min.js"></script>
+	<script src="__JS__/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="sidy" onclick="siidyy();">
+		<div class="sidy__content">
+			<div class="head_banner nav-bar navbar-fixed-top help_title">帮助中心</div>
+			<div class="title_background ">
+				<a href="/index/index/index"><button class="back_to_marketlist">回TG</button></a>
+			</div>
+			<div class="help_content">
+				<div class="blue_border"></div>
+				<div class="help_bg">
+					<div class="please_c">请选择教学</div>
+					<div class="black_line"></div>
+					<div class="help" id="register"><a href="/index/index/help_process" style="color:#fff">注册流程</a></div>
+					<div class="help" id="help_w">充值流程</div>
+					<div class="w_content">
+						<a id="bank" href="/index/index/help_transfer">临柜汇款</a>
+						<a id="online_bank" href="/index/index/help_bank.html">网络银行</a>
+						<a id="pay" href="/index/index/help_alipay.html">支付宝</a>
+						<a id="weixin" href="/index/index/help_wechat.html">微信支付</a>
+						<a id="qq" href="/index/index/help_QQchat.html">QQ支付</a>
+					</div>
+					<div class="help" id="help_d"><a href="/index/index/help_checkout" style="color:#fff">提款流程</a></div>
+					<div class="help" id="hand_order"><a href="/index/index/help_order" style="color:#fff">手动下单</a></div>
+					<!--<div class="help">自動下單</div>-->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="__JS__/modernizr.custom.04022.js"></script>
+	<script src="__JS__/side.js"></script>
+	<script src="__JS__/swiper.min.js"></script>
+	<script src="__JS__/help.js?v=20190605114015"></script>
+	<script src="__JS__/scrollTop.js"></script>
+	<script src="__JS__/downloadApp.js?v=20190605114015"></script>
+	<script>
+		$('div#help_w').click(function(){
+			$('.w_content').toggle(300);
+		});
+	</script>
+</body>
+
+</html>

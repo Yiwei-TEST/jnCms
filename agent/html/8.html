@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta name=”renderer” content=”webkit”>
+    <meta content=”IE=Edge,chrome=1″>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/LCalendar.css" />
+    <script src="js/main.js"></script>
+    <script src="js/LCalendar.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<style>
+    .top-box .icon img{
+        width: 3rem;
+    }
+    .top-box{
+       padding-top: 0;
+    }
+    .top-box .back img{
+        width: 6rem;
+    }
+    .top-box .select img{
+        width: 6rem;
+    }
+</style>
+<body>
+<div class="container2">
+    <div class="top-box">
+        <div>
+            <span class="back"><img src="img/back.png"></span>
+            <span class="icon"><img src="img/icon04.png"></span>
+            <span class="select"><img src="img/icon05.png"></span>
+        </div>
+    </div>
+    <div class="accounting">
+        <div class="title">帳務中心</div>
+        <div class="content">
+            <div class="time">
+                <ul>
+                    <li><img src="img/icon06.png"></li>
+                    <li><img src="img/icon07.png"></li>
+                    <li><img src="img/icon08.png"></li>
+                    <li><img src="img/icon09.png"></li>
+                    <li><img src="img/icon10.png"></li>
+                    <li><img src="img/icon11.png"></li>
+                </ul>
+            </div>
+            <div class="table-box">
+                <div class="top-time">
+                    <span>開始日期: </span>
+                    <span class="ipt-sp"><input id="start_date" type="text"></span>
+                    <span>結束日期:</span>
+                    <span class="ipt-sp"><input id="end_date" type="text"></span>
+                    <span class="time-img"><img src="img/search.png"></span>
+                </div>
+
+
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td colspan="4">合計下注:1420</td>
+                        <td colspan="4">總結:300</td>
+                    </tr>
+                    <tr>
+                        <td>期號</td>
+                        <td>大廳</td>
+                        <td>時間</td>
+                        <td>下注</td>
+                        <td>選位</td>
+                        <td>明細</td>
+                        <td>結果</td>
+                        <td>派彩</td>
+                    </tr>
+                    <tr>
+                        <td>108015282</td>
+                        <td>A5/中</td>
+                        <td>03/17 11:43</td>
+                        <td>30</td>
+                        <td>P2閒</td>
+                        <td>莊:[72-42/5點 ] <br>閒:[49-34/牛]</td>
+                        <td>贏</td>
+                        <td>85.5</td>
+                    </tr>
+                    <tr>
+                        <td>108015282</td>
+                        <td>A5/中</td>
+                        <td>03/17 11:43</td>
+                        <td>30</td>
+                        <td>P2閒</td>
+                        <td>莊:[72-42/5點 ] <br>閒:[49-34/牛]</td>
+                        <td>贏</td>
+                        <td>85.5</td>
+                    </tr>
+                    <tr>
+                        <td>108015282</td>
+                        <td>A5/中</td>
+                        <td>03/17 11:43</td>
+                        <td>30</td>
+                        <td>P2閒</td>
+                        <td>莊:[72-42/5點 ] <br>閒:[49-34/牛]</td>
+                        <td>贏</td>
+                        <td>85.5</td>
+                    </tr>
+                    <tr>
+                        <td>108015282</td>
+                        <td>A5/中</td>
+                        <td>03/17 11:43</td>
+                        <td>30</td>
+                        <td>P2閒</td>
+                        <td>莊:[72-42/5點 ] <br>閒:[49-34/牛]</td>
+                        <td>贏</td>
+                        <td>85.5</td>
+                    </tr> <tr>
+                    <td>108015282</td>
+                    <td>A5/中</td>
+                    <td>03/17 11:43</td>
+                    <td>30</td>
+                    <td>P2閒</td>
+                    <td>莊:[72-42/5點 ] <br>閒:[49-34/牛]</td>
+                    <td>贏</td>
+                    <td>85.5</td>
+                </tr>
+                    <tr>
+                        <td>108015282</td>
+                        <td>A5/中</td>
+                        <td>03/17 11:43</td>
+                        <td>30</td>
+                        <td>P2閒</td>
+                        <td>莊:[72-42/5點 ] <br>閒:[49-34/牛]</td>
+                        <td>贏</td>
+                        <td>85.5</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+
+<script>
+    //时间控件
+    var calendar = new LCalendar();
+    calendar.init({
+        'trigger': '#start_date', //标签id
+        'type': 'date', //date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择,
+        'minDate': (new Date().getFullYear()-3) + '-' + 1 + '-' + 1, //最小日期
+        'maxDate': (new Date().getFullYear()+3) + '-' + 12 + '-' + 31 //最大日期
+    });
+    var calendar = new LCalendar();
+    calendar.init({
+        'trigger': '#end_date', //标签id
+        'type': 'date', //date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择,
+        'minDate': (new Date().getFullYear()-3) + '-' + 1 + '-' + 1, //最小日期
+        'maxDate': (new Date().getFullYear()+3) + '-' + 12 + '-' + 31 //最大日期
+    });
+</script>
+
+</html>

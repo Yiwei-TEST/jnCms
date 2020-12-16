@@ -1,0 +1,376 @@
+.trade_head {
+	background-color: white;
+	width: 100%;
+	height: 80px;
+	position: fixed;
+	top: 85px;
+	right: 0px;
+	left: 0px;
+	z-index: 1029;
+}
+
+.color_border_bottom {
+	display: inline-block;
+	width: 100%;
+	height: 4px;
+	position: absolute;
+	bottom: 0;
+	background: #0d3675;
+	background: -moz-linear-gradient(left, #0d3675 0%, #00ecd5 100%);
+	background: -webkit-linear-gradient(left, #0d3675 0%, #00ecd5 100%);
+	background: linear-gradient(to right, #0d3675 0%, #00ecd5 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0d3675', endColorstr='#00ecd5', GradientType=1);
+}
+
+.trade_block {
+	display: inline-block;
+	width: 40%;
+	text-align: center;
+	padding-top: 17px;
+}
+
+.trade_amount_title {
+	color: #959f9f;
+	margin-bottom: 2px;
+	letter-spacing: 1px;
+	font-size: 16px;
+}
+
+.trade_amount_num {
+	color: #00235b;
+	font-family: Times New Roman, Symbol, Arial, Tahoma;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.total_rate_title {
+	color: #959f9f;
+	margin-bottom: 2px;
+	letter-spacing: 1px;
+	font-size: 16px;
+}
+
+.total_rate_num {
+	font-family: Times New Roman, Symbol, Arial, Tahoma;
+	font-size: 18px;
+	font-weight: bold;
+	color: #0c7c00;
+}
+
+.content {
+	margin-top: 175px;
+	padding: 0px 5px 70px 5px;
+	width: 100%;
+}
+
+.game_trade {
+	position: relative;
+	background-color: white;
+	width: 100%;
+	height: 75px;
+	margin-top: 7px;
+	box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.time {
+	display: inline-block;
+	position: absolute;
+	margin: 10px 0px 0px 15px;
+}
+
+.time span {
+	margin-right: 10px;
+}
+
+.game_name {
+	display: inline-block;
+	margin: 10px 0px 0px 28%;
+	color: #617272;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+.game_team {
+	margin-left: 15px;
+	margin-right: 15px;
+	font-size: 16px;
+	margin-top: 14px;
+	color: #00235b;
+	letter-spacing: 1px;
+}
+
+.main_mark {
+	color: #03b5b8;
+}
+
+.vs {
+	font-size: 13px;
+	margin: 1px 6px;
+	color: #617272;
+}
+
+
+
+.arrow {
+	display: inline-block;
+	color: #004f96;
+	position: absolute;
+	top: 22px;
+	right: 5%;
+	font-size: 23px;
+}
+
+.color_border {
+	display: inline-block;
+	width: 4px;
+	height: 75px;
+	position: absolute;
+	background: #0d3675;
+	background: -moz-linear-gradient(top, #0d3675 0%, #00ecd5 100%);
+	background: -webkit-linear-gradient(top, #0d3675 0%, #00ecd5 100%);
+	background: linear-gradient(to bottom, #0d3675 0%, #00ecd5 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0d3675', endColorstr='#00ecd5', GradientType=0);
+}
+
+.trade_detail {
+	background-color: white;
+	display: none;
+}
+
+.open .game_trade {
+	background-color: #325a86;
+	width: 100%;
+	height: 75px;
+	box-shadow: none;
+}
+
+.open .game_name {
+	color: white;
+}
+
+.open .game_team {
+	color: white;
+}
+
+.open .time {
+	color: white;
+}
+
+.open .vs {
+	color: white;
+}
+
+.open i {
+	color: white;
+	transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transition: 300ms linear all;
+}
+
+.open .number {
+	color: #325a86;
+	background-color: white;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th {
+	width: 22%;
+	padding: 3px;
+	font-size: 14px;
+}
+
+.table_padding {
+	padding: 10px 12px 3px 12px;
+}
+
+td {
+	padding-right: 3px;
+	padding-left: 3px;
+	font-weight: bold;
+	font-size: 15px;
+	letter-spacing: 1px;
+}
+
+.dash {
+	display: inline-block;
+	height: 12px;
+	width: 2px;
+	background-color: #b9c5d0;
+	margin-left: 8px;
+	vertical-align: middle;
+}
+
+.cancel_button {
+	text-align: right;
+}
+
+.cancel_button button {
+	border-radius: 5px;
+}
+
+.align_right {
+	text-align: right;
+	font-family: Times New Roman, Symbol, Arial, Tahoma;
+	padding-top: 2px;
+}
+
+.border_none {
+	border-bottom: none;
+}
+
+.color_red {
+	color: red;
+}
+
+.color_blue {
+	color: #00235b;
+	vertical-align: middle;
+}
+
+.color_green {
+	color: #0c7c00;
+}
+
+.money_total {
+	background-color: #e0edf8;
+	border-bottom: solid 2px #0d3675;
+}
+
+.money_total th {
+	font-size: 16px;
+	letter-spacing: 2px;
+	padding-top: 8px;
+	padding-bottom: 5px;
+}
+
+.money_total td {
+	font-size: 18px;
+}
+
+.padding_left {
+	padding-left: 15px;
+}
+
+.padding_right {
+	padding-right: 15px;
+}
+
+.number {
+	position: absolute;
+	top: 5px;
+	right: 35px;
+	background-color: #e0e0e0;
+	border-radius: 5px;
+	width: 26px;
+	height: 20px;
+	text-align: center;
+	color: #004f96;
+}
+
+.icon_bar_cell .active {
+	background: #074b8a;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#074b8a', endColorstr='#074b8a', GradientType=1);
+	color: #fff;
+	text-decoration: none;
+}
+
+.active .icon_bar_trade {
+	display: block;
+	background: url("../img/02-1.png") no-repeat;
+	background-size: cover;
+	width: 20px;
+	height: 20px;
+	position: relative;
+	top: 8px;
+	margin: 0px auto;
+}
+
+.no_content {
+	font-size: 20px;
+	width: 100%;
+	font-weight: bold;
+	text-align: center;
+	letter-spacing: 1px;
+	color: #0d3675;
+	margin-top: 200px;
+}
+
+.fa-angle-left:before {
+	font-size: 40px;
+	position: relative;
+	left: 20px;
+	top: -3px;
+}
+
+.blank {
+	display: inline-block;
+	width: 8%;
+	height: 20px;
+}
+
+@media screen and (max-width: 330px) {
+	.trade_head {
+		background-color: white;
+		width: 100%;
+		height: 65px;
+		position: fixed;
+		top: 85px;
+		right: 0px;
+		left: 0px;
+		z-index: 1029;
+	}
+
+	.trade_block {
+		display: inline-block;
+		width: 49%;
+		text-align: center;
+		padding-top: 10px;
+	}
+
+	.content {
+		margin-top: 160px;
+		padding: 0px 5px 70px 5px;
+		width: 100%;
+	}
+
+	.game_team {
+		font-size: 15px;
+	}
+
+	th {
+		width: 30%;
+	}
+}
+
+@media screen and (max-width: 380px) {
+	.trade_head {
+		background-color: white;
+		width: 100%;
+		height: 70px;
+		position: fixed;
+		top: 85px;
+		right: 0px;
+		left: 0px;
+		z-index: 1029;
+	}
+
+	.trade_block {
+		display: inline-block;
+		width: 49%;
+		text-align: center;
+		padding-top: 15px;
+	}
+
+	.content {
+		margin-top: 165px;
+		padding: 0px 5px 70px 5px;
+		width: 100%;
+	}
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script type="text/javascript" charset="utf-8" id="zm-extension" src="chrome-extension://fdcgdnkidjaadafnichfpabhfomcebme/scripts/webrtc-patch.js" async=""></script><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=414,user-scalable=no">
+	<title>TG</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+	<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+	<link rel="stylesheet" href="__CSS__/bootstrap.min.css">
+	<link rel="stylesheet" href="__CSS__/fontawesome-all.min.css">
+	<link rel="stylesheet" href="__CSS__/normalize.css">
+	<link rel="stylesheet" href="__CSS__/downloadApp.css?v=20190605114015">
+	<!--theme-->
+	<link rel="stylesheet" href="__CSS__/theme/APPui.css?v=20190605114015">
+	<script src="__JS__/jquery-3.2.1.min.js"></script>
+	<script src="__JS__/bootstrap.min.js"></script>
+<script>
+
+	var _ABOUT_SAME_INFO = '请输入相关资讯';
+	var _JS_PASS_ERROR_LESS_6 = '密码错误，应该包含英文+数字，至少6个字元!';
+	var _JS_ERROR_FIVE = '登入错误五次以上,锁定帐号!';
+	var _JS_ACCOUNT_LOCK = '锁定帐号，您已被禁止登入，请联系客服!';
+	var _JS_MANY_LOGIN = '因多次登入错误暂时锁定IP,有问题请洽上层或管理员';
+	var _JS_SPEC_LOGIN_EVER_LOCK = '因多次登入错误永久锁&#8203;&#8203;定IP!有问题请洽上层或客服人!';
+	var _JS_SPEC_LOGIN = '帐号与密码有特殊字元,禁止登入!';
+	var _NOT_OPEN = '此功能不开放，请洽上层管理员';
+	var _JS_NONE_ACCOUNT = '查无此帐号';
+</script></head>
+
+
+
+<body class="bg_img">
+	<img src="http://page-view.qsfsys.com/page-views?t=1562504680" style="display: none;">
+	<div class="logo"></div>
+	<div class="login_content">
+
+		<div class="login_info">
+			<div class="input_style"><i class="far fa-user input_icon"></i><input class="input_font" type="text" id="account" name="account" placeholder="帐号"></div>
+			<div class="input_style_lock"><i class="fa fa-lock input_icon"></i><input class="input_font_lock" type="password" id="pwd" name="pwd" placeholder="密码">
+			</div>
+			<div class="row">
+				<label for="certificate" class="col-xs-3">图形码</label>
+				<input class="input_style col-xs-5" type="text" id="inputcode" name="certificate" placeholder="请输入图形验证码">
+				<!--<span onclick="repic()">-->
+					<img src="{:url('Login/checkVerify')}" onclick="javascript:this.src='{:url('Login/checkVerify')}?tm='+Math.random();" style="float:right;cursor: pointer"/>
+				<!--</span>-->
+			</div>
+		</div>
+
+		<div class="row acc_pwd">
+			<div class="switch_on_off col-xs-3">
+				<label class="switch">
+					<input type="checkbox" id="saveLogin" name="checbox_input">
+					<span class="slider round"></span>
+				</label>
+			</div>
+			<div class="remember_acc_pwd col-xs-6">记住帐密</div>
+			<!--<div class="forgot_pwd" onclick="javascript:location.href='/index/login/forget_password'">忘记密码</div>-->
+		</div>
+
+		<div class="login_btn_group">
+			<button class="register_btn" onclick="registers()">注册</button>
+			<button class="login_btn" onclick="checkuserform()">登入</button>
+		</div>
+		<button class="download_btn" id="adApp">APP下载</button>
+	</div>
+
+	<div class="services" id="services">
+		<div class="service_content">
+			<a href="http://mdt.me0001.com/Web/im.aspx?_=t&amp;accountid=101584&amp;cp=m1.tg333.net" target="_blank">
+				<div class="online_icon"></div>
+			</a>
+			<a id="qq" href="#">
+				<div class="qq_icon"></div>
+			</a>
+			<a id="weixin" href="#">
+				<div class="weixin_icon"></div>
+			</a>
+			<div class="service_24hr" id="service_close">24H 线上客服</div>
+		</div>
+	</div>
+	<div id="Modal_cover" class="cover">
+		<div id="order1" class="order_content">
+			<div class="qq_title">TG客服 QQ扫一扫</div>
+			<div class="close_x"><i class="fa fa-times" aria-hidden="true"></i></div>
+			<div class="blue_line"></div>
+			<div class="QRcode">
+				<img src="serviceQRCode/QQ.1099097563.jpeg" width="100%" height="100%">
+			</div>
+			<button class="close_btn">关闭</button>
+		</div>
+	</div>
+	<div id="Modal_cover2" class="cover">
+		<div id="order2" class="order_content2">
+			<div class="weixin_title">TG客服 微信扫一扫</div>
+			<div class="close_x"><i class="fa fa-times" aria-hidden="true"></i></div>
+			<div class="blue_line"></div>
+			<div class="QRcode">
+				<img src="serviceQRCode/WEI.msd05111.png">
+			</div>
+			<button class="close_btn">关闭</button>
+		</div>
+	</div>
+
+	<div class="downloadApp downloadAppLogin">
+		<div class="row step_one">
+			<div class="col-xs-offset-1 col-xs-5">
+				<a href="https://info.sxysrn.cn/appinfo/info.html?app=Android" target="_blank" id="androidlink">
+					<button type="button" class="forAndriod" id="forAndriod">安卓下载</button>
+				</a>
+			</div>
+			<div class="col-xs-5">
+				<a href="https://info.sxysrn.cn/appinfo/info.html?app=iOS" target="_blank" id="ioslink">
+					<button type="button" class="forIos" id="forIos">IOS下载</button>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<script src="__JS__/jquery.cookie.js"></script>
+	<script src="__JS__/fifa_login.js?v=20190605114015"></script>
+	<script src="__JS__/downloadApp.js?v=20190605114015"></script>
+	<script src="__JS__/main.js"></script>
+
+	<script>
+       function checkuserform () {
+		var account = $("input[name='account']").val();
+        var pwd     = $("input[name='pwd']").val();
+        var code    = $("input[name='certificate']").val();
+        $.post('/index/login/doLogin',{username:account,password:pwd,code:code},
+			function(res){
+                if(res.code==1){
+                    window.sessionStorage.setItem('token',res.token);
+                    window.sessionStorage.setItem('name',res.name);
+                    window.sessionStorage.setItem('uid',res.uid);
+                    location.href=res.url;
+                }else{
+                    alert(res.msg);
+                }
+			})
+	   }
+	   function registers() {
+           location.href = "/index/login/register";
+	   }
+	</script>
+
+</body></html>
