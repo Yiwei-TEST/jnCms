@@ -45,7 +45,7 @@
                         <tr class="long-tr">
                             <th width="9%">账号</th>
                             <th width="9%">昵称</th>
-                            <th width="5%">手机号</th>
+                            <th width="5%">级别</th>
                             <th width="5%">登录次数</th>
                             <th width="6%">状态</th>
                             <th width="10%">操作</th>
@@ -56,7 +56,14 @@
                             <tr class="long-td">
                                 <td>{{d[i].account}}</td>
                                 <td>{{d[i].nickname}}</td>
-                                <td>{{d[i].mobile}}</td>
+                                {{# if(d[i].group_id==2){ }}
+                                    <td>包负责人</td>
+                                {{# }else if(d[i].group_id==4) { }}
+                                    <td>业务员</td>
+                                {{# }else{ }}
+                                    <td>d[i].group_id</td>
+                                {{# } }}
+
                                 <td>{{d[i].login_num}}</td>
                                 <td>
                                     {{# if(d[i].status==1){ }}

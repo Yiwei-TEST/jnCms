@@ -116,7 +116,6 @@ class Member extends Base
         {
             $map['account|nickname|mobile'] = ['like',"%" . $key . "%"];
         }
-        $map['group_id'] = 3;
         $member = new MemberModel();
         $Nowpage = input('get.page') ? input('get.page'):1;
         $limits = config('list_rows');// 获取总条数
