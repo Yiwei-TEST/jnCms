@@ -178,6 +178,28 @@ class Qyq extends Base
     }
 
     /**
+     * 关闭大联盟
+     */
+    public function stop_dlm() {
+        if(input('post.')){
+            $mid = session('mid');
+            $parm = input('post.');
+            $parm['time'] = time();
+            $parm['optType'] = 2;
+            $apiurl = Config::get('api_url').Config::get('api_prefix')."updateGroup.do";
+            $parm['sign'] = checkSign($parm);
+            $info = curl_post($apiurl,$parm);
+            $res_info = decrypt_info($info);
+            if($res_info['code']===0){
+                apilog($mid."关闭大联盟成功");
+                return json($res_info);
+            }else{
+                return json($res_info);
+            }
+        }
+    }
+
+    /**
      * 转换群主
      */
     public function move_qz() {
@@ -209,8 +231,8 @@ class Qyq extends Base
             $mid = session('mid');
             $parm = input('post.');
             $parm['time'] = time();
-
-            $apiurl = Config::get('api_url').Config::get('api_prefix')."updateGroupMaxCount.do";
+            $parm['optType'] = 1;
+            $apiurl = Config::get('api_url').Config::get('api_prefix')."updateGroup.do";
             $parm['sign'] = checkSign($parm);
             $info = curl_post($apiurl,$parm);
             $res_info = decrypt_info($info);

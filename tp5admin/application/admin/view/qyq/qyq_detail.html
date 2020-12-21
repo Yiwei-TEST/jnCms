@@ -108,6 +108,15 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-card">
+                                    <div class="layui-card-header">是否开通大联盟</div>
+                                    <div class="layui-card-body">
+                                        <span v-if="isCredit==1" class="layui-badge layui-bg-green">已开通</span>
+                                        <span v-if="isCredit==0" class="layui-badge layui-bg-gray">未开通</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="hr-line-dashed"></div>
@@ -193,6 +202,8 @@
                         <button class="col-sm-2 btn btn-warning" @click="show_qz()" style="margin-left: 10px">转移群主</button>
                         <button class="col-sm-2 btn btn-info"     @click="show_qs()" style="margin-left: 10px">修改群最大人数</button>
                         <button class="col-sm-2 btn btn-info"     @click="show_list()" style="margin-left: 10px">查看群成员列表</button>
+                        <button class="col-sm-2 btn btn-danger"  @click="stop_dlm(0)"  style="margin-left: 10px" v-show="isCredit==1">关闭大联盟</button>
+                        <button class="col-sm-2 btn btn-primary"  @click="stop_dlm(1)" style="margin-left: 10px" v-show="isCredit==0">开启大联盟</button>
                     </div>
                 </div>
             </div>
@@ -225,6 +236,7 @@
             newUserid: '',
             maxCounts: '',
             kf_start: 1,
+            isCredit: 0,
         },
         created () {
 
@@ -255,6 +267,7 @@
                                 vm.day_js      = response.data.y_info;
                                 vm.month_js   = response.data.m_info;
                                 vm.kf_start   = response.data.data.kf_start;
+                                vm.isCredit   = response.data.data.isCredit;
                         }else{
                               layer.msg(response.data.msg);
                         }
@@ -293,6 +306,33 @@
                     }, function() {
                     axios
                         .post('/admin/qyq/stop_qyq', {groupId: groupId,stat:start})
+                        .then(function (response) {
+                            if (response.data.code == 0) {
+                                layer.msg(response.data.message);
+                                vm.seach();
+                            } else {
+                                layer.msg(response.data.message);
+                            }
+                        })
+                        .catch(function (error) { // 请求失败处理
+                            console.log(error);
+                        });
+                });
+            },
+            stop_dlm (start) {
+                let vm = this;
+                let msg;
+                if(start===0 ){
+                    msg = "您确定要开启大联盟吗！";
+                }else{
+                    msg = "您确定要关闭大联盟吗！";
+                }
+                let groupId = vm.groupId;
+                layer.confirm(msg, {
+                    btn: ['确定','取消'] //按钮
+                }, function() {
+                    axios
+                        .post('/admin/qyq/stop_dlm', {groupId: groupId,isCredit:start})
                         .then(function (response) {
                             if (response.data.code == 0) {
                                 layer.msg(response.data.message);
