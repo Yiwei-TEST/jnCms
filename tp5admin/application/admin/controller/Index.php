@@ -48,12 +48,12 @@ class Index extends Base
 
         if(request()->isAjax()){
             $param = input('post.');
-            $user=Db::name('admin')->where('id='.session('uid'))->find();
+            $user=Db::name('member')->where('id='.session('mid'))->find();
             if(md5(md5($param['old_password']) . config('auth_key'))!=$user['password']){
                return json(['code' => -1, 'url' => '', 'msg' => '旧密码错误']);
             }else{
                 $pwd['password']=md5(md5($param['password']) . config('auth_key'));
-                Db::name('admin')->where('id='.$user['id'])->update($pwd);
+                Db::name('member')->where('id='.$user['id'])->update($pwd);
                 session(null);
                 cache('db_config_data',null);//清除缓存中网站配置信息
                 return json(['code' => 1, 'url' => 'index/index', 'msg' => '密码修改成功']);
