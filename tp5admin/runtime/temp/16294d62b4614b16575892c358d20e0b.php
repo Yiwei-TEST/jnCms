@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:90:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\public/../application/admin\view\qyq\qyq_list.html";i:1607912643;s:81:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\application\admin\view\public\header.html";i:1607912643;s:81:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\application\admin\view\public\footer.html";i:1607912643;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:90:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\public/../application/admin\view\qyq\qyq_list.html";i:1608705051;s:81:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\application\admin\view\public\header.html";i:1607912643;s:81:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\application\admin\view\public\footer.html";i:1607912643;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,6 +71,7 @@
                             <th width="5%">角色</th>
                             <th width="5%">比赛分</th>
                             <th width="5%">上级Id</th>
+                            <th width="5%">操作</th>
                         </tr>
                         </thead>
                         <script id="list-template" type="text/html">
@@ -90,6 +91,9 @@
                                 {{# } }}
                                 <td style="color: red">{{d[i].credit / 100}}</td>
                                 <td>{{d[i].promoterId}}</td>
+                                <td><a href="javascript:;" onclick="fireUser({{d[i].userId}})" class="btn btn-primary btn-outline btn-xs">
+                                    <i class="fa fa-paste"></i> 踢出亲友圈</a>&nbsp;&nbsp;
+                                </td>
                             </tr>
                             {{# } }}
                         </script>
@@ -166,6 +170,30 @@
                 });
             }
         });
+    }
+
+    //重置密码
+    function fireUser(uid){
+        let groupId = "<?php echo $val; ?>";
+        if(!groupId){
+            layer.msg('亲友圈id不能为空');
+            return;
+        }
+        layer.open({
+            content: '确定提出此会员出亲友圈吗？',
+            yes: function(index, layero){
+                $.post('<?php echo url("Qyq/fireUser"); ?>',{userId:uid,groupId:groupId},function(res){
+                    if(res.code==0) {
+                        layer.msg(res.message,{time:500},function(){
+                            location.reload();
+                        })
+                    }else{
+                        layer.msg(res.message,{time:500},function(){
+                        })
+                    }
+                })
+            }
+        })
     }
 </script>
 </body>

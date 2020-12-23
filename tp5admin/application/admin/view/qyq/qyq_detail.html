@@ -3,7 +3,7 @@
     .ibox-content {
         background-color: #fff;
         color: inherit;
-        padding: 15px 20px 59px;
+        padding: 15px 20px 200px;
         border-color: #e7eaec;
         -webkit-border-image: none;
         -o-border-image: none;
@@ -205,6 +205,30 @@
                         <button class="col-sm-2 btn btn-danger"  @click="stop_dlm(0)"  style="margin-left: 10px" v-show="isCredit==1">关闭大联盟</button>
                         <button class="col-sm-2 btn btn-primary"  @click="stop_dlm(1)" style="margin-left: 10px" v-show="isCredit==0">开启大联盟</button>
                     </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group" style="margin-top: 150px">
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <input type="text" v-model="fromGroupId" class="form-control" placeholder="被转移亲友圈ID" />
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <input type="text" v-model="fromUserId" class="form-control" placeholder="被转移玩家ID" />
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                            <input type="text" v-model="toGroupId" class="form-control" placeholder="转移到的亲友圈ID" />
+                        </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <input type="text" v-model="toUserId" class="form-control" placeholder="转移到的玩家ID" />
+                            </div>
+                        </div>
+                        <button class="col-sm-2 btn btn-info"  @click="zy_cy()">转移</button>
+                    </div>
                 </div>
             </div>
             <!-- End Example Pagination -->
@@ -237,6 +261,10 @@
             maxCounts: '',
             kf_start: 1,
             isCredit: 0,
+            fromGroupId: '',
+            fromUserId: '',
+            toGroupId: '',
+            toUserId: '',
         },
         created () {
 
@@ -337,6 +365,48 @@
                             if (response.data.code == 0) {
                                 layer.msg(response.data.message);
                                 vm.seach();
+                            } else {
+                                layer.msg(response.data.message);
+                            }
+                        })
+                        .catch(function (error) { // 请求失败处理
+                            console.log(error);
+                        });
+                });
+            },
+            zy_cy() {
+                let vm = this;
+                let fromGroupId = vm.fromGroupId;
+                let fromUserId = vm.fromUserId;
+                let toGroupId = vm.toGroupId;
+                let toUserId = vm.toUserId;
+                if(!fromGroupId){
+                    layer.msg('被转移亲友圈不能为空！');
+                    return;
+                }
+                if(!fromUserId){
+                    layer.msg('被转移到的用户userId不能为空');
+                    return;
+                }
+                if(!toGroupId){
+                    layer.msg('转移到的亲友圈不能为空！');
+                    return;
+                }
+                if(!toUserId){
+                    layer.msg('转移到的用户userId不能为空！');
+                    return;
+                }
+                let msg;
+                msg = "您确定要将亲友圈"+fromGroupId+"的成员"+fromUserId+"转移到亲友圈"+toGroupId+"的成员"+toUserId+"名下吗";
+                let groupId = vm.groupId;
+                layer.confirm(msg, {
+                    btn: ['确定','取消'] //按钮
+                }, function() {
+                    axios
+                        .post('/admin/qyq/zy_cy', {fromGroupId: fromGroupId,fromUserId: fromUserId,toGroupId: toGroupId,toUserId: toUserId,})
+                        .then(function (response) {
+                            if (response.data.code == 0) {
+                                layer.msg(response.data.message);
                             } else {
                                 layer.msg(response.data.message);
                             }

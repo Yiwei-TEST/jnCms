@@ -194,10 +194,10 @@
                         return;
                     }
                     let groupId = vm.groupId;
-                    if(!groupId ){
-                        layer.msg('亲友圈Id不能为空');
-                        return;
-                    }
+                    // if(!groupId ){
+                    //     layer.msg('亲友圈Id不能为空');
+                    //     return;
+                    // }
                     let gameIds = '';
                     axios
                         .post("/admin/qyq/add_qyqs",{groupName: groupName,userId:userId,groupId:groupId,gameIds:gameIds})

@@ -9,6 +9,8 @@ return [
     ),
     "api_prefix" =>"/pdklogin/",
     "api_url" =>"http://192.168.1.112:8081",//接口地址
+//    "api_url" =>"http://login.tuishey.cn",//接口地址
+
     "api_key" => "dKPVJ60PJS8mlONb",
     "api_vi" => "dKPVJ60PJS8mlONb",
     "is_decrypt" => "0",  //1 需要解密

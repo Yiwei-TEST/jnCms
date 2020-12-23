@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:89:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\public/../application/admin\view\qyq\add_qyq.html";i:1607912643;s:81:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\application\admin\view\public\header.html";i:1607912643;s:81:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\application\admin\view\public\footer.html";i:1607912643;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:89:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\public/../application/admin\view\qyq\add_qyq.html";i:1608698591;s:81:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\application\admin\view\public\header.html";i:1607912643;s:81:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\application\admin\view\public\footer.html";i:1607912643;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -240,10 +240,10 @@
                         return;
                     }
                     let groupId = vm.groupId;
-                    if(!groupId ){
-                        layer.msg('亲友圈Id不能为空');
-                        return;
-                    }
+                    // if(!groupId ){
+                    //     layer.msg('亲友圈Id不能为空');
+                    //     return;
+                    // }
                     let gameIds = '';
                     axios
                         .post("/admin/qyq/add_qyqs",{groupName: groupName,userId:userId,groupId:groupId,gameIds:gameIds})

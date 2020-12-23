@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:92:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\public/../application/admin\view\qyq\qyq_detail.html";i:1607912643;s:81:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\application\admin\view\public\header.html";i:1607912643;s:81:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\application\admin\view\public\footer.html";i:1607912643;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:92:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\public/../application/admin\view\qyq\qyq_detail.html";i:1608705612;s:81:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\application\admin\view\public\header.html";i:1607912643;s:81:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\application\admin\view\public\footer.html";i:1607912643;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +29,7 @@
     .ibox-content {
         background-color: #fff;
         color: inherit;
-        padding: 15px 20px 59px;
+        padding: 15px 20px 200px;
         border-color: #e7eaec;
         -webkit-border-image: none;
         -o-border-image: none;
@@ -134,6 +134,15 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="layui-col-md2">
+                                <div class="layui-card">
+                                    <div class="layui-card-header">是否开通大联盟</div>
+                                    <div class="layui-card-body">
+                                        <span v-if="isCredit==1" class="layui-badge layui-bg-green">已开通</span>
+                                        <span v-if="isCredit==0" class="layui-badge layui-bg-gray">未开通</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="hr-line-dashed"></div>
@@ -219,6 +228,32 @@
                         <button class="col-sm-2 btn btn-warning" @click="show_qz()" style="margin-left: 10px">转移群主</button>
                         <button class="col-sm-2 btn btn-info"     @click="show_qs()" style="margin-left: 10px">修改群最大人数</button>
                         <button class="col-sm-2 btn btn-info"     @click="show_list()" style="margin-left: 10px">查看群成员列表</button>
+                        <button class="col-sm-2 btn btn-danger"  @click="stop_dlm(0)"  style="margin-left: 10px" v-show="isCredit==1">关闭大联盟</button>
+                        <button class="col-sm-2 btn btn-primary"  @click="stop_dlm(1)" style="margin-left: 10px" v-show="isCredit==0">开启大联盟</button>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group" style="margin-top: 150px">
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <input type="text" v-model="fromGroupId" class="form-control" placeholder="被转移亲友圈ID" />
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <input type="text" v-model="fromUserId" class="form-control" placeholder="被转移玩家ID" />
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                            <input type="text" v-model="toGroupId" class="form-control" placeholder="转移到的亲友圈ID" />
+                        </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <input type="text" v-model="toUserId" class="form-control" placeholder="转移到的玩家ID" />
+                            </div>
+                        </div>
+                        <button class="col-sm-2 btn btn-info"  @click="zy_cy()">转移</button>
                     </div>
                 </div>
             </div>
@@ -271,6 +306,11 @@
             newUserid: '',
             maxCounts: '',
             kf_start: 1,
+            isCredit: 0,
+            fromGroupId: '',
+            fromUserId: '',
+            toGroupId: '',
+            toUserId: '',
         },
         created () {
 
@@ -301,6 +341,7 @@
                                 vm.day_js      = response.data.y_info;
                                 vm.month_js   = response.data.m_info;
                                 vm.kf_start   = response.data.data.kf_start;
+                                vm.isCredit   = response.data.data.isCredit;
                         }else{
                               layer.msg(response.data.msg);
                         }
@@ -343,6 +384,75 @@
                             if (response.data.code == 0) {
                                 layer.msg(response.data.message);
                                 vm.seach();
+                            } else {
+                                layer.msg(response.data.message);
+                            }
+                        })
+                        .catch(function (error) { // 请求失败处理
+                            console.log(error);
+                        });
+                });
+            },
+            stop_dlm (start) {
+                let vm = this;
+                let msg;
+                if(start===0 ){
+                    msg = "您确定要开启大联盟吗！";
+                }else{
+                    msg = "您确定要关闭大联盟吗！";
+                }
+                let groupId = vm.groupId;
+                layer.confirm(msg, {
+                    btn: ['确定','取消'] //按钮
+                }, function() {
+                    axios
+                        .post('/admin/qyq/stop_dlm', {groupId: groupId,isCredit:start})
+                        .then(function (response) {
+                            if (response.data.code == 0) {
+                                layer.msg(response.data.message);
+                                vm.seach();
+                            } else {
+                                layer.msg(response.data.message);
+                            }
+                        })
+                        .catch(function (error) { // 请求失败处理
+                            console.log(error);
+                        });
+                });
+            },
+            zy_cy() {
+                let vm = this;
+                let fromGroupId = vm.fromGroupId;
+                let fromUserId = vm.fromUserId;
+                let toGroupId = vm.toGroupId;
+                let toUserId = vm.toUserId;
+                if(!fromGroupId){
+                    layer.msg('被转移亲友圈不能为空！');
+                    return;
+                }
+                if(!fromUserId){
+                    layer.msg('被转移到的用户userId不能为空');
+                    return;
+                }
+                if(!toGroupId){
+                    layer.msg('转移到的亲友圈不能为空！');
+                    return;
+                }
+                if(!toUserId){
+                    layer.msg('转移到的用户userId不能为空！');
+                    return;
+                }
+                let msg;
+                msg = "您确定要将亲友圈"+fromGroupId+"的成员"+fromUserId+"转移到亲友圈"+toGroupId+"的成员"+toUserId+"名下吗";
+                let groupId = vm.groupId;
+                layer.confirm(msg, {
+                    btn: ['确定','取消'] //按钮
+                }, function() {
+                    axios
+                        .post('/admin/qyq/zy_cy', {fromGroupId: fromGroupId,fromUserId: fromUserId,toGroupId: toGroupId,toUserId: toUserId,})
+                        .then(function (response) {
+                            if (response.data.code == 0) {
+                                layer.msg(response.data.message);
                             } else {
                                 layer.msg(response.data.message);
                             }
