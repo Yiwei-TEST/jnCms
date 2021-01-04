@@ -41,6 +41,7 @@ class Base extends Controller
                 'admin/statistics/daily_stat_qyq',
                 'admin/statistics/get_tdata_qyq',
                 'admin/qyq/add_qyqs',
+                'admin/qyq/add_qyq',
                 'admin/qyq/qyq_detail',
                 'admin/qyq/getid_by_detail',
                 'admin/qyq/qyq_list',
