@@ -62,4 +62,18 @@ class Index
         }
     }
 
+    /**
+     * 转移统计数据
+    */
+    public function move_qyq_data() {
+            $data = get_move_qyq_data();
+            var_dump($data);
+            exit;
+            $res = Db::name('onlin')->insertAll($data);
+            if(!empty($res)){
+                apilog('移动亲友圈数据成功',1);
+                return json(['code'=>1,'msg'=>'记录成功']);
+            }
+        }
+
 }

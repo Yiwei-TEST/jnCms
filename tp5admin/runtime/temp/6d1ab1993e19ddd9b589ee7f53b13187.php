@@ -1,12 +1,4 @@
-<<<<<<< HEAD
 <?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:88:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\public/../application/admin\view\menu\index.html";i:1607912643;s:81:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\application\admin\view\public\header.html";i:1607912643;s:81:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\application\admin\view\public\footer.html";i:1607912643;}*/ ?>
-=======
-<<<<<<< HEAD:agent/runtime/temp/0e19703696b75df5d1b371c8d94d0484.php
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"D:\phpstudy_pro\WWW\tp5admin\public/../application/admin\view\menu\index.html";i:1505280618;s:70:"D:\phpstudy_pro\WWW\tp5admin\application\admin\view\public\header.html";i:1606375954;s:70:"D:\phpstudy_pro\WWW\tp5admin\application\admin\view\public\footer.html";i:1606382620;}*/ ?>
-=======
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:88:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\public/../application/admin\view\menu\index.html";i:1607912643;s:81:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\application\admin\view\public\header.html";i:1607912643;s:81:"D:\phpstudy_pro\WWW\test\jnCms\tp5admin\application\admin\view\public\footer.html";i:1607912643;}*/ ?>
->>>>>>> 04c453efca716d6075f4af0f33dd31c017dda7f8:tp5admin/runtime/temp/6d1ab1993e19ddd9b589ee7f53b13187.php
->>>>>>> 04c453efca716d6075f4af0f33dd31c017dda7f8
 <!DOCTYPE html>
 <html>
 <head>

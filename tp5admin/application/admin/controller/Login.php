@@ -64,7 +64,7 @@ class Login extends Controller
             return json(['code' => -6, 'url' => '', 'msg' => '该账号被禁用']);
         }
         $token = md5($hasUser['nickname'] . $hasUser['password'] . $hasUser['id'] . time());
-        if(empty($hasUser['qrcode']) && $hasUser['group_id']==3 || empty($hasUser['qr_url']) && $hasUser['group_id']==3 ){
+        if(empty($hasUser['qr_code']) && $hasUser['group_id']==3 || empty($hasUser['qr_url']) && $hasUser['group_id']==3 ){
             $this->addurlcode($hasUser['id'],$token);
         };
 
@@ -94,7 +94,7 @@ class Login extends Controller
         $domain = domain();
         $url    = $domain."/index/login/register?s_nid=".$id;
         $qrcode = Qrcode($token,$url);
-        $data['qrcode'] = $qrcode;
+        $data['qr_code'] = $qrcode;
         $data['qr_url'] = $url;
         return  Db::name('member')->where('id',$id)->update($data);
     }
