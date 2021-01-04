@@ -67,9 +67,7 @@ class Index
     */
     public function move_qyq_data() {
             $data = get_move_qyq_data();
-            var_dump($data);
-            exit;
-            $res = Db::name('onlin')->insertAll($data);
+            $res = Db::table('log_group_commission')->insertAll($data);
             if(!empty($res)){
                 apilog('移动亲友圈数据成功',1);
                 return json(['code'=>1,'msg'=>'记录成功']);

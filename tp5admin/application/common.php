@@ -546,7 +546,7 @@ function get_move_qyq_data(){
     $date1 = date('Ymd');
     $date = date('Ymd',strtotime(date('Y-m-d H:i:s',strtotime('-1 day'))));
     $db2 = Configs::get('db2');
-    $sql = "SELECT groupId,userId,dataDate,zjsCount,totalPay FROM `log_group_commission` WHERE dataDate>$date  and dataDate<=$date1";
+    $sql = "SELECT groupId,userId,dataDate,zjsCount,totalPay FROM `log_group_commission` WHERE dataDate>=$date  and dataDate<$date1";
     $result2 = Db::connect($db2)->query($sql);
     return $result2 ? $result2 : '';
 }
