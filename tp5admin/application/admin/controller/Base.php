@@ -40,6 +40,14 @@ class Base extends Controller
                 'admin/statistics/get_tdata',
                 'admin/statistics/daily_stat_qyq',
                 'admin/statistics/get_tdata_qyq',
+                'admin/qyq/add_qyqs',
+                'admin/qyq/qyq_detail',
+                'admin/qyq/getid_by_detail',
+                'admin/qyq/qyq_list',
+                'admin/qyq/get_uid_bygroup',
+                'admin/journal/list_info',
+                'admin/journal/journal_log',
+                'admin/journal/kclist_info',
             ])){
                 if(!$auth->check($url,session('mid'))){
                     $this->error('抱歉，您没有操作权限');
