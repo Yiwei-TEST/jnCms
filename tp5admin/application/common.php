@@ -7,7 +7,7 @@ use Aliyun\Core\Profile\DefaultProfile;
 use Aliyun\Core\DefaultAcsClient;
 use Aliyun\Api\Sms\Request\V20170525\SendSmsRequest;
 
-use Org\QRcode;
+use org\QRcode;
 /**
  * 字符串截取，支持中文和其他编码
  */
