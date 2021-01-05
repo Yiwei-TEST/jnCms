@@ -286,4 +286,43 @@ class Qyq extends Base
         }
     }
 
+    /**
+     * 获取合伙人统计数据
+     */
+    public function get_hhr_data() {
+        $key = input('key');
+        $Nowpage = input('get.page') ? input('get.page'):1;
+        $limits = config('list_rows');//
+        $where = " 1";
+        $start_time = input('start_time');
+        $end_time   = input('end_time');
+        $userId     = input('userId') ? input('userId') : 0;
+        if($key&&$key!=="")
+        {
+            $groupId = $key;
+        }else{
+            $groupId = 666;
+        }
+        $where .= " and groupId = $groupId and userId = $userId";
+        if(!empty($start_time) && !empty($end_time)) {
+            $start_date = date('Ymd',strtotime($start_time));
+            $end_date = date('Ymd',strtotime($end_time));
+            $where .= " and dataDate >= $start_date and dataDate< $end_date";
+            $lists = Db::table('log_group_commission')->where($where)->page($Nowpage, $limits)->order('dataDate desc')->select();
+        }else{
+            $lists = [];
+        }
+
+        if(input('get.page'))
+        {
+            return json($lists);
+        }
+        $this->assign('Nowpage', $Nowpage); //当前页
+        $this->assign('allpage', 1); //总页数
+        $this->assign('val', $key);
+        $this->assign('userId', $userId);
+        $this->assign('start_time', $start_time);
+        $this->assign('end_time', $end_time);
+        return $this->fetch();
+    }
 }
