@@ -20,20 +20,20 @@
             <div class="row">
                 <div class="col-sm-12">
                     <form name="admin_list_sea" class="form-search" method="post" action="{:url('get_hhr_data')}">
-                        <div class="col-sm-2">
-                            <div class="input-group">
-                            <span class="input-group-btn">
-                                    <button type="button" class="btn btn-info">合伙人Id</button>
-                                </span>
-                            <input type="text" id="userId" class="form-control" name="userId" value="{$userId}" placeholder="輸入需査詢合伙人ID" />
-                            </div>
-                        </div>
                         <div class="col-sm-3">
                             <div class="input-group">
                                 <span class="input-group-btn">
                                     <button type="button" class="btn btn-info">亲友圈Id</button>
                                 </span>
                                 <input type="text" id="key" class="form-control" name="key" value="{$val}" placeholder="輸入需査詢亲友圈ID" />
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                            <span class="input-group-btn">
+                                    <button type="button" class="btn btn-info">合伙人Id</button>
+                                </span>
+                                <input type="text" id="userId" class="form-control" name="userId" value="{$userId}" placeholder="輸入需査詢合伙人ID" />
                             </div>
                         </div>
                         <div class="col-sm-4">
@@ -61,18 +61,14 @@
                     <table class="table table-bordered table-hover">
                         <thead>
                         <tr class="long-tr">
-                            <th width="9%">userId</th>
-                            <th width="9%">亲友圈Id</th>
-                            <th width="5%">日期</th>
-                            <th width="5%">下级产生的总局数</th>
-                            <th width="5%">下级产生的消耗</th>
+                            <th width="10%">日期</th>
+                            <th width="10%">下级产生的总人数</th>
+                            <th width="10%">下级产生的消耗</th>
                         </tr>
                         </thead>
                         <script id="list-template" type="text/html">
                             {{# for(var i=0;i<d.length;i++){  }}
                             <tr class="long-td">
-                                <td>{{d[i].userId}}</td>
-                                <td>{{d[i].groupId}}</td>
                                 <td style="color: red">{{d[i].dataDate}}</td>
                                 <td>{{d[i].zjsCount}}</td>
                                 <td>{{d[i].totalPay}}</td>
@@ -139,11 +135,11 @@
 
     jeDate("#dateSelectorTwo",{
         theme:{bgcolor:"#1ab394",pnColor:"#00CCFF"},
-        format: "YYYY-MM-DD hh:mm:ss"
+        format: "YYYY-MM-DD"
     });
     jeDate("#dateSelectorTwo1",{
         theme:{bgcolor:"#1ab394",pnColor:"#00CCFF"},
-        format: "YYYY-MM-DD hh:mm:ss"
+        format: "YYYY-MM-DD"
     });
 </script>
 </body>

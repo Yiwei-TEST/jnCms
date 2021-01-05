@@ -294,8 +294,9 @@ class Qyq extends Base
         $Nowpage = input('get.page') ? input('get.page'):1;
         $limits = config('list_rows');//
         $where = " 1";
-        $start_time = input('start_time');
-        $end_time   = input('end_time');
+        $s_time = date('Y-m-d',strtotime(date('Y-m-d H:i:s',strtotime('-1 day'))));
+        $start_time = input('start_time') ? input('start_time') : $s_time;
+        $end_time   = input('end_time') ? input('end_time') : $s_time;
         $userId     = input('userId') ? input('userId') : 0;
         if($key&&$key!=="")
         {
@@ -307,9 +308,10 @@ class Qyq extends Base
         if(!empty($start_time) && !empty($end_time)) {
             $start_date = date('Ymd',strtotime($start_time));
             $end_date = date('Ymd',strtotime($end_time));
-            $where .= " and dataDate >= $start_date and dataDate< $end_date";
+            $where .= " and dataDate >= $start_date and dataDate<= $end_date";
             $lists = Db::table('log_group_commission')->where($where)->page($Nowpage, $limits)->order('dataDate desc')->select();
         }else{
+
             $lists = [];
         }
 
