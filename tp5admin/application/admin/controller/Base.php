@@ -53,6 +53,7 @@ class Base extends Controller
                 'admin/qyq/qyq_list',
                 'admin/qyq/get_uid_bygroup',
                 'admin/qyq/get_hhr_data',
+                'admin/qyq/add_data',
 
                 'admin/journal/list_info',
                 'admin/journal/journal_log',
@@ -61,6 +62,8 @@ class Base extends Controller
                 'admin/journal/get_pt_journal',
                 'admin/journal/kc_cards',
                 'admin/journal/qc_cards',
+
+
 
             ])){
                 if(!$auth->check($url,session('mid'))){

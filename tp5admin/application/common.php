@@ -487,6 +487,7 @@ function get_qyq_zjs($groupId){
 	FROM log_group_table WHERE	dataDate >= $date AND dataDate < $date1 AND groupId = $groupId ";
     $result2 = Db::connect($db2)->query($sql);
     return $result2[0]['Dtotal'];
+
 }
 
 /**
@@ -496,7 +497,7 @@ function get_qyq_xjs($groupId){
     $date1 = date('Ymd');
     $date = date('Ymd',strtotime(date('Y-m-d H:i:s',strtotime('-1 day'))));
     $db2 = Configs::get('db2');
-    $sql = "SELECT 	ROUND(sum(player2count3 / 2 + player3Count3 / 3 + player4count3 / 4)) AS Xtotal
+    $sql = "SELECT  ROUND(sum(player2count3 / 2 + player3Count3 / 3 + player4count3 / 4)) AS Xtotal
 	FROM log_group_table WHERE	dataDate >= $date AND dataDate < $date1 AND groupId = $groupId";
     $result2 = Db::connect($db2)->query($sql);
     return $result2[0]['Xtotal'];
@@ -549,4 +550,167 @@ function get_move_qyq_data(){
     $sql = "SELECT groupId,userId,dataDate,zjsCount,totalPay FROM `log_group_commission` WHERE dataDate>=$date  and dataDate<$date1";
     $result2 = Db::connect($db2)->query($sql);
     return $result2 ? $result2 : '';
+}
+
+
+/**
+ * 根据日期生成统计数据
+**/
+
+/**
+ * 统计平台新注册人数
+ */
+function get_xzdatad($date){
+    $date2 = $date." 23:59:59";
+    $date1 = $date." 00:00:00";
+    $db2 = Configs::get('db2');
+    $sql = "SELECT COUNT(*) as numbers FROM user_inf WHERE `regTime` >= '$date1' AND `regTime` < '$date2'";
+    $result2 = Db::connect($db2)->query($sql);
+    return $result2[0]['numbers'];
+}
+
+/**
+ * 统计平台活跃人数
+ */
+
+function get_hydatad($date){
+    $date = date('Ymd',strtotime($date));
+    $db2 = Configs::get('db2');
+    $sql = "SELECT COUNT(DISTINCT userId) as numbers FROM t_login_data WHERE currentDate = $date";
+    $result2 = Db::connect($db2)->query($sql);
+    return $result2[0]['numbers'];
+}
+
+/**
+ * 统计平台对局人数
+ */
+function get_djdatad($date){
+    $date = date('Ymd',strtotime($date));
+    $db2 = Configs::get('db2');
+    $sql = "SELECT count(DISTINCT userId) as numbers FROM	log_group_table WHERE  dataDate = $date";
+    $result2 = Db::connect($db2)->query($sql);
+    return $result2[0]['numbers'];
+}
+
+/**
+ * 统计平台大局数
+ */
+function get_zjsd($date){
+    $date = date('Ymd',strtotime($date));
+    $db2 = Configs::get('db2');
+    $sql = "SELECT ROUND(sum(player2count1 / 2 + player2count2 / 2 + player3Count1 / 3 + player3Count2 / 3 + player4count1 / 4 + player4count2 / 4)) AS Dtotal
+	FROM log_group_table WHERE	dataDate = $date";
+    $result2 = Db::connect($db2)->query($sql);
+    return $result2[0]['Dtotal'];
+}
+
+/**
+ * 统计平台小局数
+ */
+function get_xjsd($date){
+    $date = date('Ymd',strtotime($date));
+    $db2 = Configs::get('db2');
+    $sql = "SELECT 	ROUND(sum(player2count3 / 2 + player3Count3 / 3 + player4count3 / 4)) AS Xtotal
+	FROM log_group_table WHERE	dataDate = $date";
+    $result2 = Db::connect($db2)->query($sql);
+    return $result2[0]['Xtotal'];
+}
+
+/**
+ * 统计平台房卡消耗
+ */
+function get_card_xhd($date){
+    $date = date('Ymd',strtotime($date));
+    $db2 = Configs::get('db2');
+    $sql = "SELECT sum(dataValue) as valus FROM t_data_statistics WHERE dataType = 'decDiamond' AND dataDate = $date ";
+    $result2 = Db::connect($db2)->query($sql);
+    return $result2[0]['valus'];
+}
+
+/**
+ * 统计平台房卡剩余
+ */
+function get_card_syd(){
+    $db2 = Configs::get('db2');
+    $sql = "SELECT sum(freeCards) as fcards ,sum(cards) as f1cards FROM user_inf WHERE userId>=0";
+    $result2 = Db::connect($db2)->query($sql);
+    return $result2[0]['fcards'] + $result2[0]['f1cards'];
+}
+
+
+/**
+ * @
+ * 统计亲友圈新注册人数
+ */
+function get_qyq_xzdatad($groupId,$date){
+    $date2 = $date." 23:59:59";
+    $date1 = $date." 00:00:00";
+    $db2 = Configs::get('db2');
+    $sql = "SELECT COUNT(*) as numbers FROM t_group_user WHERE groupId = $groupId AND `createdTime` >= '$date1' AND `createdTime` < '$date2'";
+    $result2 = Db::connect($db2)->query($sql);
+    return $result2[0]['numbers'];
+}
+
+/**
+ * 统计亲友圈活跃人数
+ */
+function get_qyq_hydatad($groupId,$date){
+    $date = date('Ymd',strtotime($date));
+    $db2 = Configs::get('db2');
+    $sql = "SELECT COUNT(DISTINCT userId) as numbers FROM log_group_table WHERE groupId = $groupId AND dataDate = $date";
+    $result2 = Db::connect($db2)->query($sql);
+    return $result2[0]['numbers'];
+}
+
+
+/**
+ * 统计亲友圈大局数
+ */
+function get_qyq_zjsd($groupId,$date){
+    $date = date('Ymd',strtotime($date));
+    $db2 = Configs::get('db2');
+    $sql = "SELECT ROUND(sum(player2count1 / 2 + player2count2 / 2 + player3Count1 / 3 + player3Count2 / 3 + player4count1 / 4 + player4count2 / 4)) AS Dtotal
+	FROM log_group_table WHERE	dataDate = $date  AND groupId = $groupId ";
+    $result2 = Db::connect($db2)->query($sql);
+    return $result2[0]['Dtotal'];
+
+}
+
+/**
+ * 统计亲友圈小局数
+ */
+function get_qyq_xjsd($groupId,$date){
+    $date = date('Ymd',strtotime($date));
+    $db2 = Configs::get('db2');
+    $sql = "SELECT  ROUND(sum(player2count3 / 2 + player3Count3 / 3 + player4count3 / 4)) AS Xtotal
+	FROM log_group_table WHERE	dataDate = $date AND groupId = $groupId";
+    $result2 = Db::connect($db2)->query($sql);
+    return $result2[0]['Xtotal'];
+}
+
+/**
+ * 统计亲友圈房卡消耗
+ */
+function get_qyq_card_xhd($groupId,$date){
+    $date = date('Ymd',strtotime($date));
+    $db2 = Configs::get('db2');
+    $sql = "SELECT userId,dataDate,sum(dataValue) as valus FROM t_data_statistics WHERE	dataType = 'decDiamond' AND dataDate = $date AND userId = $groupId ";
+    $result2 = Db::connect($db2)->query($sql);
+    if(!empty($result2)){
+        return intval($result2[0]['valus']);
+    }else{
+        return 0;
+    }
+}
+
+/**
+ * 统计亲友圈房卡剩余
+ */
+function get_qyq_card_syd($groupId)
+{
+    $db2 = Configs::get('db2');
+    $sql = "SELECT sum(freeCards) as fcards ,sum(cards) as f1cards FROM user_inf WHERE userId = $groupId";
+    $result2 = Db::connect($db2)->query($sql);
+    $number = $result2[0]['fcards'] + $result2[0]['f1cards'];
+    return $number ? $number : 0;
 }

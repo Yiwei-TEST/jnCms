@@ -36,4 +36,33 @@ class StatisticsQyq extends Model
                 return ['code' => -2, 'data' => '', 'msg' => $e->getMessage()];
             }
     }
+
+    /**
+     * 插入亲友圈统计数据
+     * @param $param
+     */
+    public function insertStatistics_t($group_list,$date)
+    {
+        try{
+            if(count($group_list)<1){
+                return ['code' => -1, 'msg' => '异常'];
+            }
+            foreach ($group_list as $key=>$v) {
+                $data[$key]['groupId'] = $v['groupId'];
+                $data[$key]['userId']  = $v['promoterId1'];
+                $data[$key]['tdate']   = $date;
+                $data[$key]['xzdata']  = get_qyq_xzdatad($v['groupId'],$date);
+                $data[$key]['djdata']  = get_qyq_hydatad($v['groupId'],$date);
+                $data[$key]['zjs']     = get_qyq_zjsd($v['groupId'],$date);
+                $data[$key]['xjs']     = get_qyq_xjsd($v['groupId'],$date);
+                $data[$key]['card_xh'] = get_qyq_card_xhd($v['groupId'],$date);
+                $data[$key]['card_sy'] = get_qyq_card_syd($v['promoterId1']);
+            }
+            Db::name('statistics_qyq')->insertAll($data);
+            apilog('亲友圈数据添加成功',1);
+            return ['code' => 1, 'data' => '', 'msg' => '添加数据成功'];
+        }catch( PDOException $e){
+            return ['code' => -2, 'data' => '', 'msg' => $e->getMessage()];
+        }
+    }
 }

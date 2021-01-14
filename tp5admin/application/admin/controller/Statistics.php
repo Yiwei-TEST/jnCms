@@ -171,4 +171,11 @@ class Statistics extends Base
             exit();
     }
 
+    public function add_data () {
+        $s_time = date('Y-m-d');
+        $this->assign('start_time', $s_time); //当前页
+          return $this->fetch();
+    }
+
+
 }

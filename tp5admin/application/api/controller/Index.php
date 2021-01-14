@@ -30,6 +30,43 @@ class Index
     /**
      * 定时移动当天亲友圈统计数据
      */
+    public function get_qyq_datad() {
+        $date = input('date');
+        $info = Db::name('statistics_qyq')->where('tdate',$date)->find();
+        if(!empty($info)){
+            return json(['code'=>-1,'message'=>$date."日期已存在，无需重复生成"]);
+        }
+        $group_list = get_group_list();
+        $s_model = new StatisticsQyq();
+        $res = $s_model->insertStatistics_t($group_list,$date);
+        return json($res);
+    }
+
+    /**
+     * 按日期移动当天平台统计数据
+     */
+    public function get_t_datad() {
+        $date = input('date');
+        $info = Db::name('statistics_pt')->where('tdate',$date)->find();
+        if(!empty($info)){
+            return json(['code'=>-1,'message'=>$date."日期已存在，无需重复生成"]);
+        }
+        $parm['xzdata'] = get_xzdatad($date);
+        $parm['hydata'] = get_hydatad($date);
+        $parm['djdata'] = get_djdatad($date);
+        $parm['zjs'] = get_zjsd($date);
+        $parm['xjs'] = get_xjsd($date);
+        $parm['card_xh'] = get_card_xhd($date);
+        $parm['card_sy'] = get_card_syd();
+        $parm['tdate']   = $date;
+        $s_model = new StatisticsPt();
+        $res = $s_model->insertStatistics($parm);
+        return json($res);
+    }
+
+    /**
+     * 按日期移动当天亲友圈统计数据
+     */
     public function get_qyq_data() {
         $group_list = get_group_list();
         $s_model = new StatisticsQyq();
