@@ -5,6 +5,7 @@ use think\Config;
 use think\Loader;
 use think\Db;
 use app\admin\model\CardsInfoModel;
+use app\admin\model\UserInfModel;
 use app\admin\model\CardsKcinfoModel;
 use org\Crypt;
 class Journal extends Base
@@ -212,6 +213,11 @@ class Journal extends Base
             $inser_parm['add_time']  = date('Y-m-d H:i:s');
             $inser_parm['admin_id']  = $mid;
             $inser_parm['userId']    = $parm['userId'];
+            $user_m = new UserInfModel();
+            $cards = $user_m->getuid_byinfo($parm['userId']);
+            if($cards[0]['freeCards']<=0){
+                return json(['code'=>5,'message'=>'免费钻石为0,不需要重复清除']);
+            }
             $parm['time'] = time();
             $parm['changeType'] = 20002;
             $apiurl = Config::get('api_url').Config::get('api_prefix')."changeUserCurrency.do";
