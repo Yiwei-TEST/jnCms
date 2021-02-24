@@ -218,6 +218,7 @@
             },
             add_cards (type) {
                 let vm = this;
+                var lock  = false;
                 let card_number = vm.card_number;
                 let userId      = vm.userId;
                 let cards;
@@ -236,20 +237,23 @@
                     layer.confirm('您确定要赠送钻石吗？', {
                         btn: ['确定','取消'] //按钮
                     }, function() {
-                        axios
-                            .post('/admin/journal/add_cards',{userId: userId,cards:cards,freeCards:freeCards,type:type})
-                            .then(function (response) {
-                                if(response.data.code==0) {
-                                    layer.msg(response.data.message);
-                                    vm.seach();
-                                    vm.get_pt_cards();
-                                }else{
-                                    layer.msg(response.data.message);
-                                }
-                            })
-                            .catch(function (error) { // 请求失败处理
-                                console.log(error);
-                            });
+                        if (!lock) {
+                            axios
+                                .post('/admin/journal/add_cards',{userId: userId,cards:cards,freeCards:freeCards,type:type})
+                                .then(function (response) {
+                                    if(response.data.code==0) {
+                                        layer.msg(response.data.message);
+                                        lock = true;//锁定
+                                        vm.seach();
+                                        vm.get_pt_cards();
+                                    }else{
+                                        layer.msg(response.data.message);
+                                    }
+                                })
+                                .catch(function (error) { // 请求失败处理
+                                    console.log(error);
+                                });
+                        }
                     })
                 }else{
                      cards = 0;
@@ -257,25 +261,29 @@
                     layer.confirm('您确定要补偿钻石吗？', {
                         btn: ['确定','取消'] //按钮
                     }, function() {
-                        axios
-                            .post('/admin/journal/add_cards',{userId: userId,cards:cards,freeCards:freeCards,type:type})
-                            .then(function (response) {
-                                if(response.data.code==0) {
-                                    layer.msg(response.data.message);
-                                    vm.seach();
-                                    vm.get_pt_cards();
-                                }else{
-                                    layer.msg(response.data.message);
-                                }
-                            })
-                            .catch(function (error) { // 请求失败处理
-                                console.log(error);
-                            });
+                        if (!lock) {
+                            axios
+                                .post('/admin/journal/add_cards',{userId: userId,cards:cards,freeCards:freeCards,type:type})
+                                .then(function (response) {
+                                    if(response.data.code==0) {
+                                        layer.msg(response.data.message);
+                                        lock = true;//锁定
+                                        vm.seach();
+                                        vm.get_pt_cards();
+                                    }else{
+                                        layer.msg(response.data.message);
+                                    }
+                                })
+                                .catch(function (error) { // 请求失败处理
+                                    console.log(error);
+                                });
+                        }
                     })
                 }
             },
             kc_card() {
                 let vm = this;
+                var lock  = false;
                 let kc_number = vm.kc_number;
                 let userId      = vm.userId;
                 if(!kc_number || kc_number<1){
@@ -289,26 +297,31 @@
                 layer.confirm('您确定要扣除用户钻石吗？', {
                         btn: ['确定','取消'] //按钮
                     }, function() {
-                    axios
-                        .post('/admin/journal/kc_cards',{userId: userId,cards:kc_number,freeCards:0,})
-                        .then(function (response) {
-                            if(response.data.code==0) {
-                                layer.msg(response.data.message);
-                                vm.seach();
-                                vm.get_pt_cards();
-                            }else{
-                                layer.msg(response.data.message);
-                            }
-                        })
-                        .catch(function (error) { // 请求失败处理
-                            console.log(error);
-                        });
+                    if (!lock) {
+                        axios
+                            .post('/admin/journal/kc_cards',{userId: userId,cards:kc_number,freeCards:0,})
+                            .then(function (response) {
+                                if(response.data.code==0) {
+                                    layer.msg(response.data.message);
+                                    lock = true;
+                                    vm.seach();
+                                    vm.get_pt_cards();
+                                }else{
+                                    layer.msg(response.data.message);
+                                }
+                            })
+                            .catch(function (error) { // 请求失败处理
+                                console.log(error);
+                            });
+                    }
+
                 })
             },
             qc_card() {
                 let vm = this;
                 let kc_number = vm.freeCards;
                 let userId      = vm.userId;
+                var lock  = false;
                 if(!kc_number || kc_number<1){
                     layer.msg("需要清除的免费钻石数量必须大于0！");
                     return;
@@ -320,22 +333,24 @@
                 layer.confirm('您确定要清除用户免费钻石吗？', {
                     btn: ['确定','取消'] //按钮
                 }, function() {
-                    axios
-                        .post('/admin/journal/qc_cards',{userId: userId,cards:0,freeCards:kc_number,})
-                        .then(function (response) {
-                            if(response.data.code==0) {
-                                layer.msg(response.data.message);
-                                vm.seach();
-                                vm.get_pt_cards();
-                            }else{
-                                layer.msg(response.data.message);
-                            }
-                            console.log(response);
-                        })
-                        .catch(function (error) { // 请求失败处理
-                            console.log(error);
-                        });
-
+                    if (!lock) {
+                        axios
+                            .post('/admin/journal/qc_cards',{userId: userId,cards:0,freeCards:kc_number,})
+                            .then(function (response) {
+                                if(response.data.code==0) {
+                                    layer.msg(response.data.message);
+                                    lock = true;
+                                    vm.seach();
+                                    vm.get_pt_cards();
+                                }else{
+                                    layer.msg(response.data.message);
+                                }
+                                console.log(response);
+                            })
+                            .catch(function (error) { // 请求失败处理
+                                console.log(error);
+                            });
+                    }
                 })
             },
         },
